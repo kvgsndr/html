@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<title>feladat</title>
+
+	<style type="text/css">
+		body {background-color: black; color: white;}
+		img {position: absolute; top: 400px;} 
+	</style>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<h1>Jelszó ellenőrzés</h1>
+	<form action="" id="form" >
+	<h3>  jelszó:</h3>
+	<input type="password" id="password1" /><br>
+	<h3>jelszó mégegyszer:</h3>
+	<input type="password" id="password2" /><br><br>
+	<input type="button" value="Ellenőrzés" onclick="Ellenorzo ()" id="button" /><br><br>
+	<input type="label" id="felirat" size="50" />
+	</form>
+	<br><br>
+	<img src="ok.png" alt="ok" id="ok" height="100" width="100"/>
+	<img src="fault.png" alt="nemok" id="nemok" height="100" width="100"/>
+	
+	<script type="text/javascript">
+		document.getElementById('ok').style.visibility = "hidden";
+		document.getElementById('nemok').style.visibility = "hidden";
+		function Ellenorzo () 
+
+		{ var pass1 = document.getElementById('password1').value;
+		  var pass2 = document.getElementById('password2').value;
+		  if (pass1 == pass2)
+		  
+		  {
+		  	document.getElementById('felirat').style.color = "green";
+			document.getElementById('felirat').value = "A jelszavak megegyeznek.";
+			document.getElementById('ok').style.visibility = "visible";
+			document.getElementById('nemok').style.visibility = "hidden";
+			window.alert("A jelszavak megegyeznek.")
+
+		} else {
+			
+			document.getElementById('felirat').style.color = "red";
+			document.getElementById('felirat').value = "A jelszavak nem egyeznek meg.";
+			document.getElementById('ok').style.visibility = "hidden";
+			document.getElementById('nemok').style.visibility = "visible";
+			window.alert("A jelszavak nem egyeznek megh.")
+		 }	
+		 }
+	</script>
+
+</body>
+</html>

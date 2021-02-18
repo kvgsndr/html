@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primek</title>
+    <style>
+
+        div#primszam_lista
+        {
+            width             : 240px             ;
+            height            : 320px             ;
+            margin            : 12px auto         ;
+            border            : solid 3px #AAC    ;
+            box-shadow        : 4px 4px 4px #336  ;
+            overflow-y        : scroll            ;
+            background-color  : #CCE              ;
+            padding-right     : 32px              ;
+            text-align        : right             ;
+            line-height       : 18px              ;
+            font-family       : courier           ;
+            font-weight       : bold              ;
+            font-size         : 14px              ;
+            color             : #006              ;
+        }
+    
+    </style>
+</head>
+<body>
+      <div id='primszam_lista'>
+    
+      <script>
+    
+        /*  Eldöntés programozási tétel  */ 
+    
+        function prim(p)
+        {
+            var i=2				// itt a var kulcsszó elengedhetetlen, mert emiatt lesz az i változó lokális, 
+                            // vagyis emiatt nem fog összeakadni a kiválogatás tétel i ciklusváltozójával  
+            while( i*i<=p && p%i>0 )  i++
+            return i*i<=p ? false : true
+         }
+    
+    
+        /*  Kiválogatás programozási tétel  */    
+    
+        for( i=2; i<=10000; i++ )
+        {
+            if( prim(i) )   document.write( i, "<br>" )
+        }
+    
+      </script>
+    
+    </div>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 5.</TITLE>
+    <SCRIPT language="JavaScript">
+    //<!--elrejtes
+    function SzorzoTabla(szorzando) {
+      document.write("Szorzótábla <b>" + szorzando + "értékre. </b><hr><pre><dl>");
+      szorzo = 1;
+      while (szorzo <= 12) {
+        document.write("<dd>" + szorzo + " x " + szorzando + " = " + szorzo*szorzando);
+        szorzo++;
+      }
+    document.writeln("</dl></pre>");
+    }
+    Szorzotabla(7);  //7-es szorzótábla lesz
+    //<!--vege a scriptnek-->
+    </SCRIPT>
+    </HEAD>
+    <BODY>
+    Ez már a BODY-ban van.
+    </BODY>
+</HTML>

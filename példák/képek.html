@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Választó</title>
+		<style type="text/css">
+		body {background-color: black; color: white;}
+		form {left: 1000px; position: absolute; top: 350px;}
+		img {position: absolute;}
+		input {background-color: green; color: white; font-family: "Comic Sans MS"; font-size: 1.5em; height: 50px; width: 100px;}
+		#bb {left: 10px; top: 100px;}
+		#bp {left: 180px; top: 100px;}
+		#dsz {left: 350px; top: 100px;}
+		#hm {left: 520px; top:100px;}
+		#hpz {left: 690px; top: 100px;}
+		#ki {left: 860px; top: 100px;}
+		</style>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<h1><center>Kiválasztás</center></h1>
+			<img src="digit_számjegy\1.gif"  alt="bb"  id="bb"/>
+			<img src="digit_számjegy\2.gif"  alt="bp"  id="bp" />
+			<img src="digit_számjegy\3.gif" alt="dsz" id="dsz" />
+			<img src="digit_számjegy\4.gif"  alt="hm"  id="hm" />
+			<img src="digit_számjegy\5.gif" alt="hpz" id="hpz" />
+			<img src="digit_számjegy\6.gif"  alt="ki"  id="ki" />
+		<form action="" id="form">
+			<input type="button" value="KATT" onclick="Valaszto()" id="gomb" />
+		</form>
+
+			<script type="text/javascript">
+			var x = 0;﻿
+			var start = true;
+			var stilusok = ['bb','bp','dsz','hm','hpz','ki'];
+					
+		function Valaszto(){
+		if (x == 0)
+			{document.getElementById("ki").style.border ="0";
+			document.getElementById("bb").style.border ="10px solid lime";
+			document.getElementById("gomb").value ="Balázs";
+			x = 1; 
+			}
+			else if (x == 1)
+			{document.getElementById("bb").style.border ="0";
+			document.getElementById("bp").style.border ="10px solid red";
+			document.getElementById("gomb").value ="Péter";
+			x = 2; 
+			}
+			else if (x == 2)	
+			{document.getElementById("bp").style.border ="0";
+			document.getElementById("dsz").style.border ="10px solid purple";
+			document.getElementById("gomb").value ="Szilvi";
+			x = 3; 
+			}
+			else if (x == 3)	
+			{document.getElementById("dsz").style.border ="0";
+			document.getElementById("hm").style.border ="10px solid yellow";
+			document.getElementById("gomb").value ="Miklós";
+			x = 4; 
+			}
+			else if (x == 4)	
+			{document.getElementById("hm").style.border ="0";
+			document.getElementById("hpz").style.border ="10px solid blue";
+			document.getElementById("gomb").value ="Zoli";
+			x = 5; 
+			}
+			else if (x == 5)	
+			{document.getElementById("hpz").style.border ="0";
+			document.getElementById("ki").style.border ="10px solid green";
+			document.getElementById("gomb").value ="Imre";
+			x = 0; 
+			}
+			}
+			</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- Készíts egy HTML-t, melyben felviszel egy listát 
+(ul és li elemekkel). Ezek sorrendjét egy script segítségével cseréld meg. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <ul>
+        <li>Első</li>
+        <li>Második</li>
+        <li>Harmadik</li>
+        <li>Negyedik</li>
+        <li>Ötödik</li>
+    </ul>
+    <script>
+        var container = $('ul li');
+        for(var index=0;index<Math.floor(container.length/2);index++) {
+            var replacementElementIndex = (container.length-1) - index;
+            var currentElementText = $(container[index]).text();
+            var repalcementElementText = $(container[replacementElementIndex]).text();
+            
+            $(container[index]).text(repalcementElementText);
+            $(container[replacementElementIndex]).text(currentElementText);
+        }
+    </script>
+</body>
+</html>

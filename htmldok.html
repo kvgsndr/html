@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmldoc 10a </title> 
+    <script>
+        x= parseFloat( prompt("Írj be egy számot"));
+        y= parseInt( prompt("Írj be egy számot"));
+        document.writeln('x=',x);
+        document.writeln('y=',y);
+        var a =1; //+,-,*,/,%,++,--, +=, -=, *=, /= %=
+        document.writeln('a=',++a,'<br>');
+
+        b=2;
+        document.writeln('a=',a,'<br>','b=',b,'<br>');
+        document.writeln('a/b=', a/b, '<br>');
+
+        a=false;
+        document.writeln(a, '<br>')
+
+        console.log("Szöveg a console-ra");
+        document.write('Szöveg a documentumba');
+        document.writeln("<h1>Szöveg a documentumba<h1>");
+
+    </script>
+    <script src="hello.js"></script>
+    <script>
+        function funk()
+        {
+            document.writeln("<p>Bekezdés tag</p>");
+
+        }
+    </script>
+    
+    
+
+
+</head>
+<body>
+    <p>Ez egy sor szöveg</p>
+    Közönséges szöveg
+    
+    <script>
+
+            document.writeln("<br >'Üdv\"öz\"let' !!!<br>");
+            for (let index = 1; index <= 6; index++) 
+            {
+                document.write("<h"+index+">Ez a code</h"+index+">");  
+            }
+            document.writeln();
+        if(5 === '5')
+           console.log("yes 5=='5'");
+        else
+        console.log("no 5=='5'");
+
+    </script>
+
+</body>
+</html>

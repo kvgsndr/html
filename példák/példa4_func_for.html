@@ -1,0 +1,29 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 4.</TITLE>
+    <SCRIPT language="JavaScript">
+    //<!--itt kezdodik
+    function TombGeneralas(n) {
+      this.length=n //a létrehozandó tömb hossza
+      for (var x=1; x<=n; x++) {
+       this[x]=0;
+      }
+    return this;
+    }
+    //itt vegzodik ez a script-->
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    A tömb elemei legyenek 1,3,5,7. <p>
+    <SCRIPT>
+    //<!--eleje
+    Szamok= new TombGeneralas(4);
+    for (i=1; i<=4; i++) Szamok[i]=2*i-1;
+    dokument.write("Kiiratva: ");
+    for (i=1; i<=4; i++) dokument.write(Szamok[i],", ");
+    //vege-->
+    </SCRIPT>
+    <p> Ezt így is lehet csinálni.
+    </BODY>
+    </HTML>

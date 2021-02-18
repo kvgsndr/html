@@ -1,0 +1,37 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 8.</TITLE>
+    <SCRIPT>
+    //<!--itt kezdodik
+    var szoveg="Sziasztok informatikusok!"
+    var hossz=szoveg.length
+    var szele=100
+    var poz=1-szele
+    function scroll() {
+        if (flag) {
+             poz++
+             var scrolled=""
+             if (poz==hossz) poz= 1-szele;
+             if (poz<0) {
+             for (var i=1; i<=Math.abs(poz); i++)
+                 scrolled=scrolled+" "
+             scrolled=scrolled+szoveg.substring(0, szele-i+1)
+             }
+             else scrolled=scrolled+szoveg.substring(poz, szele+poz)
+             window.status=scrolled
+             setTimeout("scroll()",150)
+        }
+    }
+    //<!--itt vegzodik-->
+    </SCRIPT>
+    
+    <BODY>
+    <FORM>
+    <INPUT TYPE="radio" NAME="scrolling" VALUE="START"
+    onClick="flag=true; scroll(); return flag">
+    Bekapcsol<BR>
+    <INPUT TYPE="radio" NAME="scrolling" VALUE="STOP" onClick="flag=false">
+    Kikapcsol<p>
+    </FORM>
+    </BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 7.	Halmozzon 0 és 30 közé eső véletlen egész számokat mindaddig,
+ amíg összegük >=  1000 !  És számolja meg a számokat 
+ 10ainf2, 10ainf1 10binf2-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat5</title>
+    <script>
+        var osszeg=0;
+        var n=0;
+        while (osszeg<1000) 
+        {   szam =Math.floor( Math.random()*31);
+            n++;
+            osszeg+= szam;
+            console.log(szam+" - "+osszeg );
+        }
+        document.write("Összeg="+osszeg+"<br>");
+        document.writeln("Összesen "+ n + " számot generáltunk.<br>");
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

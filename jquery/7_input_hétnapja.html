@@ -1,0 +1,41 @@
+<!-- Készíts egy HTML, benne egy text inputtal(!), 
+egy gombot mellé, valamint két div-et alá. Ha az 
+inputba számot írunk, akkor írja ki a nap nevét, 
+azt, hogy az adott szám hányadik napnak felel meg a 
+héten, pl.: 1. nap az a hétfő és így tovább vasárnapig. 
+Minden gombnyomásra induljon. Ha hibás adatot 
+(nem szám, túl nagy vagy kicsi) akkor írja bele 
+az első div-be a hibaüzenetet, mindegy, hogy mit, 
+de világos legyen a felhasználónak, hogy mi a probléma. 
+A második div az aktuális nap nevét tartalmazza. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <input type="number" id="input" /><button id="button">Keres</button>
+    <div id="error"></div>
+    <div id="day-name"></div>
+
+    <script>
+        var input = $('#input');
+        var button = $('#button');
+        var errorDiv = $('#error');
+        var dayNameDiv = $('#day-name');
+
+        var days = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
+
+        button.on('click', function(){
+            var dayIndex = parseInt(input.val());
+            if(dayIndex > 7 || dayIndex < 1) {
+                errorDiv.text('Túl nagy vagy túl kicsi');
+                dayNameDiv.text('');
+            } else {
+                errorDiv.text('');
+                dayNameDiv.text(days[dayIndex-1]);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        function f()
+        {   
+            document.write('<table>') ;
+            szam= Number(prompt("Írj be egy számot:"));
+                var osszeg=0;
+        
+                for (let index = 1; index <= szam; index++)
+                {
+                    if( index%5==0 && index%3==0)
+                    {  
+                        osszeg+=index;
+                        document.writeln("<tr><td>"+index+"</td></tr>");
+                    }
+                }
+                document.write("<tr><td> Összeg="+osszeg+"</td></tr>");
+            document.write("</table>")
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    
+    <p onclick="f()">KATT</p>
+    
+</body>
+</html>

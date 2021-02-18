@@ -1,0 +1,23 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 7.</TITLE>
+    <SCRIPT language="JavaScript">
+    //<!--rejtozkodunk, tehat vagyunk
+    function Ellenorzes(urlap) {
+    if (urlap.value >= 50)
+       alert("Sajnos On sem lesz mar 49 eves! De azert jol tartja magat."); //alert=figyelmezteto
+      else alert("Nagyszeru! On meg nem mult el 50 eves. De azert tobbnek nez ki.");
+    }
+    //<!--ebbol eleg-->
+    </SCRIPT>
+    </HEAD>
+    <BODY>
+    <FORM name="urlap">
+    Neve: <input type="text" size=30 name="nev">
+    Kora: <input type="text" size=5 name="eletkor"> (<=50 év!)<p><hr>
+    <input type="button" value="Az adatok ellenõrzése" onClick="Ellenorzes(this.form.eletkor)">
+         //onClick=eseménykezelõ, ha a gombra kattintunk, akkor meghivja az "Ellenorzes" fuggvenyt
+    </FORM>
+    </BODY>
+</HTML> 
+    

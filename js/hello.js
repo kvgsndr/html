@@ -1,0 +1,1 @@
+document.write("<h1>Cím</h1><p> Ez itt a szöveg: hello.js</p>");

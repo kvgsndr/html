@@ -1,0 +1,19 @@
+<!-- Készíts egy text típusú inputot, mely alatt 
+egy üres div van. Inputváltozására írjuk mindig 
+a divbe az aktuális input value értékét. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <input type="text" id="input"/>
+    <div id="result"></div>
+    <script>
+        var input = $('#input');
+        input.on('input', function() {
+            $('#result').text($(this).val());
+        });
+    </script>
+</body>
+</html>

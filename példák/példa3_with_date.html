@@ -1,0 +1,31 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 3.</TITLE>
+    </HEAD>
+    <BODY>
+    A mai dátum: <b>
+    <SCRIPT language="JavaScript">
+    document.write(Date())
+    </SCRIPT></b>
+    A lap URL címe: <b><tt>
+    <SCRIPT> document.write(document.location)</SCRIPT></b></tt><p>
+    
+    <p>Itt egy futás közben létrehozott HTML táblázat:
+    <SCRIPT language="JavaScript">
+    with(document) {    //ezután nem kell külön kiírni, hogy: document
+      write("<dl><dd><table border><tr><td>1. oszlop</td>");
+      write("<td>2. oszlop</td></tr>");
+      write("<tr rowspan=2><td>3. oszlop</td></tr>");
+      write("</table></dl><p>");
+    }
+    </SCRIPT>
+    
+    <SCRIPT>
+    write("Ha hétfõ van, akkor ");
+    if (Date().substring(0,3) == "Mon")
+           write("<blink><font color=Red>ez</font></blink>");
+      else write("ez");
+    write(" a szó vörösen fog villogni.");
+    </SCRIPT>
+    </BODY>
+    </HTML>

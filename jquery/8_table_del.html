@@ -1,0 +1,71 @@
+<!-- Készítsük el a HTML-t, melyet a feladatból ki tudjuk szűrni. :) 
+Feladat: Van egy input, egy gomb, mellette "Felvesz" gomb. 
+Alatta egy táblázat (akár lehet lista is...), ennek 
+egy oszlopba van, minden sor tartalmaz egy "Töröl" elemet, 
+amire ha rákattintunk törölje az adott sort, Felvesz gombbal 
+hozzáadja a listához az inputba beírt értékét, aminek szintén 
+törölhetőnek kell lennie. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <input type="text" id="input" /><button id="button">Felvesz</button>
+   <table>
+       <thead>
+           <tr>
+               <td>Szöveg</td>
+               <td>Művelet</td>
+           </tr>
+       </thead>
+       <tbody>
+       </tbody>
+   </table>
+
+    <script>
+        var input = $('#input');
+        var button = $('#button');
+
+        button.on('click', addElement);
+
+        function addElement(){
+            var inputVal = input.val();
+            if(inputVal.trim() && !existValue(inputVal)) {
+                $('table tbody').append('<tr><td class="value">' + inputVal + '</td><td><button onclick="removeElement(\'' + inputVal + '\')">Töröl</button></tr>');
+            }
+        }
+
+        function removeElement(value){
+            var found = false;
+            $('table tbody').each(function(){
+                $(this).find('.value').each(function(){
+                    var currentValue = $(this).text();
+                    if(currentValue === value) {
+                        $(this).parent().remove();
+                        return false;
+                    }
+                });
+                if(found) return false;
+                
+            });
+        }
+
+        function existValue(value) {
+            var found = false;
+            $('table tbody').each(function(){
+                $(this).find('.value').each(function(){
+                    var currentValue = $(this).text();
+                    if(currentValue === value) {
+                        found = true;
+                        return false;
+                    }
+                });
+                if(found) return false;
+            });
+            return found;
+        }
+        
+    </script>
+</body>
+</html>

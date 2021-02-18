@@ -1,0 +1,49 @@
+<!-- Készíts két listát, hagy mindkettőt üresen. Script segítségével: 
+
+	a., töltsd fel 5 darab elemmel az első listát. 
+
+	b., ha rákattintunk valamelyik elemre, akkor töröljük az aktuális listából és helyezzük át a másik listába.
+
+Oda vissza működnie kell. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    Lista A:
+    <ul id="list-a">
+    </ul>
+    Lista B:
+    <ul id="list-b">
+    </ul>
+    
+    <script>
+        var listA = $('#list-a');
+        var listB = $('#list-b');
+
+        listA.append('<li>Első</li>');
+        listA.append('<li>Masodik</li>');
+        listA.append('<li>Harmadik</li>');
+        listA.append('<li>Negyedik</li>');
+        listA.append('<li>Ötödik</li>');
+
+        listA.find('li').each(function(){$(this).on('click', addElementToListB);});
+
+        function addElementToListB(){
+            var clone = this.cloneNode(true);
+            $(clone).on('click', addElementToListA);
+            listB.append(clone);
+            $(this).remove();
+        }
+
+        function addElementToListA(){
+            var clone = this.cloneNode(true);
+            $(clone).on('click', addElementToListB);
+            listA.append(clone);
+            $(this).remove();
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <script>
+        
+        //round()  egészekre kerekítés - legközelebbi egész értékét adja vissza
+        document.write("Math.round(0.60) "+Math.round(0.60) + "<br />");
+        document.write("Math.round(0.50) "+Math.round(0.50) + "<br />");
+        document.write("Math.round(0.49) "+Math.round(0.49) + "<br />");
+        document.write("Math.round(-4.40) "+Math.round(-4.40) + "<br />");
+        document.write("Math.round(-4.60) "+Math.round(-4.60)+"<br />"+"<br />");
+
+        //floor()  mindig lefelé egészre kerekít - eldobja a tizedesjegyeket
+        document.write("Math.floor(0.54) "+Math.floor(0.54)+"<br>");
+        document.write("Math.floor(12.15878) "+Math.floor(12.15878)+"<br>");
+        document.write("Math.floor(Math.random()*11)"+Math.floor(Math.random()*11)+"<br>");
+       
+        // random() [0,1)
+        document.write("Math.random() " + Math.random() + "<br />");
+        document.write( "Math.floor(Math.random()*11)"+ Math.floor(Math.random()*11)+ "<br /><br>");
+
+
+        //max()
+        document.write(Math.max(5,10) + "<br />");
+        document.write(Math.max(0,150,30,20,38) + "<br />");
+        document.write(Math.max(-5,-4,5,10) + "<br />");
+        document.write(Math.max(-5,-10) + "<br />");
+        document.write(Math.max(1.5, 2.5) + "<br />");
+        document.write(Math.max() + "<br /><br />")
+
+        var numb = 9;
+        var numbe = 19
+        var tomb=[1,5,8,9,4];
+        document.write("Math.max(numb,numbe)"+ Math.max(numb,numbe) + "<br />");
+        document.write("Math.max(tomb)"+Math.max(tomb)+"<br>");
+        document.write("Math.max(tomb)"+Math.max([1,3,4])+"<br>");
+
+        document.write(Math.min(5,10) + "<br />");
+        document.write(Math.min(0,150,30,20,38) + "<br />");
+        document.write(Math.min(-5,10) + "<br />");
+        document.write(Math.min(-5,-10) + "<br />");
+        document.write(Math.min(1.5,2.5) + "<br />");
+        document.write(Math.min() + "<br /><br />");
+        var numb = 9;
+        var numbe = 19
+        document.write("Math.min(numb,numbe)"+ Math.min(numb,numbe) + "<br />");
+
+        var x=Math.PI;
+        document.write("Pi="+x+"<br>");
+        
+
+        // Math.E
+        // Math.PI
+        // Math.SQRT2
+        // Math.SQRT1_2
+        // Math.LN2
+        // Math.LN10
+        // Math.LOG2E
+        // Math.LOG10E
+
+        document.write("Math.sqrt(16)="+ Math.sqrt(16)+ "<br />");
+        document.write("Math.sqrt(16.58)="+ Math.sqrt(16.58)+ "<br />");
+
+        document.write("Math.pow(2,2)="+ Math.pow(2,2) + "<br />");
+        document.write("Math.pow(2.5,3)="+ Math.pow(2.5,3) + "<br />");
+        document.write("Math.pow(2,-5)="+ Math.pow(2,-5) + "<br />");
+        document.write("Math.pow(2, 1/3.0)="+ Math.pow(2, 1/3.0) + "<br />");
+
+        document.write("Math.sign(5)="+ Math.sign(5) + "<br />");
+        document.write("Math.sign(-5)="+ Math.sign(-5) + "<br />");
+
+        document.write("Math.trunc(1.4587)="+ Math.trunc(1.4587) + "<br />");
+        document.write("Math.trunc(1.5587)="+ Math.trunc(1.5587) + "<br />");
+
+        document.write("Math.ceil(1.4587)="+ Math.ceil(1.4587) + "<br />");
+        document.write("Math.ceil(1.7587)="+ Math.ceil(1.7587) + "<br />");
+ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

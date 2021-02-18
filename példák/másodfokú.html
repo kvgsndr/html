@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Másodfokú</title>
+    <style>
+
+        form#lap
+        {
+            width		: 550px            ;
+            margin		: 24px auto        ;
+            padding		: 24px 32px        ;
+            border		: solid 1px #BBF   ;
+            border-radius   : 8px              ;
+            box-shadow	: 2px 2px 2px #88C ;
+            background-color: #EEF             ;
+            line-height	: 48px             ;
+            font-family	: Geneva, Arial    ;
+            color		: #200040          ;
+            font-size	: 14px             ;
+            font-weight	: bold             ;
+        }
+    
+        form#lap input
+        {
+            border		: solid 1px #88C   ;
+            padding         : 2px 8px          ;
+            border-radius	: 4px              ;
+            text-align	: right            ;
+            font-family	: Geneva, Arial    ;
+            color		: #200040          ;
+            font-size	: 14px             ;
+            font-weight	: bold             ;
+            color		: #003             ;
+        }
+    
+        form#lap span
+        {
+            display		: block            ;
+            margin-top	: -24px            ;
+            font-size	: 10px             ;
+            font-weight	: normal           ;
+        }
+    
+    </style>
+    <script>
+    
+    
+        function szamol()
+        {  
+            /* a = parseFloat(document.lap.a.value)
+            b = parseFloat(document.lap.b.value)
+            c = parseFloat(document.lap.c.value) */
+            a=parseFloat(document.getElementsByName("a").innerHTML);
+            b=parseFloat(document.getElementsByName("b").innerHTML);
+            c=parseFloat(document.getElementsByName("c").innerHTML);
+    
+            if( a==0 )
+            {
+                alert("A főegyüttható nem lehet 0.")
+            }
+            else
+            {
+                d = b*b-4*a*c
+    
+                if( d>=0 )
+                {
+                    x1 = ( -b + Math.sqrt(d) ) / 2 / a
+                    x2 = ( -b - Math.sqrt(d) ) / 2 / a
+                }
+                else
+                {
+                    x1 = x2 = "nem valós szám"
+                }
+    
+                document.lap.x1.value = x1
+                document.lap.x2.value = x2
+            }
+        }
+    
+    
+    </script>
+    
+</head>
+<body>
+     
+    <form id='lap' name='lap'>
+    
+        A másodfokú egyenlet együtthatói:
+    
+        <span>(A tizedesvessző számítógépes környezetben általában pont. Most is.)</span>
+    
+        <center>
+    
+        <input name='a' size=4> * x<sup>2</sup> + <input name='b' size=4> * x + <input name='c' size=4> = 0
+    
+        <br>
+    
+        <input type='button' value='Számol' onclick=' szamol(); '> 
+    
+        <hr>
+    
+        x<sub>1</sub> = <input name='x1' size=16 readonly> <br>
+        x<sub>2</sub> = <input name='x2' size=16 readonly> <br>
+    
+        </center>
+    
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

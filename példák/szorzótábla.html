@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szorzótábla</title>
+   
+</head>
+<body>
+  <!--  <style>
+
+        #szorzotabla
+        {
+        border           : solid  1px  green  ;
+        box-shadow       : 4px 4px 4px #6A6   ;
+        border-radius    : 8px                ;
+        background-color : #3A3               ;
+        }
+    
+        #szorzotabla tr td
+        {
+        width            : 24px    ;
+        text-align       : right   ;
+        padding-right    : 4px     ;
+        line-height      : 20px    ;
+        font-family      : Arial   ;
+        font-size        : 12px    ;
+        border-radius    : 8px     ;
+        background-color : #CFC    ;
+        }
+    
+        #szorzotabla tr:nth-child(5n) td  , #szorzotabla tr td:nth-child(5n)
+        {
+            background-color : #8F8    ;
+        }
+    
+        #szorzotabla tr:first-child td    , #szorzotabla tr td:first-child
+        {
+            background-color : #4C4    ;
+            font-weight      : bold    ;
+        }
+    
+    </style>
+    -->
+    
+    <h1 style="text-align: center;">Szorzótábla</h1>
+    
+    <script>
+    
+        document.write( "<table  border=1  align=center id='szorzotabla'>" )
+    
+        for( i=1; i<=20; i++ )
+        {
+    
+            document.write( "<tr>" )
+    
+            for( j=1; j<=20; j++ )
+            {
+                if( i==1 || j==1)  document.write( "<td width='5%'             >" + i*j + "</td>" )
+                else               document.write( "<td title='" +i+ "*" +j+ "'>" + i*j + "</td>" )
+            }
+    
+            document.write( "</tr>" )
+    
+        }
+    
+        document.write( "</table>" )
+    
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- Adjon össze 5 darab, 1 és 100 közé eső véletlen számot, 
+majd írassa ki a számokat és az eredményt ! -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat2</title>
+    <script>
+      var osszeg=0;
+      for (let index = 0; index < 5; index++) 
+      {    
+          veletlen= Math.floor( 1+ Math.random()*100);  // random() == [0, 1)
+          console.log(veletlen);
+          document.write(veletlen+"<br>");
+          osszeg+=veletlen;
+      }
+      console.log("Összeg =" + osszeg);
+      document.writeln("<br>Összeg="+osszeg);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Adjon össze 10 darab, tömbben tárolt egész számot. 
+A tömböt először töltse fel 0 és 20 közé eső véletlen számmal ! -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat3</title>
+
+    <script>
+        var tomb=[];
+        var osszeg=0;
+        
+        for(let i=0; i<10; i++)
+        {
+            tomb[i]=Math.floor( Math.random()*21);
+            document.writeln(`${tomb[i]}<br>`);
+        }
+            
+       for(let i=0; i< tomb.length; i++)
+            osszeg+=tomb[i];
+        
+            
+        document.write("<br>Összeg="+osszeg); 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

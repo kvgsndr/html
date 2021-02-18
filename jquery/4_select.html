@@ -1,0 +1,28 @@
+<!-- Készíts egy HTML-t, vigyél fel egy selectet (select, options), 
+alá egy div-et. A div-be írjuk ki a mindig aktuálisan kiválasztott 
+elem text és value értékét. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <select id="select">
+        <option>Első</option>
+        <option>Második</option>
+        <option>Harmadik</option>
+        <option>Negyedik</option>
+        <option>Ötödik</option>
+    </select>
+    <div>Selected: </div>
+    <div id="result"></div>
+    <script>
+        var container = $('#select');
+        container.on('change', function() {
+            $('#select option:selected').each(function() {
+                $('#result').text($(this).text());
+            });
+        });
+    </script>
+</body>
+</html>

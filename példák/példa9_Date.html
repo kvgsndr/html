@@ -1,0 +1,21 @@
+<HTML>
+    <HEAD>
+    <TITLE>Pelda 9.</TITLE>
+    <SCRIPT language="JavaScript">
+    //<!--a script kezdete
+    azIdo = new Date();
+    azOra=azIdo.getHours();
+    if (azOra>6 && azOra<18) //nincs meg ejjel
+        document.write("<BODY background=nappal.jpg text=#FFFF54>");
+      else
+        document.write("<BODY background=ejjel.jpg text=#FFFFFF>");
+     // <!--script vege-->
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    <h3>A program 6 és 18 óra között nappali hátteret
+    állít be, különben éjszakait.</h3>
+    </BODY>
+</HTML>
+    

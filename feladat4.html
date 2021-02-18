@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Halmozzon billentyűzetről bekért 20 és 30 közé 
+eső számokat mindaddig, amíg összegük éppen
+átlépi a 300 –at !10ainf2, 10ainf1 10b inf2 -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feladat4</title>
+    <script>
+        var osszeg=0;
+        do
+        {   
+            do
+            {
+                szam=Number(prompt("Írj be egy számot [20..30]"));
+                console.log(szam );
+            }while(szam<20 || szam>30);
+            
+
+            osszeg+=szam;
+            console.log("Bevitt szám="+szam +" Összeg= " +osszeg);
+            
+        } while (osszeg<300) ;
+        document.write("<br>A beolvasott számok összege = "+ osszeg);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

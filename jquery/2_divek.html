@@ -1,0 +1,52 @@
+<!-- Készítsd egy HTML-t, melyben öt div taget felviszel. 
+    Egyiknek se adj id vagy class attribútumot, sőt hagyjuk 
+    attribútum nélkül. Készíts egy scriptet, amely képes beírni
+     az első div-be, hogy "Első", utolsóba, hogy "Utolsó", 
+     harmadikba azt, hogy "Harmadik", majd a maradék kettőbe 
+     az indexét (hányadik elem a bodyban).
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var container = $('div');
+        $(container[0]).text('Első');
+        $(container[1]).text('2');
+        $(container[2]).text('Harmadik');
+        $(container[3]).text('4');
+        $(container[4]).text('Utolsó');
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var container = $('div');
+        container.each(function(index){
+            var element = $(this);
+            if(index === 0) element.text('Első');
+            else if(index === 2) element.text('Harmadik');
+            else if(index === container.length-1) element.text('Utolsó'); 
+            else element.text(index+1); 
+        });
+    </script>
+</body>
+</html> -->

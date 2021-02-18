@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        #digitora
+        {
+            margin           :  24px 0 48px 0    ;
+            width            :  240px            ;
+            padding          :   24px            ;
+            border           :  4px solid #0C0   ;
+            border-radius    :  36px             ;
+            background-color :  #000             ;
+            box-shadow       :  8px 8px 8px #A95 ;
+            text-align       :  center           ;
+        }
+    
+        #kijelzo img
+        {
+            height           :  32px             ;
+            width            :  24px             ;
+        }
+    
+        #kijelzo img:nth-child(8n+6) , 
+        #kijelzo img:nth-child(8n+7) , 
+        #kijelzo img:nth-child(8n+8)
+        {
+            height           :  16px             ;
+            width            :  12px             ;
+        }
+    
+    
+    </style>
+    
+    
+    
+    
+    <div id='digitora'>
+        <div id='kijelzo'></div>
+    </div>
+    
+    
+    <script>
+    
+        function pont_torles()
+        {
+            // A kettőspont csak fél másodpercig látható. 
+            // 500 millisec után fekete képpel helyettesítjük. Ettől villog. 
+    
+            document.getElementById('kijelzo').getElementsByTagName('img')[2].src = "./digit/bl.gif" 
+        }
+    
+    
+        function frissites()
+        {
+            most = new Date()
+    
+            hrs  = most.getHours()
+            min  = most.getMinutes()
+            sec  = most.getSeconds()
+    
+            h1 = "./digit/" + parseInt(hrs/10) + ".gif"  ;   h2 = "./digit/" + hrs%10 + ".gif" 
+            m1 = "./digit/" + parseInt(min/10) + ".gif"  ;   m2 = "./digit/" + min%10 + ".gif" 
+            s1 = "./digit/" + parseInt(sec/10) + ".gif"  ;   s2 = "./digit/" + sec%10 + ".gif" 
+    
+            if(hrs<10)   h1 = "./digit/bl.gif"    // Ha az óra első számjegye 0, akkor fekete képpel helyettesítjük. 
+    
+            kijelzo.innerHTML  = "<img src=" + h1 + "><img src=" + h2 + "><img src=./digit/pp.gif>" 
+            kijelzo.innerHTML += "<img src=" + m1 + "><img src=" + m2 + "><img src=./digit/bl.gif>" 
+            kijelzo.innerHTML += "<img src=" + s1 + "><img src=" + s2 + ">" 
+    
+            setTimeout('pont_torles()',500)
+    
+        }
+    
+        setInterval('frissites()',1000)
+        frissites()
+    
+    </script>
+    
+    
+    
+</body>
+</html>

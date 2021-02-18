@@ -1,0 +1,133 @@
+body
+{
+  font-family       : Verdana          ;
+  font-size         : 12px             ;
+  color             : #448             ;
+}
+
+div#bal
+{
+  float             : left             ;
+  text-align        : center           ;
+}
+
+div#bal h2
+{
+  margin-top        : 0px              ;
+}
+
+div#bal a
+{
+  display           : block            ;
+  width             : 196px            ;
+  margin            :  12px            ;
+  padding           :   4px            ;
+  background-color  : #FAFAFA          ;
+  border-left       : solid 1px #DDF   ;
+  border-top        : solid 1px #DDF   ;
+  border-right      : solid 2px #448   ;
+  border-bottom     : solid 2px #448   ;
+  border-radius     : 6px              ;
+  text-align        : center           ;
+  text-decoration   : none             ;
+  color             : #44A             ;
+  font-weight       : bold             ;
+}
+
+div#bal a:hover
+{
+  background-color  : #F0F0FF          ;
+  border-right      : solid 2px #AAF   ;
+  border-bottom     : solid 2px #AAF   ;
+  color             : #44A             ;
+}
+
+div#bal a:hover:before
+{
+  content           : "* "             ;
+}
+
+div#bal a:hover:after
+{
+  content           : " *"             ;
+}
+
+div#bal a.aktualis
+{
+}
+
+div#bal a.aktualis:before
+{
+  font-weight       : bold             ;
+  content           : "\2022  "        ;
+}
+
+div#bal a.aktualis:after
+{
+  content           : " \2022"         ;
+}
+
+
+div#jobb
+{
+  margin-left       : 320px            ;
+  margin-top        :  24px            ;
+}
+
+div#generalt span
+{
+  display           : inline-block     ;
+  width             : 36px             ;
+  margin            : 8px              ;
+  padding           :  8px             ;
+  background-color  : yellow           ;
+  border-radius     :  4px             ;
+  font-weight       : bold             ;
+  color             : #008             ;
+}
+
+div#eredmeny
+{
+  margin-top        : 64px             ;
+}
+
+div#eredmeny span:nth-child(even)
+{
+  display           : inline-block     ;
+  margin            : 4px              ;
+  padding           :  8px             ;
+  font-weight       : bold             ;
+  color             : #008             ;
+}
+
+div#eredmeny span:nth-child(odd)
+{
+  display           : inline-block     ;
+  min-width         : 64px             ;
+  margin            : 4px 32px 4px 4px ;
+  padding           :  8px             ;
+  background-color  : #AFA             ;
+  border-radius     :  4px             ;
+  font-weight       : bold             ;
+  color             : #008             ;
+}
+
+a#aA , a#aB
+{
+  text-decoration   : none             ;
+}
+
+a#aA img , a#aB img
+{
+  position          : relative         ;
+  top               : 4px              ;
+}
+
+div#dA , div#dB
+{
+  margin            : 0 24px 24px 0    ;
+  background-color  : #DDD             ;
+  border            : solid 1px gray   ;
+  border-radius     : 4px              ;
+}
+

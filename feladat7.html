@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- 14.	Adja össze egy inputról bekért alsó és felső határ közötti, 
+páros számokat ! 10binf2-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat7</title>
+    <!-- <script>
+        window.addEventListener("load", 
+            function()
+            {
+            let elem = document.getElementById("elem");
+            alert(elem.innerHTML);
+            }
+        );
+    </script> -->
+
+    <script>
+    
+        function funk()
+        {
+            also= parseInt( prompt("Írd be az alsó határt:"));
+            felso=parseInt( prompt("Írd be a felső határt:"));
+            var osszeg=0;
+            for( i=also; i<=felso; i++)
+                if(i % 2==0)
+                    osszeg+=i;
+            //document.getElementById ("Eredmeny").innerHTML ="Összeg="+osszeg;
+
+            document.getElementsByTagName("h1")[0].innerHTML+=" ["+also+","+felso+"]";
+            
+            document.getElementById("Eredmeny").innerHTML= " Összeg= "+ osszeg;
+        }
+       
+        
+    </script>
+    
+</head>
+<body onload ="funk();">
+    <h1>Páros számok összege egy intervallumból</h1>
+    <h2 id="Eredmeny"></h2>
+    
+    
+    
+
+    <!-- <script>
+   
+            also= parseInt( prompt("Írd be az alsó határt:"));
+            felso=parseInt( prompt("Írd be a felső határt:"));
+            var osszeg=0;
+            for( i=also; i<=felso; i++)
+                if(i % 2==0)
+                    osszeg+=i;
+            //document.getElementById ("Eredmeny").innerHTML ="Összeg="+osszeg;
+
+            document.getElementsByTagName("h1")[0].innerHTML+=" ["+also+","+felso+"]";
+            
+            document.getElementById("Eredmeny").innerHTML= " Összeg= "+ osszeg;
+  
+    </script> -->
+</body>
+</html>
