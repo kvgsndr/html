@@ -1,0 +1,49 @@
+<!DOCTYPE html><!--10ainf1-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doku</title>
+</head>
+<body>
+    <p id="eredmeny">Ez a <b>bekezdés</b> szövege</p>
+    <p id="utasitas"></p>
+
+
+
+    <script>
+       var eredmeny = document.getElementById("eredmeny");
+       let a= parseInt( prompt("Írd be az oldal méretét!"));
+       var b= parseInt( prompt("Írd be az oldal méretét!"));
+       const K=2*(a+b);
+       const T= a*b;
+       eredmeny.innerText="a="+a ;
+       eredmeny.innerText+=" b="+b ;
+       eredmeny.innerHTML+="<br>A teglalap kerülete:" + K +"<br> A teglalap területe:"+ T+"<br>";
+
+
+       const szam= 1+ Math.floor( Math.random()*20);
+       console.log(szam);
+       let tipp, probalkozasok=0;
+       do{
+           tipp=prompt("Melyik számra gondoltam 1 és 20 között? ");
+           if(tipp !== null)
+           {
+               tipp=parseInt(tipp);
+               probalkozasok++;
+               
+               alert(uzenet)
+           }
+           else
+           {
+               alert("Vége a jateknak!")
+               break;
+           }
+       } while( tipp!== szam);
+
+
+
+    </script>
+</body>
+</html>

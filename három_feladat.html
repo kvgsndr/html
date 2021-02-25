@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> három feladat</title>
+    <script>
+        //1.	Adjon össze 5 darab, billentyűzetről bekért számot, majd írassa ki a számokat és az eredményt !
+        var tomb1=[];  // var tomb1= new Array();
+        var osszeg1=0;
+        for(let i=0; i<5; i++)
+        {
+            tomb1[i] = parseInt(prompt("Írj be egy egész számot!"));
+            
+        }
+      
+        for(let i=0; i< tomb1.length; i++)
+         {
+            document.write(tomb1[i], i<tomb1.length-1?"+":"=");//  1+2+4+5+6=
+            osszeg1+=tomb1[i];
+         }
+         document.writeln(osszeg1, "<br>");
+          
+         //2.	Adjon össze 5 darab, 1 és 100 közé eső véletlen számot, majd írassa ki a számokat és az eredményt !
+         var osszeg2=0;
+         var tomb2=[];
+         for(let i=0; i<5; i++)
+        {
+            tomb2[i] = Math.floor(1+Math.random()*100); 
+        }
+
+        for(let i=0; i< tomb2.length; i++)
+         {
+            document.write(tomb2[i], i<tomb2.length-1?"+":"=");
+            osszeg2+=tomb2[i];
+         }
+         document.writeln(osszeg2, "<br>"); 
+
+         //3.	Adjon össze 10 darab, tömbben tárolt egész számot. A tömböt először töltse fel 0 és 20 közé eső véletlen számmal !
+        var tomb3=[];
+        var osszeg3=0;
+         for(let i=0; i<10; i++)
+        {
+            tomb3[i] = Math.floor(Math.random()*21);
+            
+        }
+
+        for(let i=0; i< tomb3.length; i++)
+         {
+            document.write(tomb3[i], i<tomb3.length-1?"+":"=");
+            osszeg3+=tomb3[i];
+         }
+         document.writeln(osszeg3, "<br>"); 
+         //4.	Számítsa és írassa ki az előző 4 feladat számainak átlagát !
+         var ossz=osszeg1+osszeg2+osszeg3;
+         var dr=tomb1.length+tomb2.length+tomb3.length;
+         document.write("Átlag=", ossz/dr, "<br>");
+
+         //5.	Számítsa és írassa ki a 3. feladat átlag értékei és az egyes számok közötti eltéréseket !
+         var at3=osszeg3/tomb3.length;
+         for(let i=0; i< tomb3.length;i++)
+             document.write(Math.abs(tomb3[i]-at3), "<br>");
+
+        document.write('<br>');
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

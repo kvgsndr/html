@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+       var t=1, v=20, G=3, g=3;
+       var f=((G*(v+1)/2)/(Math.sqrt(v*Math.PI)*G*v/2))*Math.pow((1+t*t/v),-(v+1)/2 );
+       
+       document.write("F=",f, "<br>");
+       document.write("F=",f1, "<br>");
+       
+       var r=100, xl=10, xc=20;
+       
+       var z=1/Math.sqrt((  1/(r*r) ) + Math.pow( (1/xl)-(1/xc), 2));
+       document.write("z=",z, "<br>");
+
+       var h=71, c=41, v=11, k=21; T=11;
+       var U=((8*Math.PI*h*Math.pow(v,3))/Math.pow(c,3))*(1/( Math.exp(h*v/(k*T)) - 1  ));
+       document.write("U=", U, "<br>");
+
+
+       // másodfokú egyenlet megoldó
+       var a=1, b=5, c=1;
+       x1=(-b+Math.sqrt( b*b -4*a*c))/(2*a);
+       x2=(-b-Math.sqrt( Math.pow(b,2)-4*a*c))/(2*a);
+       document.writeln("x1=", x1, "<br>");
+       document.writeln("x2=", x2, "<br>");
+
+       var m=10, v=200, c=300;
+       m1=m/Math.sqrt(1-(v*v)/(Math.pow(c,2)));
+       document.writeln("m1=", m1, "<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

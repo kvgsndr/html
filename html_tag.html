@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- 10ainf2 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+
+</head>
+<body>
+    <div>Első div</div>
+    <div>Második div</div>
+    <h1 id="fej">AAAAAA</h1>
+    <h2 name="fej">BBBB</h2>
+
+     <script>
+        document.getElementsByTagName("div")[0].innerText="<strong>Igen 1</strong>";
+        document.getElementsByTagName("div")[1].innerHTML="<strong>Ez egy új <i>szöveg</i> a divben</strong>";
+        document.getElementById("fej").innerHTML="Ez a cím";
+        document.getElementsByName("fej")[0].innerHTML="Ez az alcím";
+    </script> 
+</body>
+</html>
+
+
+
