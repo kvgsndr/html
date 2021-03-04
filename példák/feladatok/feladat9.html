@@ -1,0 +1,28 @@
+<!--Halmozzon 10 és 20 közé eső számokat mindaddig, amíg összegük <=  100 ! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var osszeg=0;
+        while (osszeg<=100)
+        {   var szam = 1+Math.random()*11;
+            szam= szam>20? 20: szam;
+            osszeg+= szam;   //  [0,1)*10 =[0,11)  +1 = [10,21)  
+            console.log(szam.toString());
+            console.log(szam.toString(2));
+            console.log(szam.toString(8));
+            console.log(szam.toString(16));
+        }
+       
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat15</title>
+    <script>
+        //15.	Állapítsa meg egy input egész számról, hogy 1 és önmagán kívül milyen számokkal osztható ! 
+       var szam=parseInt(prompt("Írj be egy egész számot"));
+       var n=0;
+       for(let i=2; i<=szam/2;i++)
+       {
+           if(szam%i==0)
+           {
+               document.write(i+" ");
+               n++;
+           }
+       }
+       document.write("osztók száma = ",n);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

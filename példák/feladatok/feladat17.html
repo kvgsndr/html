@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat17</title>
+    <script>
+        var tomb=[];
+        var start, end;
+        for(let i = 0;i<10;i++)
+        {
+            tomb[i]=Math.floor(Math.random()*100);
+        }
+        //document.write("Eredeti:",tomb,"<br>");
+        start= Date.now();
+        tomb.sort();//  stringeket rendez
+        end = Date.now();
+        document.writeln( end-start,"<br>");
+        //document.write("Rendezve:",tomb,"<br>");
+        start= Date.now();
+        tomb.sort((a,b)=>a-b);
+        end = Date.now();
+        document.writeln( end-start,"<br>");
+       
+        //document.write("Összehesonlítással:",tomb,"<br>");
+        tomb.sort(function (a,b){if(a>b) return 1; else if(a<b)return -1;else return 0;} );
+        //document.write("Saját függvény",tomb, "<br><br>");
+        //document.write("Legnagyobb elem=", tomb[tomb.length-1], "<br>Legkisebb elem=", tomb[0],"<br>");
+        // min és max meghatározás
+        start= Date.now();
+        var max=tomb[0];
+        var min= tomb[0];
+        for (let index = 0; index < tomb.length; index++) 
+        {
+            if(max<tomb[index]) max=tomb[index];
+            if(min>tomb[index]) min=tom[index];
+        }
+        end = Date.now();
+        document.writeln( end-start,"<br>");
+
+        document.write("Legnagyobb elem=", max, "<br>Legkisebb elem=", min);
+        document.writeln("<br>Max és minimum közötti arány= ",(max/min).toFixed(2));
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

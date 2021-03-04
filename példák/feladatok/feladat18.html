@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat18</title>
+    <script>
+        var tomb=[];
+        var van=false;
+        var N=parseInt(prompt("Tömb elemeinek száma!"));
+        for (let index = 0; index < N; index++) 
+        {
+             tomb[index]=Math.floor(Math.random()*100);
+             document.writeln(tomb[index]);
+        }
+        for( let i=0;i < tomb.length-1;i++)
+            for(let j=i+1; j<tomb.length;j++)
+                if(tomb[i] == tomb[j]) 
+                {
+                    van = true;
+                    break;
+                }
+        if(van)
+            document.writeln("<br>Vannak azonos elemek!!!");
+        else
+            document.writeln("<br>Nincsenek azonos elemek!!!");
+                
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-
+	<style>
+		div{
+			background: lightblue; 
+			color:navy ;
+			border-color: navy;
+			border-width: 1px;
+			border-radius: 8px;
+			border-style: solid;
+		}
+		#eredmeny{
+			background-color: chocolate;
+		}
+		.fel{
+			background-color: navy;
+			color: oldlace;
+			margin: 3px;
+		}
+	</style>
 	<head>
 		<title>Programozási tételek JavaScript nyelven</title>
-		<style>
-			a{
-				background: darkgoldenrod;
-				
-			}
-		</style>
+		
 		<script>
 			ElemSzam = 10
 			x = new Array()
@@ -115,25 +127,25 @@
 	</head>
 	<body>
 		
-		<div style="background: chocolate; border-color: crimson; ">
+		<div >
 			<h2>Programozási tételek</h2>
 			<h3>JavaScript nyelven</h3>
-			<br><br>
-			<a onclick="f2()">Sorozatszámítás - Mennyi a számok összege és átlaga?</a><br>
-			<a onclick="f3()">Megszámolás - Hány szökőév van az évszámok között?</a><br>
-			<a onclick="f4()" >Maximumkiválasztás - Melyik a legnagyobb elem? Mi a sorszáma, és az értéke?</a><br>
-			<a onclick="f5()">Eldöntés - Van-e köztük évszám az előző 5 évből?</a><br>
-			<a onclick="f6()">Kiválasztás - Hányadik adat jelöl XX. századi évet?</a><br>
-			<a onclick="f7()">Keresés - Hányadik adat jelöl XXI. századi évet?</a><br>
+			<br>
+			<div class="fel" onclick="f2()">Sorozatszámítás - Mennyi a számok összege és átlaga?</div>
+			<div class="fel" onclick="f3()">Megszámolás - Hány szökőév van az évszámok között?</div>
+			<div class="fel" onclick="f4()" >Maximumkiválasztás - Melyik a legnagyobb elem? Mi a sorszáma, és az értéke?</div>
+			<div class="fel" onclick="f5()">Eldöntés - Van-e köztük évszám az előző 5 évből?</div>
+			<div class="fel" onclick="f6()">Kiválasztás - Hányadik adat jelöl XX. századi évet?</div>
+			<div class="fel" onclick="f7()">Keresés - Hányadik adat jelöl XXI. századi évet?</div>
 		</div>
 			<h2> 10 véletlen évszám az elmúlt száz évből </h2>
-			
 			<p>
 				Állítsunk elő véletlenszámgenerálással 10 évszámot legfeljebb száz évre visszamenőleg.
 				(Tehát az 1921-2021. időszakból keresünk éveket.)<br>	Az évszámokat tároljuk el az <b>X[]</b> tömbben.<br>	
 			</p>
 			<script>	f1();	</script>
-			<p id=eredmeny >? ? ?<br></p>
+			<p>Eredmény:</p>
+			<p id=eredmeny >???<br></p>
 			
 	</body>
 </html>

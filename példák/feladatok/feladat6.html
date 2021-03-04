@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Halmozzon  20 és 30 közé eső véletelen
+    számokat mindaddig, amíg összegük éppenátlépi a 300 –at ! -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat6</title>
+    <script>
+        var osszeg=0.0;
+
+        while (osszeg <= 300)
+        {   var szam=  20+Math.random()*(30-20+1) /* 20+[0..1)*11 = 20+[0.. 11) = [20..31) */
+            if(szam >30) szam=30.;
+            osszeg+= szam;
+            console.log( szam.toExponential(3), szam.toFixed(2), szam.toLocaleString("HU"), szam.toPrecision(4));
+        }
+        document.write("Összeg=", osszeg, "<br>");
+
+    </script>
+    
+</head>
+<body>
+     
+
+   
+</body>
+</html>

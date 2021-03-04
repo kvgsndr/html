@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Páratlano összege N-ig</title>
+    <script>
+        var osszeg=0;
+        var N=parseInt(prompt("Írjon be egy számot!:"));
+        document.writeln("Páratlan számok ", N,"-ig<br>");
+
+        for (var i=N; i>=1; i--)
+        {
+            if(i%2==1)
+            {
+                document.write(i+"<br>");
+                osszeg+=i;
+            }
+        }
+
+        document.writeln("Összeg=".bold(), osszeg.toString().bold() , "<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
