@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <!-- 
+    Készítsd egy HTML-t, melyben öt div taget felviszel. 
+   Egyiknek se adj id vagy class attribútumot, sőt hagyjuk
+   attribútum nélkül. Készíts egy scriptet, amely képes
+   beírni az első div-be, hogy "Első", utolsóba, hogy 
+   "Utolsó", harmadikba azt, hogy "Harmadik", majd a 
+   maradék kettőbe az indexét (hányadik elem a bodyban).
+ -->
+<html>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var container = document.body.getElementsByTagName('div');
+        container[0].innerHTML = 'Első';
+        container[1].innerHTML = '2';
+        container[2].innerHTML = 'Harmadik';
+        container[3].innerHTML = '4';
+        container[4].innerHTML = 'Utolsó';
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var container = document.body.getElementsByTagName('div');
+        for(var index in container) {
+            var element = container[index];
+            if(index === '0') element.innerHTML = 'Első';
+            else if(index === '2') element.innerHTML = 'Harmadik';
+            else if(index === (container.length-1).toString()) element.innerHTML = 'Utolsó';
+            else element.innerHTML = (parseInt(index)+1).toString();
+        }
+    </script>
+</body>
+</html> -->
