@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat19</title>
+    <script>
+        var N=parseInt( prompt("Írj be egy egész számot!") );
+        var tomb=[];
+        while(tomb.length<N)
+        {
+            var szam =Math.random();// [0..1)
+            tomb.push(szam);
+        }
+        tomb.forEach(item => 
+        {   item+=2;
+            document.writeln(item.toFixed(2)) ;
+        
+        });
+        document.writeln("<br>");
+
+        for (var item of tomb) 
+        {   item+=5;
+            document.writeln(item.toFixed(2));
+        }
+        document.writeln("<br>");
+
+        document.write(tomb);
+        var osszeg=0;
+
+        for(let i=0; i<tomb.length;i++)
+            osszeg+=tomb[i];
+        var atlag= osszeg/N;
+        document.writeln("<br> Szamok összege=",osszeg.toFixed(3), "<br>A szamok átlaga=", atlag.toFixed(3),"<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feladat18</title>
     <script>
+        //18.	Állapítsa meg, hogy egy tetszőleges elemszámú 
+        //      sorozatnak van-e azonos értékű eleme !
         var tomb=[];
         var van=false;
         var N=parseInt(prompt("Tömb elemeinek száma!"));
         for (let index = 0; index < N; index++) 
         {
              tomb[index]=Math.floor(Math.random()*100);
-             document.writeln(tomb[index]);
+             
         }
+        document.write(tomb);
+
         for( let i=0;i < tomb.length-1;i++)
             for(let j=i+1; j<tomb.length;j++)
                 if(tomb[i] == tomb[j]) 
@@ -25,7 +29,25 @@
             document.writeln("<br>Vannak azonos elemek!!!");
         else
             document.writeln("<br>Nincsenek azonos elemek!!!");
-                
+
+        
+            document.writeln("<br>Második megoldás:<br>");
+        van = false;
+        for(let i=0; i<tomb.length; i++) 
+        {
+            if( tomb.IndexOf(tomb[i])!=tomb.lastIndexOf(tomb[i]) )
+               {
+                   van=true;
+                   break;
+               } 
+        }
+        if(van)
+            document.writeln("<br>Vannak azonos elemek!!!");
+        else
+            document.writeln("<br>Nincsenek azonos elemek!!!");
+
+        
+        
 
     </script>
 </head>

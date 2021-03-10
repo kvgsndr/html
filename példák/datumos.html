@@ -1,11 +1,9 @@
 <html><head><title>Teszt</title>
 </head><body>
-<script language="JavaScript">
-most = new Date();
-most.setFullYear(1886);
-Ev = most.getYear();
-//if(Ev < 100) Ev+=1900;
-document.write("<table border bgcolor=#CCFFFF><tr><td><font size=5>");
-document.write("A bor évjárata : "+ Ev +"</font></td></tr></table>");
+<script>
+    most = new Date();
+    Ev = most.getYear()+1900;
+    document.write("<table border bgcolor=#CCFFFF><tr><td><font size=5>");
+    document.write("A bor évjárata : "+ Ev +"</font></td></tr></table>");
 </script>
 </body></html>

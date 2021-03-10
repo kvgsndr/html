@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        
+			#havinaptar tr td { background-color: #00A; width:40px; height:32px; border-radius:4px; line-height:32px; text-align:center; font-size:18px; color:#FFF; font-weight:bold; } 
+			#havinaptar tr td:nth-child(6) { background-color: #0A0; } 
+			#havinaptar tr td:nth-child(7) { background-color: #A00; } 
+			#havinaptar tr td.ures         { background-color: #FFF; } 
+			
+		
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naptár</title>
+    <script>
+        var honap= new Date();
+        honap=honap.getMonth()+1;
+        switch (honap) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                napok=31;
+                break;
+            case 2: napok=28;
+                    break;
+        
+            default:
+                napok=30;
+                break;
+        }
+        
+        
+        napok =29;
+
+        
+        document.writeln("<table id='havinaptar'><tbody>");
+        document.writeln()
+        for(let i=1; i<=napok; i++)
+        {   if(i%7==1)
+                document.writeln("<tr>");
+            document.write("<td>", i, "</td>");
+            if(i%7 ==0 )
+              document.writeln("</tr>");
+        }
+        document.writeln("</table></tbody>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

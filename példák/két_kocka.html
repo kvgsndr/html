@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        span{
+            display: inline-block;
+            font-size: 60px;
+            font-weight: bold;
+            vertical-align: top;
+            padding: 13px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KétKocka</title>
+    <script>
+        a=1+Math.floor(Math.random()*6);
+        b=1+Math.floor(Math.random()*6);
+        console.log(a);
+        console.log(b);
+        
+        k1="../../Pictures/dobokocka/"+ a +".png"
+        k2="../../Pictures/dobokocka/"+ b +".png"
+        document.writeln('<img src="' + k1 + '" ><span>+</span>' + '<img src="' + k2 + '"><span>=</span>')
+        document.writeln('<span>'+(a+b)+'</span>');
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
