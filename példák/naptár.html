@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
-        
-			#havinaptar tr td { background-color: #00A; width:40px; height:32px; border-radius:4px; line-height:32px; text-align:center; font-size:18px; color:#FFF; font-weight:bold; } 
-			#havinaptar tr td:nth-child(6) { background-color: #0A0; } 
-			#havinaptar tr td:nth-child(7) { background-color: #A00; } 
-			#havinaptar tr td.ures         { background-color: #FFF; } 
+            
+			.havinaptar tr td
+            { 
+                background-color: #00A; 
+                width:40px; 
+                height:32px; 
+                border-radius:4px; 
+                line-height:32px; 
+                text-align:center; 
+                font-size:18px; 
+                color:#FFF; 
+                font-weight:bold;
+            } 
+			.havinaptar td:nth-child(6) { background-color: #0A0; } 
+			.havinaptar td:nth-child(7) { background-color: #A00; } 
+			.havinaptar td.ures         { background-color: #FFF; } 
+            #c1 {border: solid 2px blue;        border-radius: 5px;}
+            
 			
 		
     </style>
@@ -15,30 +28,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naptár</title>
     <script>
-        var honap= new Date();
-        honap=honap.getMonth()+1;
+            ho=["Január","Február", "Március", "Április","Május", "Junius", 
+                "Július", "Augusztus","Szeptember","Október", "November", "December"];
+            datum= new Date(2020,1,12);
+            elmozdul= new Date(datum.getFullYear(), datum.getMonth(),1).getDay()-1;
+            honap=datum.getMonth();
+            nap= datum.getDate() ;
         switch (honap) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            case 3: case 5: case 8: case 10:
                 napok=31;
                 break;
-            case 2: napok=28;
+            case 1: let a=datum.getFullYear();
+                    napok=((a % 4 == 0 && a %100!=0) || a % 400 == 0)?29:28;
                     break;
-        
             default:
                 napok=30;
                 break;
         }
         
-        
-        napok =29;
-
-        
-        document.writeln("<table id='havinaptar'><tbody>");
-        document.writeln()
-        for(let i=1; i<=napok; i++)
+        document.writeln("<table class='havinaptar'><tbody>");
+        document.writeln("<caption id='c1'><h2>", ho[honap], "</h2><caption>")
+        for(let i=1; i<=napok+elmozdul; i++)
         {   if(i%7==1)
                 document.writeln("<tr>");
-            document.write("<td>", i, "</td>");
+            
+            if(i-elmozdul== nap ) 
+                document.write("<td style='color:red;'>", (i-elmozdul), "</td>");
+            else if(i<=elmozdul)
+                document.write("<td class='ures'>", (i-elmozdul), "</td>");
+            else 
+                document.write("<td>", (i-elmozdul), "</td>");
             if(i%7 ==0 )
               document.writeln("</tr>");
         }
