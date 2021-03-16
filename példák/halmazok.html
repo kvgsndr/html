@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halmazok</title>
+    <script>
+        var halmaz1=[1,2,3,4,5,6];
+        var halmaz2=[1,2,8,9];
+        var elem;
+        // while ((elem=prompt("Írd ba az 1. halmaz elemét!")) !="Vége")
+        // {
+        //     if(halmaz1.indexOf(elem) ==-1 )
+        //     {
+        //         halmaz1.push(elem);
+        //     }
+        // }
+        console.log("1. halmaz: ",halmaz1);
+
+        // while ((elem=prompt("Írd ba a 2. halmaz elemét!")) !="Vége")
+        // {
+        //     if(halmaz2.indexOf(elem) ==-1 )
+        //     {
+        //         halmaz2.push(elem);
+        //     }
+        // }
+        console.log("2. halmaz: ",halmaz2);
+        var metszet=[];
+        for(let i=0; i< halmaz1.length;i++)
+        {
+            if(halmaz2.indexOf(halmaz1[i])>=0)
+                metszet.push(halmaz1[i]);
+        }
+        console.log("Metszet: ",metszet);
+
+       var  unio=[1111];
+       unio.concat(halmaz1);
+    //    for (const key in halmaz2) {
+    //        if (únio.indexOf(key)<0)
+    //         {
+    //            únio.push(key);
+    //        }
+    //    }
+       console.log("Únió: ",unio);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

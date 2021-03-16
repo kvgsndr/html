@@ -11,13 +11,13 @@
                 line-height:32px; 
                 text-align:center; 
                 font-size:18px; 
-                color:#FFF; 
+                color:#FFFFFF; 
                 font-weight:bold;
             } 
 			.havinaptar td:nth-child(6) { background-color: #0A0; } 
 			.havinaptar td:nth-child(7) { background-color: #A00; } 
 			.havinaptar td.ures         { background-color: #FFF; } 
-            #c1 {border: solid 2px blue;        border-radius: 5px;}
+             #c1 {border: solid 2px blue;        border-radius: 5px;} 
             
 			
 		
@@ -30,23 +30,23 @@
     <script>
             ho=["Január","Február", "Március", "Április","Május", "Junius", 
                 "Július", "Augusztus","Szeptember","Október", "November", "December"];
-            datum= new Date(2020,1,12);
+            datum= new Date(2030,1,5);
             elmozdul= new Date(datum.getFullYear(), datum.getMonth(),1).getDay()-1;
             honap=datum.getMonth();
             nap= datum.getDate() ;
         switch (honap) {
             case 3: case 5: case 8: case 10:
-                napok=31;
+                napok=30;
                 break;
             case 1: let a=datum.getFullYear();
                     napok=((a % 4 == 0 && a %100!=0) || a % 400 == 0)?29:28;
                     break;
             default:
-                napok=30;
+                napok=31;
                 break;
         }
         
-        document.writeln("<table class='havinaptar'><tbody>");
+        document.writeln("<table class='havinaptar'>");
         document.writeln("<caption id='c1'><h2>", ho[honap], "</h2><caption>")
         for(let i=1; i<=napok+elmozdul; i++)
         {   if(i%7==1)
@@ -55,13 +55,13 @@
             if(i-elmozdul== nap ) 
                 document.write("<td style='color:red;'>", (i-elmozdul), "</td>");
             else if(i<=elmozdul)
-                document.write("<td class='ures'>", (i-elmozdul), "</td>");
+                document.write("<td class='ures'>", "</td>");
             else 
                 document.write("<td>", (i-elmozdul), "</td>");
             if(i%7 ==0 )
               document.writeln("</tr>");
         }
-        document.writeln("</table></tbody>");
+        document.writeln("</table>");
     </script>
 </head>
 <body>

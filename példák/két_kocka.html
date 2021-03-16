@@ -8,6 +8,15 @@
             vertical-align: top;
             padding: 13px;
         }
+        #eredmeny{
+            background-color: blue;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            
+        }
+        
     </style>
 <head>
     <meta charset="UTF-8">
@@ -22,8 +31,10 @@
         
         k1="../../Pictures/dobokocka/"+ a +".png"
         k2="../../Pictures/dobokocka/"+ b +".png"
+        document.writeln("<div>");
         document.writeln('<img src="' + k1 + '" ><span>+</span>' + '<img src="' + k2 + '"><span>=</span>')
-        document.writeln('<span>'+(a+b)+'</span>');
+        document.writeln('<span id="eredmeny">'+(a+b)+'</span>');
+        document.writeln("</div>");
     </script>
     
 </head>
