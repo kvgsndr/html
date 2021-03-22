@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1</title>
-   
+<html> 
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+       <p name="p2">abcf</p>
+       <p id="p1" name="p2" >w<b>ww</b>w</p>
+        <script>
+            var elem =document.getElementsByTagName("p")[1];
+            document.writeln(elem.innerHTML,"<br>");
+            document.writeln(elem.innerText,"<br>");
+            document.writeln(elem.nodeName, "<br>");
 
-</head>
-<body>
-    <div id="nev">Név:</div>
-    <div id="kor">Kor:</div>
-    
-     <script>
-        var s=prompt("Írj be a neved és a korod!");
-        var elemek= s.split(" ");
-        var nevem= elemek.shift().toString();
-        nevem+=" "+elemek.shift().toString();
-        document.getElementById("nev").innerHTML+=nevem;
-        document.getElementById("kor").innerHTML+=elemek.join();
-    </script>
-</body>
+            var elem2=document.getElementsByName("p2");
+            document.writeln(elem2[1].attributes[0].value, "<br>");
+            document.writeln(elem2[1].attributes[1].value, "<br>");
+        </script>
+    </body>
 </html>

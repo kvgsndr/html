@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vezetéknév és keresztnév </title>
+</head>
+<body>
+    <form>
+        x: <input type="text" id="vnev">
+        <br>
+        y: <input type="text" id="knev">
+
+    </form>
+    <button onclick="udvozles()">Ok</button>
+    <h1 id="udv"></h1>
+    <script>
+        function udvozles()
+        {  var udv= document.getElementById("udv");
+           var vnev= document.getElementById("vnev");
+           var knev = document.getElementById("knev");
+        
+        udv.innerHTML= "x+y = "+ (Number(vnev.value)+Number(knev.value));
+        }
+    </script>
+</body>
+</html>

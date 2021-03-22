@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date objektum használata</title>
+    <script>
+        var dat1=new Date();
+        var dat2=new Date("December 25, 2021 12:32:00");
+        var dat3=new Date(dat1);
+        var dat4=new Date(2021, 11, 25, 20,15,20,32);
+        console.log(dat1);
+        console.log(dat2);
+        console.log(dat3);
+        console.log(dat4);
+
+        document.writeln(dat1,"<br>");
+        document.writeln(dat2,"<br>");
+        document.writeln(dat3,"<br>");
+        document.writeln(dat4,"<br>");
+
+        var dat5=new Date(0);
+        
+
+        document.writeln(dat5,"<br>");
+        document.writeln(dat5.getDate(),"<br>");
+        document.writeln(dat5.getDay(),"<br>");
+        document.writeln(dat5.getFullYear(),"<br>");
+        document.writeln(dat5.getYear(),"<br>");
+        document.writeln(dat5.getHours(),"<br>");
+        document.writeln(dat5.getUTCHours(),"<br>");
+        dat5.setFullYear(2021);
+        dat5.setMonth(5);
+        dat5.setDate(15);
+        document.writeln(dat5,"<br>");
+
+        most = new Date();
+        document.write("Dátum: "+most.getFullYear()+"-"+(1+most.getMonth()));
+        document.write("-"+most.getDate()+"<br>");
+        document.write("Idő: "+most.getHours()+":"+most.getMinutes());
+        document.write(":"+most.getSeconds());
+
+        var idoStr, datumStr;
+        function ido(){
+
+            most = new Date();
+  
+            ora  = most.getHours();
+            perc = most.getMinutes();
+            mp   = most.getSeconds();
+
+            ev   = most.getYear();
+            honap= most.getMonth()+1;
+            nap  = most.getDate();
+
+            idoStr  = ora;
+            idoStr += ((perc < 10) ? ":0" : ":") + perc;
+            idoStr += ((mp < 10 ) ? ":0" : ":") + mp; 
+
+            datumStr = ((ev < 2000) ? "19" : "") + ev;
+            datumStr += ((honap < 10) ? "-0" : "-") + honap;
+            datumStr += ((nap < 10) ? "-0" : "-") + nap;
+
+            document.writeln(idoStr ) ;
+            document.writeln(datumStr, "<br>");
+
+            setTimeout("ido()",1000);
+
+
+        }
+        
+        
+
+        
+
+    </script>
+</head>
+<body onload="ido()">
+    
+</body>
+</html>

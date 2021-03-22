@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tömb-random-csere-töröl</title>
+    <script>
+        var tomb=[];
+        var parosTomb=[];
+        var paratlanTomb=[];
+        var N=parseInt( prompt("Írj be a tömb elemeinek számát!"));
+        paros=0; 
+        paratlan=0;
+        for(let i=0;i<N;++i)
+        {
+            tomb[i]=Math.floor(1+ Math.random()*100);
+            if(tomb[i]%2==0) 
+            {
+                paros++;
+                parosTomb.push(tomb[i]);
+            }
+            else
+            {
+                paratlan++;
+                paratlanTomb.push(tomb[i]);
+            } 
+
+        }
+        console.log(tomb);
+        console.log("Páros:", paros);
+        console.log("Páratlan", paratlan);
+        console.log(parosTomb);
+        console.log(paratlanTomb);
+
+        // for(let i=tomb.length-1;i>=0;i--)
+        // {
+        //      if(tomb[i]%10==0)
+        //      { 
+        //          var t1=tomb.slice(0, i);
+        //          console.log("t1",t1);
+        //          var t2=tomb.slice(i+1);
+        //          console.log("t2",t2);
+        //          tomb=t1.concat(t2);
+        //          //console.log("tomb:",tomb);
+        //      }
+        // }
+            var n=5;
+            if(n<tomb.length)
+            {
+                for(let i=n; i< tomb.length-1;i++)
+                    tomb[i]=tomb[i+1];
+                tomb.pop();
+            }
+            
+
+
+
+
+
+
+
+        console.log("tomb:",tomb);
+           
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
