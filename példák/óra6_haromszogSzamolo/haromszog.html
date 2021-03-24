@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Stráhl Balázs" />
+	<meta name="generator" content="Notepad++ 4.5" />
+	<meta name="keywords" content="háromszög, cosinus-tétel, koszinusztétel" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="haromszog.js" type="text/javascript" ></script>
+	
+	<title>Háromszög számító</title>
+</head>
+<body>
+	<header>Háromszög analizátor</header>
+	<div>
+		<img src="hegyesszogu.png" alt="hegyesszögű" title="hegyesszögű háromszög" class="kepek" id="hegyesszogu" />
+		<img src="tompaszogu.png" alt="tompaszögű" title="tompaszögű háromszög" class="kepek" id="tompaszogu" />
+		<img src="derekszogu.png" alt="derékszögű" title="derékszögű háromszög" class="kepek" id="derekszogu" />
+		<img src="nemSzerkesztheto.png" alt="nem szerkeszthető" title="nem szerkeszthető" class="kepek" id="nemSzerkesztheto" />
+		
+		<form name="haromszogSzamitas" method="post">	
+			<fieldset>
+				<legend>Oldalak:</legend>
+				
+				<label for="a">a oldal:</label>
+				<input type="text" id="a" />
+				<br />
+				
+				<label for="b">b oldal:</label>
+				<input type="text" id="b" />
+				<br />
+				
+				<label for="c">c oldal:</label>
+				<input type="text" id="c" />				
+			</fieldset>
+			
+			<fieldset>
+				<legend>Számolt adatok:</legend>
+				
+				<label for="eredmeny">Eredmény:</label>
+				<input type="text" id="eredmeny" class="szamolt" disabled="disabled" />
+				<br />
+				
+				<label for="alfa">Alfa:</label>
+				<input type="text" id="alfa" class="szamolt" disabled="disabled" />
+				<br />
+				
+				<label for="beta">Beta:</label>
+				<input type="text" id="beta" class="szamolt" disabled="disabled" />
+				<br />
+				
+				<label for="gamma">Gamma:</label>
+				<input type="text" id="gamma" class="szamolt" disabled="disabled" />			
+			</fieldset>
+			
+			<input type="button" onclick="szamol()" value="Számol" />
+		</form>
+	</div>
+</body>
+</html>

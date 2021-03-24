@@ -1,0 +1,48 @@
+body
+{
+    background-color: silver;
+    text-align: center;
+}
+
+header
+{
+    background-color: blue;
+    color: red;
+    font-size: 40px;
+    font-family: Arial, cursive, serif;
+    padding: 15px;
+    width: 50%;
+    text-align: center;
+}
+
+#doboz{
+    background-color: green;
+    border: 4px solid black;
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+    padding: 50px;
+}
+
+#kepem
+{
+    width: 460px;
+}
+
+
+
+input[type='button'], input[type='text']
+{
+    width: 50%;
+    text-align: right;
+    color: magenta;
+    margin: 5px;
+    padding: 10px;
+    background-color: aqua;
+    border: 2px solid black;
+}
+
+input[type='button']
+{
+    text-align: center;
+}

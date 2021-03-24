@@ -39,17 +39,19 @@
         document.write("-"+most.getDate()+"<br>");
         document.write("Idő: "+most.getHours()+":"+most.getMinutes());
         document.write(":"+most.getSeconds());
-
+        document.write("<p id='ido'>Proba idő</p>");
         var idoStr, datumStr;
-        function ido(){
 
+        
+        function ido()
+        {
             most = new Date();
   
             ora  = most.getHours();
             perc = most.getMinutes();
             mp   = most.getSeconds();
 
-            ev   = most.getYear();
+            ev   = most.getFullYear();
             honap= most.getMonth()+1;
             nap  = most.getDate();
 
@@ -57,25 +59,21 @@
             idoStr += ((perc < 10) ? ":0" : ":") + perc;
             idoStr += ((mp < 10 ) ? ":0" : ":") + mp; 
 
-            datumStr = ((ev < 2000) ? "19" : "") + ev;
+            datumStr =  ev;
             datumStr += ((honap < 10) ? "-0" : "-") + honap;
             datumStr += ((nap < 10) ? "-0" : "-") + nap;
-
-            document.writeln(idoStr ) ;
-            document.writeln(datumStr, "<br>");
-
-            setTimeout("ido()",1000);
-
-
-        }
-        
+            
+            document.getElementById("ido").innerHTML = " "+idoStr + " " + datumStr;
+         }
+         var s=setInterval( ido, 1000);
         
 
         
 
     </script>
 </head>
-<body onload="ido()">
+<body>
+   
     
 </body>
 </html>

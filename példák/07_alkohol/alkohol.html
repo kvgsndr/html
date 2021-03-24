@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Stráhl Balázs" />
+	<meta name="generator" content="Notepad++ 4.01" />
+	<meta name="keywords" content="alkohol, alkohol számító" />
+	<link rel="stylesheet" type="text/css" href="alkohol.css" />
+	<script type="text/javascript" src="alkohol.js"></script>
+	<title>Alkohol számító</title>
+</head>
+<body onload="init()">
+
+	<header>Alkohol számító</header>
+	
+	<div id="adatok">
+		<form name="alkohol" method="post">
+		
+		
+		<fieldset class="kulsoFieldset">		
+				<legend>Fizikai adatok</legend>
+				<fieldset class="egyital">
+					
+					
+					<label for="testtomeg">Testtömeg</label>
+						<input type="text" id="testtomeg"  class="fizikai"/> kg <br />
+					<label for="nem">Nem</label>
+						<select id="nem" class="fizikai">
+							<option id="no" value="no">Nő</option>
+							<option id="ferfi" value="ferfi">Férfi</option>
+						</select>		
+				</fieldset>	
+			</fieldset>
+		
+		
+			<fieldset class="kulsoFieldset">	
+				<legend>Bevitt alkohol</legend>				
+				
+				<fieldset class="egyital">
+					<legend>Sör</legend>
+					<label for="mennyisegSor">Mennyiség</label>
+						<input type="number" id="mennyisegSor" class="mennyiseg" /> db <br />
+						
+					<label for="kiszerelesSor">Kiszereles</label>
+						<input type="text" id="kiszerelesSor" class="kiszereles" /> dl <br />
+						
+					<label for="alkoholSor">Alkohol</label>
+						<input type="text" id="alkoholSor" class="alkohol" /> %				
+				</fieldset>
+				
+				<fieldset class="egyital">
+					<legend>Bor</legend>
+					<label for="mennyisegBor">Mennyiség</label>
+						<input type="number" id="mennyisegBor" class="mennyiseg" /> db <br />
+						
+					<label for="kiszerelesBor">Kiszereles</label>
+						<input type="text" id="kiszerelesBor" class="kiszereles" /> dl <br />
+						
+					<label for="alkoholBor">Alkohol</label>
+						<input type="text" id="alkoholBor" class="alkohol" /> %						
+				</fieldset>
+				
+				<fieldset class="egyital">
+					<legend>Pálinka</legend>
+					<label for="mennyisegPalinka">Mennyiség</label>
+						<input type="number" id="mennyisegPalinka" class="mennyiseg" /> db <br />
+						
+					<label for="kiszerelesPalinka">Kiszereles</label>
+						<input type="text" id="kiszerelesPalinka" class="kiszereles" /> dl <br />
+						
+					<label for="alkoholPalinka">Alkohol</label>
+						<input type="text" id="alkoholPalinka" class="alkohol" /> %
+				</fieldset>
+				
+				<fieldset class="egyital">
+					<legend>Vodka</legend>
+					<label for="mennyisegVodka">Mennyiség</label>
+						<input type="number" id="mennyisegVodka" class="mennyiseg" /> db <br />
+					<label for="kiszerelesVodka">Kiszereles</label>
+						<input type="text" id="kiszerelesVodka" class="kiszereles" /> dl <br />
+					<label for="alkoholVodka">Alkohol</label>
+						<input type="text" id="alkoholVodka" class="alkohol" /> %			
+				</fieldset>
+				
+				<fieldset class="egyital">
+					<legend>Whisky</legend>
+				
+					<label for="mennyisegWhisky">Mennyiség</label>
+						<input type="number" id="mennyisegWhisky" class="mennyiseg" /> db <br />
+					<label for="kiszerelesWhisky">Kiszereles</label>
+						<input type="text" id="kiszerelesWhisky" class="kiszereles" /> dl <br />
+					<label for="alkoholWhisky">Alkohol</label>
+						<input type="text" id="alkoholWhisky" class="alkohol" />  %				
+				</fieldset>
+				
+				<fieldset class="egyital">
+					<legend>Pezsgő</legend>
+					<label for="mennyisegPezsgo">Mennyiség</label>
+						<input type="number" id="mennyisegPezsgo" class="mennyiseg" /> db <br />
+					<label for="kiszerelesPezsgo">Kiszereles</label>
+						<input type="text" id="kiszerelesPezsgo" class="kiszereles" /> dl <br />
+					<label for="alkoholPezsgo">Alkohol</label>
+						<input type="text" id="alkoholPezsgo" class="alkohol" /> %				
+				</fieldset>	
+			</fieldset>
+			
+						
+			
+			<fieldset class="kulsoFieldset">
+			
+				<legend>Számolt adatok</legend>
+				<fieldset class="egyital">
+					
+					<label for="veralkohol">Véralkholezrelék:</label>
+						<input type="text" id="veralkohol" disabled="disabled" />
+						‰ 
+						<br />
+					<label for="lebomlas">Lebomlási idő:</label>
+						<input type="text" id="lebomlas" disabled="disabled" />
+						óra
+				</fieldset>	
+			</fieldset>
+			
+			<div id="gombok">
+			<input type="button" id="szamolGomb" value="Számol" onclick="szamol()" />
+			<input type="button" id="visszaallit" value="Reset" onclick="init()" />
+			</div>			
+		</form>
+	</div>
+</body>
+</html>

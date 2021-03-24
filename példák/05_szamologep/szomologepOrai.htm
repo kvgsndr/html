@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+	<meta name="author" content="Stráhl Balázs" />
+    <meta name="generator" content="phpDesigner 8" />
+    <meta name="keywords" content="számológép" />
+	<title>Számológép</title>
+    <link rel="stylesheet" type="text/css" href="szomologepOrai.css" />
+    <script type="text/javascript" src="szomologepOrai.js"></script>
+    
+        
+</head>
+
+<body onload="init()">
+    <div id="szamologep">
+        <input type="text" id="eredmenyKi" disabled="disabled" />
+        
+        <div id="gombok">
+            <input type="button" id="szam7" value="7" onclick="szamotNyom(7)"/>
+            <input type="button" id="szam8" value="8" onclick="szamotNyom(8)"/>
+            <input type="button" id="szam9" value="9" onclick="szamotNyom(9)"/>
+            <input type="button" id="osztas" value="/" onclick="muveletetNyom(oszt)"/> <br />
+            
+            <input type="button" id="szam4" value="4" onclick="szamotNyom(4)"/>
+            <input type="button" id="szam5" value="5" onclick="szamotNyom(5)"/>
+            <input type="button" id="szam6" value="6" onclick="szamotNyom(6)"/>
+            <input type="button" id="szorzas" value="*" onclick="muveletetNyom(szoroz)"/> <br />
+            
+            <input type="button" id="szam1" value="1" onclick="szamotNyom(1)"/>
+            <input type="button" id="szam2" value="2" onclick="szamotNyom(2)"/>
+            <input type="button" id="szam3" value="3" onclick="szamotNyom(3)"/>
+            <input type="button" id="minusz" value="-" onclick="muveletetNyom(kivon)"/> <br />
+            
+            <input type="button" id="tizedes" value="," onclick="tortetNyom()" />
+            <input type="button" id="szam0" value="0" onclick="szamotNyom(0)"/>
+            <input type="button" id="plusz" value="+" onclick="muveletetNyom(osszead)"/> <br />
+            
+            <input type="button" id="torol" value="C" onclick="init()"/>
+            <input type="button" id="egyenlo" value="=" onclick="eredmenytNyom()"/>           
+        </div>        
+    </div>
+
+
+</body>
+</html>
