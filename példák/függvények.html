@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sorkiir( a, b ,c)
+        {
+            document.write("<tr>");
+            document.write("<td>",a,"</td>","<td>",b,"</td>","<td>",c,"</td>");
+            document.write("</tr>");
+        }
+        function tablakiir(kezd, vegso)
+        {
+            document.write("<table>");
+            document.write("<th><td>","X","</td>","<td>","Y","</td>","<td>","Z","</td></th>");
+          for(let i=kezd; i<=vegso;i++)
+            {   x=i;
+                y= Math.floor(1+Math.random()*100);
+                z=x+y;
+                 sorkiir(x,y,z);
+            }
+            document.write("</table>")
+        }
+
+        function tablacim()
+        {
+            document.write("<h1>Táblázat</h1>");
+        }
+
+    </script>
+</head>
+<body>
+    
+   
+   <script>
+    var k= parseInt(prompt("Kezdő"));
+    var v= parseInt(prompt("Végső"));
+    tablakiir(k,v);
+    
+    
+</script>
+    
+</body>
+</html>
