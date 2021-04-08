@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!---Színváltás-->
+    <script type="text/javascript">
+        function setRedStyle()
+        {
+            document.getElementById('example_form_01').style.backgroundColor = '#ff0000' ;
+            document.getElementById('example_form_01').style.color = '#ffffff' ;
+        }
+        function resetStyle()
+        {
+            document.getElementById('example_form_01').style.backgroundColor = '#FFFEFF' ;
+            document.getElementById('example_form_01').style.color = '#000000' ;
+        }
+        </script>
+        <p id="example_form_01">első</p>
+        <input type="button" value="Piros háttérszin" onClick="setRedStyle()" />
+        <input type="button" value="Eredeti háttérszin" onClick="resetStyle()" /><br />
+        <a href="JavaScript:window.top.history.back();">Vissza az előző oldalra</a><br><br>
+
+   <!--Form-->  
+<input type="hidden" id="hiddenObject" VALUE="hidden value" />
+<input type="button" id="visibleObject" VALUE="click me" /> 
+<input type="radio" name="musicChoice" VALUE="soul-and-r&b" />Soul and R&B
+<input type="radio" name="musicChoice" VALUE="jazz" />Jazz
+<input type="radio" name="musicChoice" VALUE="classical" />Classical
+
+<script type="text/javascript">
+// this should be in onLoad event
+
+function updateHiddenObject(){
+	document.getElementById('hiddenObject').value = this.value ;
+}
+
+function updateObject(){
+	this.value = document.getElementById('hiddenObject').value;
+}
+
+document.getElementById('visibleObject').addEventListener('click',updateObject,false);	
+for( var i in document.getElementsByName('musicChoice') )
+{
+	document.getElementsByName('musicChoice')[i].addEventListener('click',updateHiddenObject,false);
+}	
+</script>
+
+
+<SCRIPT>
+    //	M�TRIX M�RET�NEK BE�LL�T�SA
+     n=3;
+     if (document.cookie.substring(0,12)=="matrixmeret=") { 	n=1*document.cookie.substring(12,document.cookie.length); }
+    if (n<3) n=3;
+    document.cookie="matrixmeret="+n;
+    
+    //	V�LTOZ�K INICIALIZ�L�SA
+    function InitIter() {
+     kesz=false;
+     sikerult=false;
+     for (var i=1;i<=n;i++) {
+        D1[i]=1/m[i][i];
+        Jx[i]=0;
+        Sx[i]=0;
+        OJx[i]=0;
+        OSx[i]=0;
+     }
+     UpdateVektor();
+    }
+    
+     m= new Array();	// A matrix
+     for (i=1;i<=n;i++) {
+       m[i]= new Array;
+       for (j=1;j<=n+1;j++) {
+         m[i][j]=0;
+       }
+     }
+     D1= new Array();	// A matrix L+D+U alakjabol D inverze
+     Jx= new Array();	// kozelito megoldas Jacobi
+     Sx= new Array();	// es Seidel szerint
+     Jjx= new Array();	// segedvektor Jacobihoz.
+     OJx= new Array();	// Az elozo kozelitesek ertekei.
+     OSx= new Array();
+    
+    
+    if (n==3) {
+        m[1][1]=5;
+        m[1][2]=3;
+        m[1][3]=-1;
+        m[1][4]=1;
+    
+        m[2][1]=-2;
+        m[2][2]=4;
+        m[2][3]=1;
+        m[2][4]=3;
+    
+        m[3][1]=1;
+        m[3][2]=1
+        m[3][3]=6;
+        m[3][4]=8;
+    
+    }
+    
+    
+    function UpdateForm()
+    {
+      for (var i=1;i<=n;i++) {
+        for (var j=1;j<=n+1;j++) {
+         document.matrix['a'+i+j].value=m[i][j];  
+        }
+      }
+    }
+    
+    function UpdateVektor()
+    {
+      for (var i=1;i<=n;i++) {
+        document.matrix['JX'+i].value=Jx[i];
+        document.matrix['JH'+i].value=Math.abs(Jx[i]-OJx[i]);
+        OJx[i]=Jx[i]
+      }
+      for (var i=1;i<=n;i++) {
+        document.matrix['SX'+i].value=Sx[i];
+        document.matrix['SH'+i].value=Math.abs(Sx[i]-OSx[i]);
+        OSx[i]=Sx[i];
+      }
+    }
+    
+    function InputMatrix()
+    {
+      for (var i=1;i<=n;i++) {
+        for (var j=1;j<=n+1;j++) {
+         m[i][j]=document.matrix['a'+i+j].value;  
+        }
+      }
+      InitIter();
+      UpdateForm();
+      vanfo=false;
+    }
+    
+    function InputVektor()
+    {
+      for (var i=1; i<=n;i++) {
+        Jx[i]=document.matrix['JX'+i].value;
+        Sx[i]=document.matrix['SX'+i].value
+      }
+    }
+    
+    function nullaz()
+    {
+      for (var i=1;i<=n;i++) {
+        for (var j=1;j<=n+1;j++) {
+           m[i][j]=0;
+        }
+        Jx[i]=0;
+        OJx[i]=0;
+        Sx[i]=0;
+        OSx[i]=0;
+      }
+      kesz=false;
+      sikerult=false;
+      UpdateForm();
+      UpdateVektor();
+    }
+    
+    function Jacobilepes() {
+      var qx=0;
+      for (var i=1;i<=n;i++) {
+        qx=0;
+        for (var j=1;j<i;j++) {
+            qx-=m[i][j]*Jx[j];
+        }
+        for (var j=i+1;j<=n;j++) {
+            qx-=m[i][j]*Jx[j];
+        }
+        qx+=m[i][n+1]
+        qx=qx*D1[i];
+        Jjx[i]=qx;
+      }
+      for (var i=1;i<=n;i++) {
+        Jx[i]=Jjx[i];
+      }
+    }
+    
+    function Seidellepes() {
+      var qx=0;
+      for (var i=1;i<=n;i++) {
+        qx=0;
+        for (var j=1;j<i;j++) {
+            qx-=m[i][j]*Sx[j];
+        }
+        for (var j=i+1;j<=n;j++) {
+            qx-=m[i][j]*Sx[j];
+        }
+        qx+=m[i][n+1]
+        qx=qx*D1[i];
+        Sx[i]=qx;
+      }
+    }
+    
+    function lepes() {
+      Jacobilepes();
+      Seidellepes();
+      UpdateVektor(); 
+    }
+    
+    </SCRIPT>
+    <H1><CENTER>Jacobi és Seidel iteráció</H1>
+    <FORM NAME="matrix">
+    <SCRIPT>
+    
+    //	FORM ELKéSZíTéSE
+      for (i=1; i<=n;i++) {
+        for (j=1;j<=n+1;j++) {
+         if (j==n+1) {document.writeln('&nbsp;&nbsp;');}
+         document.writeln('<INPUT TYPE="text" NAME="a'+i+j+'" SIZE="5" MAXLENGTH="10" VALUE="" onchange="InputMatrix()">');
+        }
+        document.writeln('<BR>');
+      }
+    </SCRIPT>
+    
+    <CENTER>
+    <BR>
+    <TABLE border><TR>
+    <TH>Megoldásvektor</TH>
+    <TH>X<FONT SIZE="-1">(n)</FONT>-X<FONT SIZE="-1">(n-1)</FONT></TH>
+    </TR><TR>
+    
+    <TD><TABLE border>
+    <B>
+    <TR>
+    <TH>Jacobi</TH>
+    <TH>Seidel</TH>
+    </TR><TR>
+    <TD>
+    </B>
+    <SCRIPT>
+      for (var i=1;i<=n;i++) {
+        document.writeln('<INPUT TYPE="text" NAME="JX'+i+'" SIZE="10" MAXLENGTH="10" VALUE="" onchange="InputVektor()"><BR>');
+      }
+    
+    </SCRIPT>
+    </TD>
+    <TD>
+    <SCRIPT>
+      for (var i=1;i<=n;i++) {
+        document.writeln('<INPUT TYPE="text" NAME="SX'+i+'" SIZE="10" MAXLENGTH="10" VALUE="" onchange="InputVektor()"><BR>');
+      }
+    
+    </SCRIPT>
+    </TD>
+    </TR></TABLE></TD>
+    
+    
+    
+    <TD><TABLE border>
+    <B>
+    <TR>
+    <TH>Jacobi</TH>
+    <TH>Seidel</TH>
+    </TR><TR>
+    <TD>
+    </B>
+    <SCRIPT>
+      for (var i=1;i<=n;i++) {
+        document.writeln('<INPUT TYPE="text" NAME="JH'+i+'" SIZE="10" MAXLENGTH="10" VALUE="" onchange="InputVektor()"><BR>');
+      }
+    
+    </SCRIPT>
+    </TD>
+    <TD>
+    <SCRIPT>
+      for (var i=1;i<=n;i++) {
+        document.writeln('<INPUT TYPE="text" NAME="SH'+i+'" SIZE="10" MAXLENGTH="10" VALUE="" onchange="InputVektor()"><BR>');
+      }
+    
+    </SCRIPT>
+    </TD>
+    </TR></TABLE></TD>
+    
+    </TR></TABLE>
+    
+    <BR>
+    <HR WIDTH="95%" ALIGN=CENTER>
+    <INPUT TYPE="button" VALUE="Következő közelítés számítása" onclick="lepes()">
+    <BR><BR>
+    </CENTER>
+    <INPUT TYPE="button" VALUE="Mátrix nullázása" onclick="nullaz()">
+    <INPUT TYPE="button" VALUE="Új mátrix, méret:" onclick="document.cookie='matrixmeret='+document.matrix.meret.value;window.location.reload()">
+    <INPUT NAME="meret" TYPE="text" SIZE=3 VALUE="2">
+    </FORM>
+    <SCRIPT>
+      document.matrix.meret.value=n;
+      UpdateForm();
+      InitIter();
+    </SCRIPT>
+    
+
+
+<!--tiktakto--> 
+
+
+
+<BR><BR><BR><BR>
+    <SCRIPT>
+
+        ////////////////////////////////////////////////////////////
+        // A háttér megjelenítése
+        ////////////////////////////////////////////////////////////
+      
+        /* var n=0;
+        function hatter() {
+          document.bgColor = 123456;	
+          if (n < 0xFF) //setTimeout("hatter()", 100);	
+          n+=0x11;
+        }
+        hatter(); */
+      
+      
+        ////////////////////////////////////////////////////////////
+        // A felhasználó nevének lekérdezése és tárolása
+        ////////////////////////////////////////////////////////////
+      
+        var s = "playername=";		// a cookie neve
+        var i;
+        var nev;
+        for (i = 0; i <= document.cookie.length - s.length &&  document.cookie.substring(i, i+s.length) != s; ++i);
+        if (document.cookie.length - s.length < i) {	// ha nincs definiálva a név
+          nev ="Jani";// prompt("Mi a neved? ", "");
+          if (null == nev) nev = "";
+          else {
+            expire = new Date();
+            expire.setTime(expire.getTime() + 1000*60*60*24);	// 1 napig érvényes
+            document.cookie = s+escape(nev)+"; expires="+expire.toGMTString();
+          }
+        } else {			// ha definiált, akkor az értékét lekérdezzük
+          i += s.length;
+          var end = document.cookie.indexOf(";", i);
+          if (-1 == end) end = document.cookie.length;
+          nev = unescape(document.cookie.substring(i, end));
+        }
+      
+      
+        //////////////////////////////////////////////////////////////
+        // A "tabla" nev 3x3-as mátrixban tároljuk a játék aktuális
+        // állását, a "telitettseg" változó pedig a táblában elhelyezett
+        // X-ek és O-k száma. A "kezdo" változó 0 értéke esetén a játékos
+        // kezd, 1 esetén pedig a gép.
+        //////////////////////////////////////////////////////////////
+      
+        tabla = new Array(new Array("", "", ""), new Array("", "", ""),
+          new Array("", "", ""));
+        var telitettseg = 0;
+        var kezdo = 0;
+      
+      
+        ///////////////////////////////////////////////////////////////
+        // A "clearTable" függvénnyel lehet új játékot kezdeni
+        ///////////////////////////////////////////////////////////////
+      
+        function clearTable() 
+        {
+          telitettseg = 0;
+          for (var i = 0; i < 3; ++i)
+            for (var j = 0; j < 3; ++j) 
+            {
+              tabla[i][j] = "";			// üres tábla
+              document.forms[1].elements[3*i+j].value = "";	// és üres form elemek
+            }
+          if (1 == kezdo) minimax(0);
+        }
+      
+      
+        ////////////////////////////////////////////////////////////////
+        // A "win" függvény meghatározza, hogy az (x,y)-ba rakó játékos
+        // nyert-e
+        ////////////////////////////////////////////////////////////////
+      
+        function win(x, y) 
+        {
+          if (tabla[x][y] == tabla[(x+1)%3][y] && tabla[x][y] == tabla[(x+2)%3][y])
+            return true;
+          if (tabla[x][y] == tabla[x][(y+1)%3] && tabla[x][y] == tabla[x][(y+2)%3])
+            return true;
+          if (x == y && tabla[0][0] == tabla[1][1] && tabla[0][0] == tabla[2][2])
+            return true;
+          if (x + y == 2 && tabla[2][0] == tabla[1][1] && tabla[2][0] == tabla[0][2])
+            return true;
+          return false;
+        }
+      
+      
+        ///////////////////////////////////////////////////////////////
+        // 6 mélységü minimax algoritmus határozza meg, hova lépjen a
+        // gép. A minimax algoritmusról és a heurisztikus függvényről
+        // bővebben ld.: Fekete-Gregorics-Nagy: Bevezetős a mesterséges
+        // intelligenciába.
+        ////////////////////////////////////////////////////////////////
+      
+        function minimax(n) {
+          if (0 == n) {			// első szint
+            window.status = "Várj türelmesen!";	// amíg dolgozik a gép
+            x = 0; y = 0;
+            var max = -100;
+            var v;
+            var empty = true;
+            for (var i = 0; i < 3 && empty; ++i)
+              for (var j = 0; j < 3 && empty; ++j)
+                if (tabla[i][j] != "") empty = false;
+            if (!empty) 
+            {
+              for (var i = 0; i < 3 && max < 100; ++i)
+                for (var j = 0; j < 3 && max < 100; ++j) 
+                {
+                  if ("" == tabla[i][j]) 
+                  {
+                    tabla[i][j] = "O"; ++telitettseg;
+                    v = win(i, j) ? 100 : minimax(n+1);
+                    tabla[i][j] = ""; --telitettseg;
+                    if (max <= v) 
+                    {
+                      max = v;
+                      x = i; y = j;
+                    }
+                  }
+                }
+            } 
+            else 
+                x = y = 1;
+
+            tabla[x][y] = "O";
+            document.forms[1].elements[3*x+y].value = "O";
+            ++telitettseg;
+            if (win(x, y)) {			// a gép nyert
+              alert("Ezúttal én nyertem!");
+              clearTable();
+            } else if (9 == telitettseg) {
+              alert("Döntetlen!");
+              clearTable();
+            }
+            window.status = "";			// státustsor törlése
+          } 
+          else if (6 == n) 
+          {		// utolsó szint
+            var h = 0;	// heurisztikus érték
+            for (var i = 0; i < 3; ++i) 
+            {
+              if (tabla[i][0] != "X" && tabla[i][1] != "X" && tabla[i][2] != "X") ++h;
+              if (tabla[0][i] != "X" && tabla[1][i] != "X" && tabla[2][i] != "X") ++h;
+              if (tabla[i][0] != "O" && tabla[i][1] != "O" && tabla[i][2] != "O") --h;
+              if (tabla[0][i] != "O" && tabla[1][i] != "O" && tabla[2][i] != "O") --h;
+            }
+            if (tabla[0][0] != "X" && tabla[1][1] != "X" && tabla[2][2] != "X") ++h;
+            if (tabla[0][2] != "X" && tabla[1][1] != "X" && tabla[2][0] != "X") ++h;
+            if (tabla[0][0] != "O" && tabla[1][1] != "O" && tabla[2][2] != "O") --h;
+            if (tabla[0][2] != "O" && tabla[1][1] != "O" && tabla[2][0] != "O") --h;
+            return h;
+          } 
+          else if (Math.round(n/2)*2 == n) 
+          {	// "MAX" szint
+            if (9 == telitettseg) return 0;
+            else {
+              var max = -100;
+              var v;
+              for (var i = 0; i < 3 && max < 100; ++i)
+                for (var j = 0; j < 3 && max < 100; ++j) {
+                  if ("" == tabla[i][j]) {
+                    tabla[i][j] = "O"; ++telitettseg;
+                    v = win(i, j) ? 100 : minimax(n+1);
+                    tabla[i][j] = ""; --telitettseg;
+                    if (max <= v) max = v;
+                  }
+                }
+              return max;
+            }
+          } 
+          else 
+          {					// "MIN" szint
+            if (9 == telitettseg) return 0;
+            else {
+              var min = 100;
+              var v;
+              for (var i = 0; i < 3 && min > -100; ++i)
+                for (var j = 0; j < 3 && min > -100; ++j) {
+                  if ("" == tabla[i][j]) {
+                    tabla[i][j] = "X"; ++telitettseg;
+                    v = win(i, j) ? -100 : minimax(n+1);
+                    tabla[i][j] = ""; --telitettseg;
+                    if (min >= v) min = v;
+                  }
+                }
+              return min;
+            }
+          }
+        }
+      
+      
+        //////////////////////////////////////////////////////////
+        // A "play" f�ggv�ny akkor hajt�dik v�gre, ha a j�t�kos
+        // l�pett. 
+        //////////////////////////////////////////////////////////
+      
+        function play(element) {
+          if (element.value != "") element.blur();	// nem �res mez�be nem rakhat
+          else {
+            element.value = "X";
+            element.blur();
+            x = Math.floor(parseInt(element.name) / 10);
+            y = parseInt(element.name) % 10;
+            tabla[x][y] = "X"; ++ telitettseg;
+      
+            if (win(x, y)) {				// ha a j�t�kos nyert
+              alert("Gratul�lok, nyert�l!");
+              clearTable();
+            } else if (9 == telitettseg) {		// ha betelt a t�bla
+              alert("D�ntetlen!");
+              clearTable();
+            } else minimax(0);			// a g�pnek kell l�pnie
+          }
+        }
+      
+      </SCRIPT>
+
+      <FORM>
+      <TABLE>
+      <SCRIPT language="JavaScript">
+      
+        ////////////////////////////////////////////////////
+        // A mezők megjelenítése
+        ////////////////////////////////////////////////////
+      
+        for (var i = 0; i < 3; ++i) 
+        {
+          document.writeln('<TR>');
+          for (var j = 0; j < 3; ++j)
+            document.writeln('<TD><INPUT type=text size=1 name='+i+j+' onFocus="play(this);"></TD>');
+          document.writeln('</TR>');
+        }
+     </SCRIPT>
+      
+      </TABLE>
+      <SELECT onChange="kezdo = this.selectedIndex; clearTable();">
+        <OPTION selected>A játékos kezd</OPTION>
+        <OPTION>A gép kezd</OPTION>
+      </SELECT><BR>
+      <INPUT type=button value="Új játék" onClick="clearTable();">
+      </FORM>
+     
+      
+
+
+
+
+      <style>
+        #square {
+            position: absolute;
+            top: 150;
+            left: 100;
+            width: 200;
+            height: 200;
+            border: 2px solid black;
+            padding: 10px;
+            background-color: #E0E0E0;
+        }
+    </style>
+
+<script>
+    var x=100,y=150;
+    
+    function pos(dx,dy) {
+        //if (!document.getElementById) return;
+        x += 10*dx;
+        y += 10*dy;
+        obj = document.getElementById("square");	
+        obj.style.top=y;
+        obj.style.left=x;		
+    }
+    
+    function hideSquare() {
+        //if (!document.getElementById) return;
+        obj = document.getElementById("square");
+        obj.style.display="none";
+    }
+    
+    function showSquare() {
+        //if (!document.getElementById) return;
+        obj = document.getElementById("square");
+        obj.style.display="block";
+    }
+         </script> 
+   <hr> 
+<h1>Elemek pozícionálása</h1>
+    <hr>
+        <form name="formpos">
+            <input type="button" name="left" value="Balra" onClick="pos(-1,0);">
+            <input type="button" name="right" value="Jobbra" onClick="pos(10,0);">
+            <input type="button" name="up" value="Fel" onClick="pos(0,-1);">
+            <input type="button" name="down" value="Le" onClick="pos(0,1);">
+            <input type="button" name="hide" value="Eltüntet" onClick="hideSquare();">
+            <input type="button" name="show" value="Mutat" onClick="showSquare();">
+        </form>
+    </hr>
+    <div id="square">
+        <p>Ezt az elemet tudod pozícionálni a gombokkal!</p>
+    </div>
+    <br><br><br>	   
+    <p>k</p>   
+     
+    
+</body>
+</html>
