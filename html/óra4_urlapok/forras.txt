@@ -1,0 +1,74 @@
+
+	 Email regisztráció
+	
+	
+		 Az email-címre vonatkozó szabályok: 
+		 
+			 Ne tartalmazzon trágár szavakat, és obszcén kifejezéseket! 
+			 Ne tartalmazzon mások nemi, vallási, faji, politikai, eszmei identitását sértő szavakat vagy kifejezéseket! 
+			 Ne tartalmazzon márkaneveket! 
+
+	 Az email-cím létrehozásának a lépései 
+	 
+		 A személyes adatok kitölése 
+		 Email-cím és jelszó választás 
+		 Érdeklődési kör megadása 
+	 
+
+		 Személyes adatok 
+		 Név: 
+		 
+	 
+		 Születési dátum: 
+		 	
+		 	
+		 Nemed: 
+		 
+			 Férfi 
+			 Nő 
+		 	
+		 	
+		 Irányítószám: 
+		 	
+	 
+		 Címválasztás 
+		
+		 Email-cím: 
+		 		
+		 
+		 Jelszó: 
+		 
+		
+		 
+		 Jelszó: 
+		 	
+	 
+		 Érdeklődési körök 
+		
+		 
+		 Sport 
+			 
+		 
+		 Mozi/Színház 
+		
+		 	 		
+		 Pénzügyek, tőzsde 
+		
+		
+		 Hírlevelet 
+		 
+		 Kérek 
+
+		 	 
+		 Nem kérek 
+	 
+	
+	Regisztráció
+	Mégse
+ 
+	
+ 
+ 
+
+
+ 
