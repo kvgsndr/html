@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>Regisztráció</title>
+</head>
+<body>
+
+<header>Email regisztráció</header>
+
+<div id="tartalom">
+		<p>Az email-címre vonatkozó szabályok:</p>
+		<ul>
+			<li>Ne tartalmazzon trágár szavakat, és obszcén kifejezéseket!</li>
+			<li>Ne tartalmazzon mások nemi, vallási, faji, politikai, eszmei identitását sértő szavakat vagy kifejezéseket!</li>
+			<li>Ne tartalmazzon márkaneveket!</li>
+		</ul>
+		
+	<br />
+	
+	<p>Az email-cím létrehozásának a lépései</p>
+	<ol>
+		<li>A személyes adatok kitölése</li>
+		<li>Email-cím és jelszó választás</li>
+		<li>Érdeklődési kör megadása</li>
+	</ol>
+	
+  <form name="regisztralas" method="post">	
+	<!-- Személyes adatok -->
+	<fieldset>
+		<legend>Személyes adatok</legend>
+		<label for="nev">Név:</label>
+		<input type="text" class="szemadatok" id="nev" name="nev" maxlength="40" size="20" />
+
+		<br/>
+		<label for="szuldatum">Születési dátum:</label>
+		<input type="date" class="szemadatok" id="szuldatum" name="szuldatum" />
+		
+		<br />	
+		<label for="nem">Nemed:</label>
+		<select name="nem" class="szemadatok" id="nem" >
+			<option value="ferfi">Férfi</option>
+			<option value="no" selected="selected">Nő</option>
+		</select>
+		
+		<br/>	
+		<label for="irszam">Irányítószám:</label>
+		<input type="text" class="szemadatok" id="irszam" name="irszam" maxlength="4" size="4" />
+	</fieldset>
+	
+	<fieldset>
+		<legend>Címválasztás</legend>
+		
+		<label for="email-cim">Email-cím:</label>
+		<input type="email" id="email-cim" name="email-cim" value="pelda@turrmail.hu" class="cim"/>
+		
+		<br/>
+		<label for="jelszo">Jelszó:</label>
+		<input type="password" id="jelszo" name="jelszo" class="cim" />
+		
+		<br/>
+		<label for="jelszoujra">Jelszó:</label>
+		<input type="password" id="jelszoujra" name="jelszoujra" class="cim" />	
+	</fieldset>
+	
+	<fieldset>
+		<legend>Érdeklődési körök</legend>
+		
+		<input type="checkbox" name="sport" value="sport" id="sport" />
+		<label for="sport">Sport</label>
+		
+		<br/>
+		<input type="checkbox" name="moziszinhaz" value="moziszinhaz" id="moziszinhaz" />
+		<label for="moziszinhaz">Mozi/Színház</label>
+		
+		<br/>
+		<input type="checkbox" name="penzugy" value="penzugy" id="penzugy" checked="checked"/>		
+		<label for="penzugy">Pénzügyek, tőzsde</label>
+		
+		
+		<p>Hírlevelet</p>
+		<input type="radio" name="hirlevel" value="kerek" id="kerek" checked="checked"/>
+		<label for="kerek">Kérek</label>
+
+		<br />
+		<input type="radio" name="hirlevel" value="nemkerek" id="nemkerek"/>
+		<label for="nemkerek">Nem kérek</label>
+	</fieldset>
+	
+	 <input type="submit" id="kuld" class="gombok" value="Regisztráció" />
+	 <input type="reset" id="megse" class="gombok" value="Mégse" />
+</form>
+	
+</div>
+</body>
+
+
+</html>

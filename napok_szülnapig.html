@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napok a szülinapodig</title>
+</head>
+<body>
+    Írd be a születési dátumod!
+    <input type="text" name="szulnap" id="id_szulnap">
+    <input type="button" value="Számol" onclick="szamol();"><br>
+    <input type="text"size=4 readonly=true name="napok" id="id_napok"> nap van még a szülinapodig!
+    <script>
+        function szamol()
+        {   
+            var dat= new Date()
+            var ma =new Date(dat.getFullYear(), dat.getMonth(), dat.getDate());
+            var str=document.getElementById("id_szulnap").value;
+            var szd=new Date(str);
+            szd.setFullYear(ma.getFullYear());
+            milis=szd-ma;
+            if(milis>0)
+                nap=Math.floor((milis)/(1000*60*60*24));
+            else if(milis<0)
+            {   
+                szd.setFullYear(ma.getFullYear()+1);
+                nap=Math.ceil((szd-ma)/(1000*60*60*24));
+            }
+            else
+                nap=0;
+            
+            document.getElementById("id_napok").value=nap;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Űrlapok</title>
+</head>
+
+
+<body>
+	<form name="myForm" method="post">
+		<label for="name">Név:</label>
+		<input type="text" name="myname" id="name" />
+		
+		<label for="jelszo">Jelszó:</label>
+		<input type="password" name="myjelszo" id="jelszo" />
+		
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" />
+		
+		<label for="zip">Irányítószám:</label>
+		<input type="text" name="zip" id="zip" maxlength="4" size="4"
+				value="6500"/>
+		
+		<br/>
+		<label for="date">Születési dátum:</label>
+		<br/>
+		<input type="date" name="datum" id="datum"/>
+				
+				
+		<!-- rádiógombok -->
+		<br/>
+		<fieldset>
+		<legend>Kedvenc italod:</legend>
+			<input type="radio" name="kedvencital" value="sor"/>Sör
+			<br/>
+			<input type="radio" name="kedvencital" value="bor" checked="checked"/>Bor
+			<br/>
+			<input type="radio" name="kedvencital" value="palinka"/>Pálinka
+		</fieldset>
+		
+		<!-- jelölőnégyzetek -->
+		<br/>
+		<fieldset>
+		<legend>Melyik italokat szereted:</legend>
+			<input type="checkbox" name="sor" checked="checked"/>Sör
+			<br/>
+			<input type="checkbox" name="bor" checked="checked"/>Bor
+			<br/>
+			<input type="checkbox" name="palinka" checked="checked"/>pálinka
+		</fieldset>
+		
+		<!-- legördülő lista -->
+		<!-- az id értékének meg kell egyeznie a for értékével! -->
+		<label for="etelek">Válassz egy ételt!</label>
+		<br/>
+		<select name="etelek" id="etelek">
+			<optgroup label="Pizzák">
+				<option value="szalamispizza">Szalámis Pizza</option>
+				<option value="gombaspizza">Gombás Pizza</option>
+			</optgroup>
+			<optgroup label="Hamburgerek">
+				<option value="sajtoshamburger">Sajtos hamburger</option>
+				<option value="sonkashamburger">Sonkás hamburger</option>
+			</optgroup>
+			<optgroup label="Hotdogok">
+				<option value="sajtoshotdog">Sajtos hotdog</option>
+				<option value="hagymashotdog">Hagymás hotdog</option>
+			</optgroup>
+		</select>
+		
+		<!-- többsoros szövegmező -->
+		<br/>
+		<label for="megjegyzes">Megjegyzés</label>
+		<br/>
+		<textarea name="megjegyzes" id="megjegyzes" rows="4" cols="20">
+			Ide írhatja a megjegyzését!
+		</textarea>
+		
+		<!-- gombok -->
+		<br/>
+		<input type="submit" value="Elküld" />
+		<input type="reset" value="Újraindít" />
+		<br/>
+		<input type="image" src="kep.jpg" alt="Elküld" width="100px"
+		title="farkas"/>
+	
+	</form>
+
+
+
+</body>
+
+
+</html>

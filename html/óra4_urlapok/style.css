@@ -1,0 +1,81 @@
+
+body
+{	
+	background: url(farkas3.jpg) fixed ;
+	background-size: cover;						/*nem kettőzi a háttérképe, hanem elnyújtja*/	
+}
+
+#tartalom, header
+{
+	background-color:rgba(200,200,200,0.7);
+	width: 900px;
+	margin: 10px auto;
+	padding: 10px;
+}
+
+
+header
+{
+	background-color: rgba(90,90,90,0.7);
+	
+	//font: 40px bold Constantia;		/*Így nem megy*/
+	
+	font-family: Constantia, serif;
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+
+label
+{
+	width: 300px;
+	display: inline-block;
+	
+}
+
+/*
+input[type="text"], input[type="date"], select, input[type="email"], input[type="password"]*/
+.szemadatok, .cim
+{
+	width: 200px;
+}
+
+
+#nem
+{
+	width: 210px;
+}
+
+
+fieldset
+{
+	width: 850px;
+	margin: 10px auto;
+}
+
+.gombok
+{
+	width: 150px;
+	height: 80px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	
+	background-color: white;
+	font-size: 20px;
+	font-weight: bolder;
+	font-family: Times New Roman;
+}
+
+#kuld
+{
+	margin-left: 250px;
+	margin-right: 100px;
+}
+
+
+

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script>
+            var a,b, eredmeny;
+            function adatokKi( eredmeny)
+            {
+                document.getElementById("eredmeny").value=eredmeny;
+            }
+            function adatokBe()
+            {
+                a=parseFloat( document.getElementById("szam1").value);
+                b=parseFloat( document.getElementById("szam2").value);
+            }
+        
+            function muvelet(m)
+            {
+                adatokBe();
+                switch (m) {
+                    case '+':c=a+b;break;
+                    case '-':c=a-b;break;
+                    case '*':c=a*b;break;  
+                    case '/':if(b==0)
+                                {
+                                alert("Nullával nem lehet osztani!!");
+                                return;
+                                }
+                            else
+                                {
+                                    c=a/b;
+                                    
+                                }
+                            break;
+                }
+                adatokKi(c);
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <h3>Egyszerű számológép</h3>
+        <input type="text" id="szam1"><br>
+        <button onclick="muvelet('+');">+</button>
+        <button onclick="muvelet('-');">-</button>
+        <button onclick="muvelet('*');">*</button>
+        <button onclick="muvelet('/');">/</button><br>
+        <input type="text" id="szam2"><br><br>
+        Eredmény: <input type="text" id="eredmeny">
+
+    </body>
+</html>
