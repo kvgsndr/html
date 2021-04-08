@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+<head>
+	<title>Feladat</title>
+
+<style type="text/css">
+	h2 {
+        font-size: 3em; 
+        position: absolute; 
+        top: 200px; 
+        left: 35px; 
+    }
+    #onmousedown {color: red;}
+	
+</style>
+</head>
+	<body>
+ <h1>Esemenykezelok</h1>
+ Tesztmezo: </ br></ br>
+
+ <form action="" id="form">
+ <!-- Az <input> tag-en belul lehet boviteni!-->
+ 		<input type="text" 
+ 		onmouseover="Mouseover() "
+ 		onmouseout="Mouseout() " 
+ 		onmousedown="Mousedown() "
+
+ 		onclick="Click() "
+ 		ondblclick="Dblclick() " 
+ 		/></ br></ br>
+</form>
+	
+	<h2 id="onmouseover">Mouse over!</h2>
+	<h2 id="onmouseout">Mouse out of area!</h2>
+	<h2 id="onmousedown">Button down.</h2>
+	<!-- itt lehet boviteni! -->
+	<h2 id="onclick">Click</h2>
+	<h2 id="ondblclick">Double click</h2>
+	<script type="text/javascript">
+		Rejto()
+		function Rejto()
+		{
+			document.getElementById("onmouseover").style.visibility = "hidden";
+			document.getElementById("onmouseout").style.visibility = "hidden";
+			document.getElementById("onmousedown").style.visibility = "hidden";
+			// Itt lehet boviteni!
+			document.getElementById("onclick").style.visibility = "hidden";
+			document.getElementById("ondblclick").style.visibility = "hidden";
+		}
+		function Mouseover()
+		{
+			Rejto();
+			document.getElementById("onmouseover").style.visibility = "visible";
+		}
+		function Mouseout()
+		{
+			Rejto();
+			document.getElementById("onmouseout").style.visibility = "visible";	
+		}
+
+		function Mousedown()
+		{
+			Rejto();
+			document.getElementById("onmousedown").style.visibility = "visible";	
+		}
+
+		function Click()
+		{
+			Rejto();
+			document.getElementById("onclick").style.visibility = "visible";	
+		}
+		function Dblclick()
+		{
+			Rejto();
+			document.getElementById("ondblclick").style.visibility = "visible";	
+		}
+
+	</script>
+
+
+</body>
+</html>

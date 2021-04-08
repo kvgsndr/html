@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>függvények</title>
+    <script>
+        
+        // function masodfoku(x,koef)
+        // {           
+        //    y= koef[0]*x*x+koef[1]*x+koef[2];
+        //    return y; 
+        // }
+
+        function fugveny(x, koef)
+        {
+            y=0.0;
+            for(let i=0;i<koef.length; i++)
+                y+= koef[i]*Math.pow(x, koef.length-1-i);
+            return y;
+        }
+        function fkiir(koef)
+        {   var text="";
+            for(let i=0; i< koef.length;i++)
+            {
+                text+=(koef[i]>0?"+":"")+ koef[i]+" x<sup>"+(koef.length-1-i)+"</sup> ";
+            }
+            document.write(text+"<br>");
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <p> ax<sup>n</sup>+bx <sup>n-1</sup>+... +zx+k </p>
+    <script>
+        
+        tomb=[2,-3,2];
+        fkiir(tomb);
+        for(let x=0; x<10; x++)
+            {
+                //document.write(x," ",masodfoku(x,tomb), "<br>");
+                document.write(x," ",fugveny(x,tomb), "<br>");
+            }
+            
+        
+    </script>
+</body>
+</html>

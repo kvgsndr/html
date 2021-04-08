@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="szamol">
+        <input name="egy"><br>
+        <input type="button" value=" + " onClick="plusz()">
+        <input type="button" value=" - " onClick="minusz()">
+        <input type="button" value=" * " onClick="szor()">
+        <input type="button" value=" / " onClick="oszt()"><br>
+        <input name="ketto"><p>
+        Eredmény: <input name="eredmeny">
+        </form>
+        <script>
+        function plusz() {
+        document.szamol.eredmeny.value = document.szamol.egy.value *1 + document.szamol.ketto.value * 1;
+        }
+        function minusz() {
+        document.szamol.eredmeny.value = document.szamol.egy.value - document.szamol.ketto.value;
+        }
+        function szor() {
+        document.szamol.eredmeny.value = document.szamol.egy.value * document.szamol.ketto.value;
+        }
+        function oszt() {
+        document.szamol.eredmeny.value = document.szamol.egy.value / document.szamol.ketto.value;
+        }
+        </script>
+    
+</body>
+</html>
