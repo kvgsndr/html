@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Másodfokú</title>
-    <style>
+    <!-- <style>
 
         form#lap
         {
@@ -44,18 +44,20 @@
             font-weight	: normal           ;
         }
     
-    </style>
+    </style> -->
     <script>
     
     
         function szamol()
         {  
-            /* a = parseFloat(document.lap.a.value)
-            b = parseFloat(document.lap.b.value)
-            c = parseFloat(document.lap.c.value) */
-            a=parseFloat(document.getElementsByName("a").innerHTML);
-            b=parseFloat(document.getElementsByName("b").innerHTML);
-            c=parseFloat(document.getElementsByName("c").innerHTML);
+            // a = parseFloat(document.lap.a.value)
+            // b = parseFloat(document.lap.b.value)
+            // c = parseFloat(document.lap.c.value) 
+            a=parseFloat(document.getElementsByName('a')[0].value);
+            b=parseFloat(document.getElementsByName('b')[0].value);
+            c=parseFloat(document.getElementsByName('c')[0].value);
+            
+            console.log(a,b,c);
     
             if( a==0 )
             {
@@ -67,8 +69,8 @@
     
                 if( d>=0 )
                 {
-                    x1 = ( -b + Math.sqrt(d) ) / 2 / a
-                    x2 = ( -b - Math.sqrt(d) ) / 2 / a
+                    x1 = ( -b + Math.sqrt(d) ) / (2*a);
+                    x2 = ( -b - Math.sqrt(d) ) / 2 / a;
                 }
                 else
                 {
@@ -94,11 +96,12 @@
     
         <center>
     
-        <input name='a' size=4> * x<sup>2</sup> + <input name='b' size=4> * x + <input name='c' size=4> = 0
+        <input type="text" name='a' size=4> * x<sup>2</sup> + <input name='b' size=4> * x + <input name='c' size=4> = 0
     
         <br>
     
         <input type='button' value='Számol' onclick=' szamol(); '> 
+        <!-- <button  onclick="szamol();">Számol</button> -->
     
         <hr>
     
@@ -109,12 +112,6 @@
     
     </form>
     
-    
-    
-    
-    
-    
-    
-    
+
 </body>
 </html>
