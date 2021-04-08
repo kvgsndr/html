@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #Szamologep{
+            border: 2px solid blue;
+            width: 150px;
+            text-align: center;
+            padding: 5px;
+            background-color: rgb(0, 0, 0);
+        }
+        #Disp{
+            background-color: white;
+            text-align: left;
+            border-radius: 5px 5px 0px 0px;
+        }
+        button{
+            margin: 0px;
+            background-color:rgb(5, 5, 5);
+            width: 23%;
+            height: 32px;
+            color: white;
+            border-width: 1px;
+        }
+        #egy{
+            background-color: red;
+        }
+        #kijelzo{
+            height: 30px;
+            background-color: rgb(243, 239, 234);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            text-align: right;
+
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számológép</title>
+</head>
+<body>
+    <div id="Szamologep">
+        <div id="Disp">Calculator <br><br>
+            <div id="kijelzo" >0</div>
+        </div>
+        <div id="Billentyuzet">
+            <button onclick="szamok(7);">7</button>
+            <button onclick="szamok(8);">8</button>
+            <button onclick="szamok(9);">9</button>
+            <button onclick="muvelet('/');">/</button><br>
+            <button onclick="szamok(4);">4</button>
+            <button onclick="szamok(5);">5</button>
+            <button onclick="szamok(6);">6</button>
+            <button onclick="muvelet('*');">*</button><br>
+            <button onclick="szamok(1);">1</button>
+            <button onclick="szamok(2);">2</button>
+            <button onclick="szamok(3);">3</button>
+            <button onclick="muvelet('-');">-</button><br>
+            <button onclick="szamok(0);">0</button>
+            <button onclick="pont();">.</button>
+            <button onclick="muvelet('+');">+</button>
+            <button id="egy" onclick="egyenlo();">=</button><br>
+        </div>
+    </div>
+    
+
+    <script>
+        var szam1;
+        var szam2;
+        var kijel=document.getElementById("kijelzo");
+        var eredmeny;
+        var operator;
+        function szamok(a)
+        {   if(kijel.innerHTML=="0") kijel.innerHTML="";
+            kijel.innerHTML+=a;
+        }
+        function pont()
+        {
+            if(kijel.innerHTML.indexOf(".")== -1)
+                kijel.innerHTML+='.';
+        }
+
+        function muvelet(muv)
+        {   
+            szam1= parseFloat( kijel.innerHTML);
+            kijel.innerHTML="0";
+            operator=muv;
+        }
+        function egyenlo()
+        {
+            szam2= parseFloat( kijel.innerHTML);
+            switch(operator)
+            {   
+                case '+': eredmeny=szam1+szam2;break;
+                case '-': eredmeny=szam1-szam2;break;
+                case '*': eredmeny=szam1*szam2;break;
+                case '/': eredmeny=szam1/szam2;break;
+            }
+            kijel.innerHTML=eredmeny.toFixed(2);
+        }
+
+    </script>
+</body>
+</html>

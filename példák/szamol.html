@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szamologép</title>
+    <style>
+        #szamol{
+            border: 1px solid black;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+   <div id="szamol">
+        <p><strong>Egyszerű számológé</strong> </p>
+        <br>
+        <input type="text" name="sz1" id="szam1"><br>
+        <input type="button" value="+" onclick="szamol('+');">
+        <input type="button" value="-"onclick="szamol('-');">
+        <input type="button" value="*" onclick="szamol('*');">
+        <input type="button" value="/" onclick="szamol('/');"><br>
+        <input type="text" name="sz2" id="szam2"><br><br>
+        Eremény: <input type="text" name="eredm" id="eredmeny"><br>
+        <br>
+   </div>
+    <script>
+        function szamol(muvelet)
+        {
+            var a=parseFloat( document.getElementById("szam1").value);
+            var b=parseFloat( document.getElementById("szam2").value);
+          
+            var c;
+            switch (muvelet) {
+                case '+': c=a+b;   break;  
+                case '-': c=a-b;   break;  
+                case '*': c=a*b;   break;   
+                case '/': 
+                    if(b==0)
+                        alert("Nullával nem osztunk!");
+                    else
+                        c=a/b;   
+                        
+                    break;       
+            }
+
+            document.getElementById("eredmeny").value=c.toString();
+
+
+
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

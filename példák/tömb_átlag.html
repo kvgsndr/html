@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      var tomb3=[];
+        var osszeg3=0;
+         for(let i=0; i<10; i++)
+        {
+            tomb3[i] = Math.floor(Math.random()*21);
+            
+        }
+
+        for(let i=0; i< tomb3.length; i++)
+         {
+            document.write(tomb3[i], i<tomb3.length-1?"+":"=");
+            osszeg3+=tomb3[i];
+         }
+         document.writeln(osszeg3, "<br>"); 
+         
+         
+         var atlag= osszeg3/10.0;
+
+         for(let i=0;i<10; i++ )
+            document.write(tomb3[i]-atlag + "<br>");
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

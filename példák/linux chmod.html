@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>CHMOD Calculation</title>
+    </head>
+    <style>
+        body {
+            background-color:#88FFFF;
+            font-family: Arial,Helvetica,sans-serif;
+            color:#000000;
+        }
+
+        .tit {
+            color:#FF0000; 
+            font-size:55px;
+        }
+    </style>
+<body>
+  <center>
+    <span class="tit">CHMOD Calculator</span>
+    </div>
+      <script>
+             // Calculation Script
+        var box;
+        var a;
+        var b;
+        // Function
+        function calc(user, number) {
+        // Owner
+        if (user == 'owner' && number == '4') box = eval("document.all.chmod.owner4");
+        if (user == 'owner' && number == '2') box = eval("document.all.chmod.owner2");
+        if (user == 'owner' && number == '1') box = eval("document.all.chmod.owner1");
+
+        // Group
+        if (user == 'group' && number == '4') box = eval("document.all.chmod.group4");
+        if (user == 'group' && number == '2') box = eval("document.all.chmod.group2");
+        if (user == 'group' && number == '1') box = eval("document.all.chmod.group1");
+
+        // Other
+        if (user == 'other' && number == '4') box = eval("document.all.chmod.other4");
+        if (user == 'other' && number == '2') box = eval("document.all.chmod.other2");
+        if (user == 'other' && number == '1') box = eval("document.all.chmod.other1");
+
+        if (box.checked == true) {
+        // Owner
+        if (user == 'owner') {
+        document.chmod.h_owner.value += ' + number';
+        a = document.all.chmod.h_owner.value;
+        b = eval(a);
+        document.all.chmod.h_owner.value=b;
+        document.all.chmod.t_owner.value=b;
+        }
+        // Group
+        if (user == 'group') {
+        document.all.chmod.h_group.value += ' + number';
+        a = document.all.chmod.h_group.value;
+        b= eval(a);
+        document.all.chmod.h_group.value = b;
+        document.all.chmod.t_group.value = b;
+        }
+        // Other
+        if (user == 'other') {
+        document.chmod.h_other.value += ' + number';
+        a= document.all.chmod.h_other.value;
+        b= eval(a);
+        document.all.chmod.h_other.value = b;
+        document.all.chmod.t_other.value = b;
+        }
+        }
+
+        if (box.checked == false) {
+        // Owner
+        if (user == 'owner') {
+        if (document.all.chmod.h_owner.value == '') {
+	     document.all.chmod.t_owner.value=""
+        } else {
+	      a = document.all.chmod.h_owner.value;
+        b = a - number;
+	     c = eval(b);
+	     document.all.chmod.h_owner.value = c;
+	     document.all.chmod.t_owner.value = c;
+        }
+        }
+        // Group
+        if (user == 'group') {
+        if (document.all.chmod.h_group.value == '') {
+	       document.all.chmod.t_group.value="";
+        }else {
+	     a = document.all.chmod.h_group.value;
+	     b = a - number;
+	     c = eval(b);
+	     document.all.chmod.h_group.value=c;
+	     document.all.chmod.t_group.value=c;
+        }
+        }
+        // Other
+        if (user == 'other') {
+        if (document.all.chmod.h_other.value == '') {
+	     document.all.chmod.t_other.value=""
+        } else {
+	     a = document.all.chmod.h_other.value;
+	     b = a - number;
+	     c = eval(b);
+	     document.all.chmod.h_other.value=c;
+	     document.all.chmod.t_other.value=c;
+        }
+        }
+        }
+        }
+
+        //-->
+        </script>
+
+      <div align="center">
+      <form name="chmod">
+      <input name="h_owner" type="hidden" value="">
+      <input name="h_group" type="hidden" value="">
+      <input name="h_other" type="hidden" value="">
+      
+      <table bgcolor="#000000" cellpadding="25" cellspacing="3">
+        <tr bgcolor="#ffffff" align="center">
+        <td colspan="4"><b>CHMOD Calculator</b></td>
+      </tr>
+      <tr bgcolor="#ffffff" align="center">
+        <td><b>Permission</b></td>
+        <td><b>Owner</b></td>
+        <td><b>Group</b></td>
+        <td><b>Others</b></td>
+      </tr>
+      <tr bgcolor="#ffffff" align="center">
+        <td><b>Read</b> (4)</td>
+        <td><input type="checkbox" name="owner4" value="4" onclick="calc('owner', 4)"></td>
+        <td><input type="checkbox" name="group4" value="4" onclick="calc('group', 4)"></td>
+        <td><input type="checkbox" name="other4" value="4" onclick="calc('other', 4)"></td>
+      </tr>
+      <tr bgcolor="#ffffff" align="center">
+        <td><b>Write</b> (2)</td>
+        <td><input type="checkbox" name="owner2" value="2" onclick="calc('owner', 2)"></td>
+        <td><input type="checkbox" name="group2" value="2" onclick="calc('group', 2)"></td>
+        <td><input type="checkbox" name="other2" value="2" onclick="calc('other', 2)"></td>
+      </tr>
+      <tr bgcolor="#ffffff" align="center">
+        <td><b>Execute</b> (1)</td>
+        <td><input type="checkbox" name="owner1" value="1" onclick="calc('owner', 1)"></td>
+        <td><input type="checkbox" name="group1" value="1" onclick="calc('group', 1)"></td>
+        <td><input type="checkbox" name="other1" value="1" onclick="calc('other', 1)"></td>
+      </tr>
+      <tr bgcolor="#ffffff" align="center">
+        <td><b>Value</b></td>
+        <td><input type="text" name="t_owner" value="0" size="1" READONLY onFocus="this.blur()"></td>
+        <td><input type="text" name="t_group" value="0" size="1" READONLY onFocus="this.blur()"></td>
+        <td><input type="text" name="t_other" value="0" size="1" READONLY onFocus="this.blur()"></td>
+      </tr>
+      </table>
+      </form>
+    </div>
+    <p>You can use it in command line ->josh@hp15e:~$ chmod 455 letter.doc</p>
+</center>
+</body>
+</html>
