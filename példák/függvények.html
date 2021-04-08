@@ -15,12 +15,12 @@
         function tablakiir(kezd, vegso)
         {
             document.write("<table>");
-            document.write("<th><td>","X","</td>","<td>","Y","</td>","<td>","Z","</td></th>");
+            document.write("<tr><td>","X","</td>","<td>","Y","</td>","<td>","Z","</td></tr>");
           for(let i=kezd; i<=vegso;i++)
             {   x=i;
                 y= Math.floor(1+Math.random()*100);
                 z=x+y;
-                 sorkiir(x,y,z);
+                sorkiir(x,y,z);
             }
             document.write("</table>")
         }
