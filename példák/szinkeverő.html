@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        form{
+            margin: 50px auto;
+            border: 1px solid black;
+            padding: 10px;
+            width: 250px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szinkeverő</title>
+</head>
+<body>
+    <form name="szinkever">
+      Piros:  <input onchange="beállit();" type="range" max="255" name="piros" id="id_piros" value=1> <span></span> <br>
+      Zöld:  <input onchange="beállit();" type="range" max="255" name="zöld" id="id_zöld" value=1><span></span><br>
+      Kék:  <input onchange="beállit();" type="range" max="255" name="kék" id="id_kék" value=1><span></span><br>
+    </form>
+    <script>
+       function beállit()
+       {   r=parseInt( document.getElementById("id_piros").value);
+           g=parseInt( document.getElementById("id_zöld").value);
+           b=parseInt( document.getElementById("id_kék").value);
+           
+           document.getElementsByTagName("span")[0].innerHTML=r;
+           document.getElementsByTagName("span")[1].innerHTML=g;
+           document.getElementsByTagName("span")[2].innerHTML=b
+           document.getElementsByName("szinkever")[0].style.backgroundColor= 'rgb(' + [r,g,b].join(',') + ')';
+           
+       }
+
+    </script>
+</body>
+</html>

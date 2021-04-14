@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class='sikidom' name='teglalap'>
+
+
+        <h4> A téglalap </h4>
+    
+        <b>Kiindulási adatok:</b><br>
+    
+    
+        <span><i><b>'a'</b></i> oldal hossza: </span> <input name='a' size=5> cm <br>
+        <span><i><b>'b'</b></i> oldal hossza: </span> <input name='b' size=5> cm <br>
+    
+        <span> </span>                                <input type=button value='Számol' onclick=' szamol(); '>
+    
+    
+        <hr>
+    
+    
+        <b>Eredmények:</b><br>
+    
+    
+        <span>Kerület: </span>                        <input name='K' size=10 readonly> cm <br>
+        <span>Terület: </span>                        <input name='T' size=10 readonly> cm<sup>2</sup>
+    
+    
+    </form>
+    
+    
+    
+    
+    <!-- -- --  JavaScript függvény megvalósítása  -- -- -->
+    
+    
+    
+    <script>
+    
+        function szamol()
+        {
+    
+        a = parseFloat(document.teglalap.a.value)
+        b = parseFloat(document.teglalap.b.value)
+    
+        K = 2*(a+b)
+        T = a*b
+    
+        document.teglalap.K.value = K
+        document.teglalap.T.value = T
+    
+        }
+    
+    </script>
+
+
+<form class='sikidom' name='kor'>
+
+	<h4> A kör </h4>
+
+	<b>Adatok:</b><br>
+
+
+	<span>A kör sugara:   </span> <input name='r' size=7 onfocus=' torol(); ' onblur=' korszamol(1); '> cm <br>
+	<span>A kör kerülete: </span> <input name='K' size=7 onfocus=' torol(); ' onblur=' korszamol(2); '> cm <br>
+	<span>A kör területe: </span> <input name='T' size=7 onfocus=' torol(); ' onblur=' korszamol(3); '> cm<sup>2</sup> <br><br>
+
+<!--
+	onfocus : az az esemény, amikor belekattintunk a mezőbe (megkapja a fókuszt)
+	onblur  : az az esemény, amikor kikattintunk a mezőből  (elveszti a fókuszt)
+-->
+
+	<span> </span>                <input type=button value='Számol'>
+
+
+</form>
+
+
+
+
+<!-- -- --  JavaScript függvény megvalósítása  -- -- -->
+
+
+
+<script>
+
+
+    function  torol()
+    {
+	document.kor.r.value = ""
+	document.kor.K.value = ""
+	document.kor.T.value = ""
+    }
+
+
+    function korszamol(m)
+    {
+
+	r = parseFloat(document.kor.r.value)
+	K = parseFloat(document.kor.K.value)
+	T = parseFloat(document.kor.T.value)
+
+
+	if( m==1 && r>0 )
+	{
+		K = 2*r*Math.PI
+		T = r*r*Math.PI
+
+		document.kor.K.value = Math.round(K*1000)/1000        // 3 számjegyre keretítünk
+		document.kor.T.value = Math.round(T*1000)/1000
+	}
+
+	if( m==2 && K>0 )
+	{
+		r = K/2/Math.PI
+		T = r*r*Math.PI
+
+		document.kor.r.value = Math.round(r*1000)/1000
+		document.kor.T.value = Math.round(T*1000)/1000
+	}
+
+	if( m==3 && T>0 )
+	{
+		r = Math.sqrt(T/Math.PI)
+		K = 2*r*Math.PI
+
+		document.kor.r.value = Math.round(r*1000)/1000
+		document.kor.K.value = Math.round(K*1000)/1000
+	}
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emlékeztető naptár</title>
+    <script>
+        datumok=["04.04", "04.22"];
+        leirasok=["Földnapja", "Lepkék napja"];
+        honapok=["január", "február", "március", "április","május"];
+        function harmadik_oszlop(i)
+        {   st="még nincs meg";
+            return st;
+        }
+        function hozzáad()
+        {
+            datumok.push(document.getElementById("dat").value)
+            leirasok.push(document.getElementById("leir").value)
+        }
+
+        function kiir()
+        {
+            output = "<table>";
+            for(let i=0; i<datumok.length; i++)
+            {
+                output+="<tr><td>"+honapok[datumok[i].getMonth()]+" "+datumok[i].getDate()+"</td>"
+                    +"<td>"+leirasok[i]+"</td><td>"
+                    +harmadik_oszlop(i)+"</td></tr>";
+            }
+            output+="</table>";
+            document.write(output);
+        }
+        kiir()
+    </script>
+</head>
+<body>
+    Dátum hozzáadása:
+    Datum:<input type="date" name="dat" id="dat"> <br><br>
+    Leírás: <input type="text" name="leir" id="leir"> <br><br>
+    <input type="button" value="Hozzáad" onclick="hozzáad();">
+
+</body>
+</html>

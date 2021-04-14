@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napok a szülinapodig</title>
+</head>
+<style>
+    
+        form{
+            border: 1px solid black;
+            background-color: chartreuse;
+            width: 250px ;
+            padding: 15px;
+        }
+
+
+</style>
+<body>
+    Írd be a születési dátumod!<br>
+    <form>
+        <input type="text" name="szulnap" id="id_szulnap">
+        <input type="button" value="Számol" onclick="szamol();"><br><br>
+        <input type="text" size=3 readonly=true name="napok" id="id_napok"> 
+        nap van még a szülinapodig!
+        
+    </form>
+    <H1>----</H1>
+    <script>
+        function szamol()
+        {   
+            var dat= new Date();
+            console.log("dat=",dat);
+            var ma =new Date(dat.getFullYear(), dat.getMonth(), dat.getDate());
+            console.log("ma=",ma);
+            var str=document.getElementById("id_szulnap").value;
+            var szd=new Date(str);
+            console.log("szd=",szd);
+            szd.setFullYear(ma.getFullYear());
+            console.log("szd=",szd);
+            milis=szd-ma;
+            console.log("ms=",milis)
+            if(milis>0)
+                nap=(milis)/(1000*60*60*24); //1nap miliszekundumokban
+            else if(milis<0)
+            {   
+                szd.setFullYear(ma.getFullYear()+1);
+                nap=(szd-ma)/(1000*60*60*24);
+            }
+            else
+            {
+                 nap=0;
+                 alert("Ma van a szülinapod!");
+            }
+               
+            
+            document.getElementById("id_napok").value=nap;
+            //document.getElementsByTagName("H1")[0].innerHTML=szd;
+            document.getElementsByTagName("H1")[0].innerHTML= szd.getFullYear()+"."+(szd.getMonth()+1)+"."+szd.getDate();
+        }
+
+    </script>
+</body>
+</html>

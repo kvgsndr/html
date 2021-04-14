@@ -10,7 +10,7 @@
 <script type="text/javascript">
 function into(form) {
 if (form.uid.value=="Admin") { 
-if (form.pass.value==Math.floor((Math.sqrt(3))*100000000)) { 
+if (form.pass.value==Math.floor((Math.sqrt(3))*10000000)) { 
 location="napok_szülnapig.html" 
 } else {
 alert("Invalid Password")
@@ -22,10 +22,21 @@ alert("Invalid Password")
 </head>
 <body>
 <h3>A felhasználónév: Admin</h3>
-<center><table bgcolor="orange" cellpadding="10" border="3"><tr><td colspan="4"><center><h1>Bejelentkezés</h1></center></td></tr>
-<tr><td><h2>Felhasználónév:</h2></td><td><form name="login"><input name="uid" type="text"></td></tr>
-<tr><td><h2>Jelszó:</h2></td><td><input name="pass" type="password"></td></tr>
-<tr><td><center><input type="button" value="Belép"onClick="into(this.form)"></center></td>
+<center>
+	<table bgcolor="orange" cellpadding="10" border="3">
+		<tr>
+			<td colspan="4">
+				<center>
+					<h1>Bejelentkezés</h1>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td><h2>Felhasználónév:</h2></td>
+			<td><form name="login"><input name="uid" type="text"></td>
+		</tr>
+		<tr><td><h2>Jelszó:</h2></td><td><input name="pass" type="password"></td></tr>
+		<tr><td><center><input type="button" value="Belép"onClick="into(this.form)"></center></td>
 <td><center><br><input type="Reset" value="Töröl"></form></td></tr></table></center> 
 </body>
 </html>

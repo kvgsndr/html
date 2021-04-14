@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés</title>
+</head>
+<style>
+    div{
+        border: 1px solid rgb(161, 238, 18);
+        color: white;
+        background-color: black;
+        margin: 20px auto;
+        width: 200px;
+        padding: 5px;
+
+    }
+    form{
+       
+        border: 1px solid white;
+        margin: 5px auto;
+        padding: 5px;
+    }
+    #gomb{
+        background-color: orangered;
+        float: right;
+    }
+</style>
+<body>
+    <div>
+            Belépés <br>
+        <form>
+            Felhasználónév: <br>
+            <input type="text" name="nev" id="nev">
+            <br>
+            Jelszó: <br>
+            <input type="password" name="jelszo" id="jelszo">
+            <br>
+            <input type="checkbox" name="emlékezz" id="emlékezz"  > Emlékezz rám <br>
+            <br>
+            <input id="gomb" type="button" value="Bejelentkezés" onclick="bejelentkezes();">  <br>
+        </form>
+    </div>
+    <script>
+        function bejelentkezes()
+        {
+            var nev=document.forms[0].nev.value;
+            var jelszo=document.getElementById("jelszo").value;
+
+            if(nev=="Admin")
+            {
+                if(jelszo=="12345")
+                    alert("Bejelentkezve!!!");
+                else
+                    alert("Rossz jelszó!!!!!");
+
+            }
+            else
+                alert("Rossz felhasználónév!!");
+        }
+    </script>
+
+
+    
+    
+</body>
+</html>
