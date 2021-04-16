@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Események</title>
+    <script>
+
+
+    </script>
+
+</head>
+<body onload="alert('body beolvasva');" onkeydown="alert(event.type)" onkeypress="alert(event.type)">
+    <button  onmouseover="alert('mouse over')"  onclick='document.getElementById("gomb").addEventListener("click", indul);'>Eseménykezelés</button>
+    <button onmousemove="alert('mouse move')">események</button>
+    <button onmouseout="alert('mouse out')">események</button>
+    <button onclick="alert('mouse click')">események</button>
+    <button ondblclick="alert('mouse dblclick')">események</button>
+    <button onmousedown="alert('mouse down')">események</button>   
+    <button onmouseup="alert('mouse up')">események</button>
+    <button onfocus="alert('mouse focus')">események</button>
+    <button  onblur="alert('mouse blur')">események</button>
+    <button id="gomb">Event</button>
+
+    <script>
+        var n=0;
+        function indul()
+        {   n++;
+            document.getElementById("gomb").innerHTML="Ezt a függvény írja "+n;
+        }
+        
+    </script>
+</body>
+</html>

@@ -6,17 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>emlékeztető naptár</title>
     <script>
-        datumok=["04.04", "04.22"];
-        leirasok=["Földnapja", "Lepkék napja"];
+        datumok=["2021.04.18", "2021.05.22", "1848.03.8"];
+        leirasok=["Földnapja", "Lepkék napja","Március 8"];
         honapok=["január", "február", "március", "április","május"];
-        function harmadik_oszlop(i)
-        {   st="még nincs meg";
-            return st;
+    </script>
+        
+</head>
+<body>
+    <div></div><br>
+    <form>
+        Dátum hozzáadás:<br><br>
+        Datum:<input type="date" name="dat" id="dat"> <br><br>
+        Leírás: <input type="text" name="leir" id="leir"> <br><br>
+        <input type="button" value="Hozzáad" onclick="hozzáad();">
+    </form>
+        
+    
+    
+   <script>
+function harmadik_oszlop(i)
+        {   var dat= new Date();
+            var ma =new Date(dat.getFullYear(), dat.getMonth(), dat.getDate());
+            var str=datumok[i];
+            var szd=new Date(str);
+            szd.setFullYear(ma.getFullYear());
+            milis=szd-ma;
+            if(milis>0)
+                nap=(milis)/(1000*60*60*24); //1nap miliszekundumokban
+            else if(milis<0)
+            {   
+                szd.setFullYear(ma.getFullYear()+1);
+                nap=Math.floor((szd-ma)/(1000*60*60*24));
+            }
+            else
+            {
+                 nap=0;
+            }
+            if(nap==0)
+                return "MA";
+            else if(nap > 0 && nap <= 35)
+                 return  nap+" nap van hátra";
+            else if(milis<0)
+                return "Majd jövőre! "+nap+" nap múlva.";
+            else
+                return "Még nem aktuális!"
         }
         function hozzáad()
-        {
-            datumok.push(document.getElementById("dat").value)
-            leirasok.push(document.getElementById("leir").value)
+        {   var st=document.getElementById("dat").value;
+            st=st.replace("-",".");st=st.replace("-",".");
+            datumok.push(st)
+            
+            leirasok.push(document.getElementById("leir").value);
+            kiir();
         }
 
         function kiir()
@@ -24,21 +65,32 @@
             output = "<table>";
             for(let i=0; i<datumok.length; i++)
             {
-                output+="<tr><td>"+honapok[datumok[i].getMonth()]+" "+datumok[i].getDate()+"</td>"
-                    +"<td>"+leirasok[i]+"</td><td>"
-                    +harmadik_oszlop(i)+"</td></tr>";
+                output+="<tr><td>"+honapok[(new Date(datumok[i]).getMonth())]
+                      +" "+(new Date(datumok[i])).getDate()+"</td>"
+                      +"<td>"+leirasok[i]+"</td><td>"
+                      +harmadik_oszlop(i)+"</td></tr>";
             }
             output+="</table>";
-            document.write(output);
+            document.getElementsByTagName("div")[0].innerHTML=output;
         }
-        kiir()
-    </script>
-</head>
-<body>
-    Dátum hozzáadása:
-    Datum:<input type="date" name="dat" id="dat"> <br><br>
-    Leírás: <input type="text" name="leir" id="leir"> <br><br>
-    <input type="button" value="Hozzáad" onclick="hozzáad();">
+        kiir();
+    
 
+   </script>
+   <style>
+       table{
+           border: 1px solid black;
+        }
+        td{
+            background-color: rgb(45, 93, 248);
+        }
+        form{
+            background-color: cadetblue;
+            border: 1px solid darkblue;
+            padding: 10px;
+            width: 300px;
+
+        }
+   </style>
 </body>
 </html>

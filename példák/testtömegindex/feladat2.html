@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTI 2</title>
+    <style>
+        td{
+            color: darkblue;
+            background-color: gray;
+            padding:  5px;
+        }
+        input{
+            margin: 3px;
+            
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr><td>Testsúlyod:</td><td><input onkeyup="szamol()" size=4 type="text" name="" id="suly">kg</td></tr>
+        <tr><td>Magasságod:</td><td><input onkeyup="szamol()" size=4 type="text" name="" id="magas">cm</td></tr>
+        <tr></tr>
+        <tr><td>Testtömegindexed:</td><td><input  size=4 type="text" name="" id="tti">kg/m <sup>2</sup></td></tr>
+    </table>
+       <p></p>
+       <script>
+        function szamol()
+        {  var s= parseFloat(document.getElementById("suly").value);
+           var m= parseFloat(document.getElementById("magas").value);
+           var mm=m/100;
+           var bmi=s/(mm*mm);
+           console.log(s,m,bmi);
+           document.getElementById("tti").value= bmi.toPrecision(6);
+
+           kiir(bmi);
+
+        }
+        function kiir(bmi)
+        {
+            if(bmi<18)
+            document.getElementsByTagName("p")[0].innerHTML="Sovány tesalkat!!";
+           else if(18<=bmi && bmi<=25)
+            document.getElementsByTagName("p")[0].innerHTML="Normál testsúly!";
+            else
+             document.getElementsByTagName("p")[0].innerHTML="Túlsúlyosság!!!!!";
+        }
+    </script>
+</body>
+</html>
