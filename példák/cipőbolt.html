@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipőbolt</title>
+</head>
+<!--   
+    
+    
+    -->
+   
+<body>
+    <div id= "datumok"></div>
+    <script>
+        //Generáljunk 6 véletlen dátumot az aktuális, vagy az előző hónapból!
+        var datumok=[];
+        var ma= new Date();
+        ah=ma.getMonth()+1;
+        if(ah>1) eh=ah-1;
+        else eh=12;
+
+        for(let i =0; i<6; i++)
+        {
+           if( Math.floor( Math.random()*2)==0) h=ah;
+           else h=eh;
+           n= Math.floor(Math.random()*28)+1
+
+           if(h<10) h="0"+h;
+           if(n<10) n="0"+n;
+           datumok[i]=h+"."+n;
+           
+            
+        }
+        kiir(datumok);
+
+        //Mikor volt az eddigi utolsó beszállítás?
+        var utolso=0 ;
+        var ebben_a_hónapban=false;
+        var előjegyzett_beszállítás=0;
+        for(let i=0; i<datumok.length; i++)
+        {
+           ho= parseInt( datumok[i].substr(0,2));
+           nap=parseInt( datumok[i].substr(3,2));
+           //maximum kiválasztás
+           du= new Date(ma.getFullYear().toString()+"."+datumok[i]);
+           ut= new Date(ma.getFullYear().toString()+"."+datumok[utolso]);
+           if(du>ut) utolso=i;
+           if(ma.getMonth()+1==ho && nap<=ma.getUTCDate()) ebben_a_hónapban=true;
+           else if(ma.getMonth()+1==ho && nap>ma.getUTCDate())előjegyzett_beszállítás++;
+        }
+        document.writeln("<p> Utolsó beszállítás "+ datumok[utolso] +"<br>");
+        // Volt-e már beszállítás ebben a hónapban?
+        if(ebben_a_hónapban) document.writeln("Ebben a hónapban már volt beszállítás!<br>") ;
+        else document.writeln("Ebben a hónapban még nem volt beszzállítás!<br>");
+
+        // Hány beszállítás van még előre jelezve?
+        document.writeln("Előrejelezve "+ előjegyzett_beszállítás +" beszállítás!<br>");
+        
+        //Volt-e, vagy lesz-e több beszállítás egyazon napon?
+        var egynaponn=false;
+        for(let i=0;i<datumok.length-1;i++)
+          for(let j=i+1; j<datumok.length;j++) 
+            if(datumok.indexOf(datumok[i],j) !=-1) egynaponn=true;
+
+        if(egynaponn) document.writeln("Lessz/Volt 2 beszállítás egy napoon!<br>");
+        else document.writeln("NEM Lessz/Volt 2 beszállítás egy napoon!<br>");
+
+
+
+
+
+/*         Generáljon 12-12 véletlen cipőméretet, és külön tömbben tárolja el őket!
+ F[ ] tömbben a férfi (38-46 mérettartományban), 
+ N[ ] tömbben a női cipőket (35-42 mérettartományban)!
+ */
+     var F=[], N=[];
+     for(let i=0; i<12;i++)
+     {
+         F[i]=38+Math.floor(Math.random()*(46-38+1));
+         N[i]=35+Math.floor(Math.random()*(42-35+1));
+     }
+     document.writeln("<br>Férfi<br>");
+     kiir(F);
+
+     document.writeln("<br>Női<br>");
+     kiir(N);
+     
+     function kiir(A)
+     {
+         for (const iter of A) 
+            {
+                document.write("<span>"+iter+" </span>");    
+            }
+     }
+     
+// Mekkora a rendelt legnagyobb női cipő?
+ function női_nagy(A)
+ {
+     var nagy = N[0];
+     A.forEach(element => 
+     { if(element> nagy) 
+            nagy=element;
+     });
+     return nagy;
+ }
+ document.writeln("<br>Megrendelt legnagyobb női cipő a "+női_nagy(N)+"<br>");
+// Mennyi a férfi és a női cipők méretének átlagának különbsége?
+function atlag(A)
+{   osszeg=0.0;
+    A.forEach  (elem => 
+    {
+        osszeg+=elem;
+    });
+    return osszeg/A.length;
+}
+document.writeln("<br>A férfi és a női cipők méretének átlagának különbsége "+(atlag(F)-atlag(N))+"<br>");
+// A női cipők hány százalék 40-es méret feletti?
+
+
+// Mindkét nemet összesítve melyik méretből fogyott a legtöbb?
+
+    </script>
+    
+</body>
+</html>

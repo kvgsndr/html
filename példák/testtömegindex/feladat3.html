@@ -13,8 +13,7 @@
         }
         input{
             margin: 3px;
-            
-            
+
         }
     </style>
 </head>
@@ -32,7 +31,7 @@
            var m= parseFloat(document.getElementById("magas").value);
            var mm=m/100;
            var bmi=s/(mm*mm);
-           console.log(s,m,bmi);
+           
            document.getElementById("tti").value= bmi.toPrecision(6);
 
            kiir(bmi);
@@ -43,17 +42,17 @@
             if(bmi<18)
             {
                 document.getElementById("tti").style.backgroundColor="#ffff00";
-                //document.getElementsByTagName("p")[0].innerHTML="Sovány tesalkat!!";
+                document.getElementsByTagName("p")[0].innerHTML="Sovány tesalkat!!";
             }
                 
            else if(18<=bmi && bmi<=25)
             {
-                //document.getElementsByTagName("p")[0].innerHTML="Normál testsúly!";
+                document.getElementsByTagName("p")[0].innerHTML="Normál testsúly!";
                 document.getElementById("tti").style.backgroundColor="#00ff00";
             }
             else
             {
-                //document.getElementsByTagName("p")[0].innerHTML="Túlsúlyosság!!!!!";
+                document.getElementsByTagName("p")[0].innerHTML="Túlsúlyosság!!!!!";
                 document.getElementById("tti").style.backgroundColor="#ff0000";
             }
              

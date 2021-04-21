@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tti 5</title>
+</head>
+<body>
+    <img src="normal.jpg" alt="normal" style="float: left;"><br>
+    <div style="float: left; height: 200px; ">
+        Testtömeg:
+    40...
+    <input type="range" name="" id="id_tömeg" oninput="tomeg_kiir();" value="70" min="40" max="200">
+    ....200 > 
+    <span id="tömeg">70 kg</span> <br>
+
+    Magasság:
+    150...
+    <input type="range" name="" id="id_magassag" oninput="magassag_kiir();" value="175" min="150" max="220">
+    ....220 > 
+    <span id="magas">175 cm</span> <br>
+
+    <hr>
+    BMI: <input type="text" size=5 name="" id="bmi"> kg/m<sup>2</sup> <br>
+    </div>
+    
+<script>
+    bmi_szamol();
+    function tomeg_kiir()
+    {
+        document.getElementById("tömeg").innerHTML= document.getElementById("id_tömeg").value+" kg";
+        bmi_szamol();
+    }
+
+    function magassag_kiir()
+    {
+        document.getElementById("magas").innerHTML= document.getElementById("id_magassag").value+" cm";
+        bmi_szamol();
+    }
+
+    function bmi_szamol()
+    {  var t=document.getElementById("id_tömeg").value;
+       var m= document.getElementById("id_magassag").value /100;
+       var bmi= t/ (m*m);
+       document.getElementById("bmi").value=bmi.toPrecision(4);
+       if(bmi<18)
+            {
+                document.getElementById("bmi").style.backgroundColor="#ffff00";
+                document.getElementsByTagName("img")[0].src="sovány.jpg";
+               
+            }
+                
+           else if(18<=bmi && bmi<=25)
+            {
+            
+                document.getElementById("bmi").style.backgroundColor="#00ff00";
+                document.getElementsByTagName("img")[0].src="normal.jpg";
+            }
+            else
+            {
+                
+                document.getElementById("bmi").style.backgroundColor="#ff0000";
+                document.getElementsByTagName("img")[0].src="kövér.jpg";
+            }
+
+    }
+</script>
+    
+</body>
+</html>
