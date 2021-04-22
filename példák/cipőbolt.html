@@ -133,8 +133,47 @@ document.writeln("A női cipők ", szazalek.toPrecision(3),"% 40-es méret felet
      if(cipomeret[leg]< cipomeret[i]) leg=i;
 
  document.writeln("<br>Legtöbb méret ", leg+35);
+   
+ var idők=[];
+  idő=0;  // 24*60=1440
+  while(idő<1440)
+  {
+        idő += Math.floor( Math.random()*180)+1
+    if(idő<1440)
+    {
+        ora= parseInt( idő/60 );
+        perc= idő%60;
 
+        if(ora<10) ora="0"+ora;
+        if(perc<10) perc="0"+perc;
 
+        idők.push(ora+":"+perc);
+    }
+
+  }
+  document.write("Idők:<br>");
+   kiir(idők);
+//Hányszor vásároltak dél és este 8 között?
+ déltőlnyolcig=0;
+ for( let i=0; i< idők.length;i++)
+ {
+    o=  parseInt( idők[i].substr(0,2));
+     if( o>=12 && o<20) déltőlnyolcig++
+ }
+ document.writeln("<br>Déltől nyolcig " + déltőlnyolcig + " vásároltak<br>")
+   
+//Adtak-e le rendelést hajnali 3 és 4 óra között?
+rendelés=false;
+for(let i =0; i< idők.length;i++)
+{
+    o=  parseInt( idők[i].substr(0,2));
+    if( o==3) rendelés=true;
+}
+rendelés? document.writeln("Volt rendelés 3 és 4 között"):document.writeln("NEM volt rendelés 3 és 4 között");
+   
+//Mikor volt az első délutáni vásárlás?
+
+//Átlagosan hány percenként érkezett rendelés?
 
     </script>
     
