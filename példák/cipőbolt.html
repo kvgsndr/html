@@ -6,30 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cipőbolt</title>
 </head>
-<!--   
-    
-    
-    -->
-   
 <body>
     <div id= "datumok"></div>
     <script>
         //Generáljunk 6 véletlen dátumot az aktuális, vagy az előző hónapból!
         var datumok=[];
-        var ma= new Date();
-        ah=ma.getMonth()+1;
-        if(ah>1) eh=ah-1;
+        var ma= new Date(); //aktuális dátum
+        ah=ma.getMonth()+1; // aktuális hónap
+        if(ah>1) eh=ah-1;   // előző hónap
         else eh=12;
 
         for(let i =0; i<6; i++)
         {
            if( Math.floor( Math.random()*2)==0) h=ah;
            else h=eh;
-           n= Math.floor(Math.random()*28)+1
+           n= Math.floor(Math.random()*28)+1; // TODO  szökőév, 30, 31
 
            if(h<10) h="0"+h;
            if(n<10) n="0"+n;
-           datumok[i]=h+"."+n;
+           datumok[i]=h+"."+n;  // "04.22"
            
             
         }
@@ -64,18 +59,18 @@
           for(let j=i+1; j<datumok.length;j++) 
             if(datumok.indexOf(datumok[i],j) !=-1) egynaponn=true;
 
-        if(egynaponn) document.writeln("Lessz/Volt 2 beszállítás egy napoon!<br>");
-        else document.writeln("NEM Lessz/Volt 2 beszállítás egy napoon!<br>");
+        if(egynaponn) document.writeln("Lessz/Volt 2 beszállítás egy napon!<br>");
+        else document.writeln("NEM Lessz/Volt 2 beszállítás egy napon!<br>");
 
 
 
 
 
-/*         Generáljon 12-12 véletlen cipőméretet, és külön tömbben tárolja el őket!
+/* Generáljon 12-12 véletlen cipőméretet, és külön tömbben tárolja el őket!
  F[ ] tömbben a férfi (38-46 mérettartományban), 
  N[ ] tömbben a női cipőket (35-42 mérettartományban)!
  */
-     var F=[], N=[];
+     var F=[], N=[]
      for(let i=0; i<12;i++)
      {
          F[i]=38+Math.floor(Math.random()*(46-38+1));
@@ -87,39 +82,59 @@
      document.writeln("<br>Női<br>");
      kiir(N);
      
-     function kiir(A)
+     function kiir(tomb)
      {
-         for (const iter of A) 
+         for (const iter of tomb) 
             {
                 document.write("<span>"+iter+" </span>");    
             }
      }
      
 // Mekkora a rendelt legnagyobb női cipő?
- function női_nagy(A)
+ function legnagyobb(tomb)
  {
-     var nagy = N[0];
-     A.forEach(element => 
+     var nagy = tomb[0];
+     tomb.forEach(element => 
      { if(element> nagy) 
             nagy=element;
      });
+     //for(let i=0; i< tomb.length;i++)
+     //  if(tomb[i]> nagy) nagy = tomb[i];
      return nagy;
  }
- document.writeln("<br>Megrendelt legnagyobb női cipő a "+női_nagy(N)+"<br>");
+ document.writeln("<br>Megrendelt legnagyobb női cipő a "+legnagyobb(N)+"<br>");
 // Mennyi a férfi és a női cipők méretének átlagának különbsége?
-function atlag(A)
+function atlag(tomb)
 {   osszeg=0.0;
-    A.forEach  (elem => 
-    {
-        osszeg+=elem;
-    });
-    return osszeg/A.length;
+    for(let i=0; i< tomb.length;i++)
+        osszeg+=tomb[i];
+    return osszeg/tomb.length;
 }
 document.writeln("<br>A férfi és a női cipők méretének átlagának különbsége "+(atlag(F)-atlag(N))+"<br>");
 // A női cipők hány százalék 40-es méret feletti?
+var plusz40=0;
+for(let i=0; i<N.length;i++)
+   if(N[i]>40) plusz40++;
+
+var szazalek= (plusz40/N.length)*100;
+document.writeln("A női cipők ", szazalek.toPrecision(3),"% 40-es méret feletti");
+
 
 
 // Mindkét nemet összesítve melyik méretből fogyott a legtöbb?
+  cipomeret=[0,0,0,0,0,0,0,0,0,0,0,0];
+  for(let i=0; i< F.length;i++)
+       cipomeret[ F[i]-35 ]++;      
+  for(let i=0; i< N.length;i++)
+       cipomeret[ N[i]-35 ]++;  
+
+       var leg=0;
+  for(let i=0; i< cipomeret.length;i++) 
+     if(cipomeret[leg]< cipomeret[i]) leg=i;
+
+ document.writeln("<br>Legtöbb méret ", leg+35);
+
+
 
     </script>
     
