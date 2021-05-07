@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panzió szobafoglalás</title>
+    <style>
+        table {
+            background: #ECECEC;
+            color: blue;
+            width: 600px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin: 0 auto;
+        }
+        .kor {
+            width: 50px;
+        }
+        #vendegszam {
+            width: 60px;
+        }
+        #egyebkeres {
+            width: 98%;
+        }
+        #calc {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: blue;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+    <div>
+        <h1>Panzió - szobafoglalás</h1>
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Érkezés dátuma:</td>
+                    <td><input type="text" name="erkezes" id="erkezes" placeholder="éééé.hh.nn"  onmouseout="mouseout(this)" onmouseover="mouseover(this)"></td>
+                </tr>
+                <tr>
+                    <td>Távozás dátuma:</td>
+                    <td><input type="text" name="tavozas" id="tavozas" placeholder="éééé.hh.nn" onmouseout="mouseout(this)" onmouseover="mouseover(this)"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Szoba típusa:</td>
+                    <td><input type="radio" name="roomtype" id="r1">Egyágyas - 9.000 Ft/éj<br>
+                    <input type="radio" name="roomtype" id="r2">Kétágyas - 15.000 Ft/éj<br>
+                    <input type="radio" name="roomtype" id="r3">Kétágyas 1 pótággyal - 18.000 Ft/éj<br>
+                    <input type="radio" name="roomtype" id="r4">Kétágyas 2 pótággyal - 21.000 Ft/éj</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Vendégek száma</td>
+                    <td><select name="vendegszam" id="vendegszam" onchange="vendegSzamValtas()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select> fő</td>
+                </tr>
+                <tr>
+                    <td>Vendégek életkora:</td>
+                    <td><input type="text" name="kor1" id="kor1" class="kor"> év <input type="text" name="kor2" id="kor2" class="kor" disabled> év <input type="text" name="kor3" id="kor3" class="kor" disabled> év <input type="text" name="kor4" id="kor4" class="kor" disabled> év</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Ellátás:</td>
+                    <td>
+                        <input type="radio" name="ellatas" id="reggeli">Reggeli - 900 Ft/nap/fő<br>
+                        <input type="radio" name="ellatas" id="reggeli">Félpanzió - 2.900 Ft/nap/fő<br>
+                        <input type="radio" name="ellatas" id="reggeli">Teljes panzió - 4.900 Ft/nap/fő
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Fürdő szolgáltatások:</td>
+                    <td>
+                        <input type="checkbox" name="belterim" id="belterim">Beltéri medencék - 800 Ft/nap/fő<br>
+                        <input type="checkbox" name="kulterim" id="kulterim">Kültéri medencék - 800 Ft/nap/fő<br>
+                        <input type="checkbox" name="szauna" id="szauna">Szauna belépő - 800 Ft/nap/fő<br>
+                        <input type="checkbox" name="teljesb" id="teljesb">Teljes belépő - 2.000 Ft/nap/fő<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td>Egyéb kérés, kívánság:</td>
+                    <td><textarea name="egyebkeres" id="egyebkeres" cols="30" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+            </table>
+            <input type="button" value="Költségkalkuláció" id="calc" onclick="calculate()">
+        </form>
+    </div>
+
+    <script>
+        function calculate() {
+            var erkezesDatum = new Date(document.getElementById("erkezes").value);
+            var tavozasDatum = new Date(document.getElementById("tavozas").value);
+
+            var szobaar = 0;
+
+            var kulonbseg = tavozasDatum - erkezesDatum;
+            var toDays = Math.ceil(kulonbseg / (1000*60*60*24));
+
+            if (document.getElementsByName("roomtype")[0].checked) {
+                szobaar = 9000;
+            } else if (document.getElementsByName("roomtype")[1].checked) {
+                szobaar = 15000;
+            } else if (document.getElementsByName("roomtype")[2].checked) {
+                szobaar = 18000;
+            } else if (document.getElementsByName("roomtype")[3].checked) {
+                szobaar = 21000;
+            }
+
+            var ellatasar = 0;
+
+            if (document.getElementsByName("ellatas")[0].checked) {
+                ellatasar = 900;
+            } else if (document.getElementsByName("ellatas")[1].checked) {
+                ellatasar = 2900;
+            } else if (document.getElementsByName("ellatas")[2].checked) {
+                ellatasar = 4900;
+            }
+
+            var szolgar = 0;
+
+            if (document.getElementById("belterim").checked) {
+                szolgar += 800
+            }
+            if (document.getElementById("kulterim").checked) {
+                szolgar += 800
+            }
+            if (document.getElementById("szauna").checked) {
+                szolgar += 800
+            }
+            if (document.getElementById("teljesb").checked) {
+                szolgar = 2000
+            }
+
+            var osszeszamolas = 0;
+
+            osszeszamolas = (szobaar * toDays) + ellatasar + szolgar;
+
+            alert("A szobafoglalás költsége: " + osszeszamolas + " Ft " + toDays + " éjszakára.");
+        }
+
+        function vendegSzamValtas() {
+            var vendegekSzama = document.getElementById("vendegszam");
+
+            var kor1 = document.getElementById("kor1");
+            var kor2 = document.getElementById("kor2");
+            var kor3 = document.getElementById("kor3");
+            var kor4 = document.getElementById("kor4");
+
+            switch(vendegekSzama.selectedIndex) {
+                case 0:
+                    kor1.disabled = false;
+                    kor2.disabled = true;
+                    kor3.disabled = true;
+                    kor4.disabled = true;
+                    break;
+                case 1:
+                    kor1.disabled = false;
+                    kor2.disabled = false;
+                    kor3.disabled = true;
+                    kor4.disabled = true;
+                    break;
+                case 2:
+                    kor1.disabled = false;
+                    kor2.disabled = false;
+                    kor3.disabled = false;
+                    kor4.disabled = true;
+                    break;
+                case 3:
+                    kor1.disabled = false;
+                    kor2.disabled = false;
+                    kor3.disabled = false;
+                    kor4.disabled = false;
+                    break;
+            }
+        }
+
+        function mouseover(elem)
+        {
+            elem.style.backgroundColor="yellow";
+        }
+
+        function mouseout(elem)
+        {
+            elem.style.backgroundColor="white";
+        }
+        function bodyload()
+        {
+            var évek=document.getElementsByClassName("kor");
+            for(let i=0;i<évek.length;i++)
+            {
+                évek[i].setAttribute('onmouseout'," mouseout(this)");
+                évek[i].setAttribute('onmouseover'," mouseover(this)");
+            }
+            
+
+                        
+        }
+    </script>
+</body>
+</html>

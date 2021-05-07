@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<p>Pizza</p>
+ 
+<form>
+  <input type="checkbox" name="pizza" value="extra sajt">Extra sajttal<br>
+  <input type="checkbox" name="pizza" value="extra gomba">Extra gombával<br>
+  <input type="checkbox" name="pizza" value="bacon">bacon<br>
+  <input type="checkbox" name="pizza" value="extra sonkával">Extra sonka<br>
+  <br>
+  <input type="button" onclick="myFunction(0)" value="Send order">
+  <br><br>
+  <input type="text" class="txt" id="order" size="50">
+  
+</form>
+
+<form >
+  <input type="radio" name="coffee" value="cukorral">Csak cukorral<br>
+  <input type="radio" name="coffee" value="feketén">Feketén<br>
+  <input type="radio" name="coffee" value="cukorral és tejszínnel">Cukorral és tejszínhabbal<br>
+  <br>
+  <input type="button" onclick="myFunction(1)" value="Send order">
+  <br><br>
+  <input type="text" class="txt" id="order" size="50">
+  
+</form>
+ 
+<script>
+function myFunction(n) {
+  felirat=["Pizza extra feltétek: ","Kávé: "]
+  var pizza = document.forms[n];
+  console.log(pizza);
+  //var pizza=document.getElementsByName("pizza")
+  //console.log(pizza);
+  var extrak = "";
+  var i;
+  for (i = 0; i < pizza.length; i++) {
+    if (pizza[i].checked) {
+      extrak = extrak + pizza[i].value + " ";
+    }
+  }
+  document.getElementsByClassName("txt")[n] .value = felirat[n] + extrak;
+}
+</script>
+</body>
+</html>

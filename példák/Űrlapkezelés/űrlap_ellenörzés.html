@@ -1,0 +1,91 @@
+<HTML>
+    <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+    
+    
+    function uresCheck(mezo){
+      if (mezo.value != "") return true;
+      else{
+        alert("A(z) "+ mezo.name +" mező üres!");
+        return false;
+      }
+    }
+    
+    function emailCheck(mezo){
+      var szoveg = mezo.value;
+      if (!(szoveg.indexOf('@')>0 && szoveg.indexOf('@')<szoveg.length-1)){
+        alert("Rossz e-mail cím!");
+        return false;
+      }
+      else return true;
+    }
+    
+    function teszt(adat,minta){
+      for (var i=0; i<adat.length; i++)
+        if (minta.indexOf(adat.charAt(i)) == -1)
+          return false;
+    
+      return true;
+    }
+    
+    function numerikusCheck(mezo){
+      if (!uresCheck(mezo)) return false;
+      if (!teszt(mezo.value,"1234567890")){
+        alert("Ez nem numerikus érték!");
+        return false;
+      }
+      else return true;
+    }
+    
+    function tartalmaz(adat,minta){
+      for (var i=0; i<adat.length; i++)
+        if (minta.indexOf(adat.charAt(i)) != -1)
+          return true;
+      return false;
+    }
+    
+    function telefonCheck(mezo){
+      if (!uresCheck(mezo)) return false;
+      if (!teszt(mezo.value,"1234567890()/- ") || !tartalmaz(mezo.value,"1234567890")){
+        alert("Ez nem jó telefonszám!");
+        return false;
+      }
+      else return true;
+    }
+    
+    function ellenoriz(){
+      if (uresCheck(document.form.nev) && numerikusCheck(document.form.ev) &&
+          telefonCheck(document.form.telefon) && emailCheck(document.form.email)){
+        document.form.action = "mailto:"+document.form.email.value;
+    
+        return true;
+      }
+      else return false;
+    }
+    
+   
+    </SCRIPT>
+    </HEAD>
+    <BODY>
+    
+    <FORM NAME="form" ACTION="dummy" ENCTYPE="text/plain" onSubmit="return ellenoriz()">
+    Neved?<BR>
+    <INPUT TYPE="text" NAME="nev" SIZE="20">
+    <P>
+    Hany eves vagy?
+    <BR>
+    <INPUT TYPE="text" NAME="ev" SIZE="20">
+    <P>
+    Telefonszám ellenőrzése:
+    <BR>
+    <INPUT TYPE="text" NAME="telefon" SIZE="20">
+    <P>
+    Az urlap a kovetkezo e-mail cimre lesz elkuldve...
+    <BR>
+    <INPUT TYPE="text" NAME="email" SIZE="20">
+    <P>
+    <INPUT TYPE="submit" NAME="submit" VALUE="Elküld">
+    </FORM>
+    
+    </BODY>
+    </HTML>

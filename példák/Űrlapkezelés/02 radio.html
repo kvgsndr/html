@@ -1,0 +1,27 @@
+<html>
+<body>
+<form>
+  Melyik színt szereted?<br>
+  <input type="radio" name="colors" id="red">Piros<br>
+  <input type="radio" name="colors" id="blue">Kék
+</form>
+<button onclick="check_red()">Piros be</button>
+<button onclick="uncheck_red()">Piros ki</button><br>
+<button onclick="check_blue()">Kék be</button>
+<button onclick="uncheck_blue()">Kék ki</button>
+<script>
+function check_red() {
+  document.getElementById("red").checked = true;
+}
+function uncheck_red() {
+  document.getElementById("red").checked = false;
+}
+function check_blue() {
+  document.getElementById("blue").checked = true;
+}
+function uncheck_blue() {
+  document.getElementById("blue").checked = false;
+}
+</script>
+</body>
+</html>

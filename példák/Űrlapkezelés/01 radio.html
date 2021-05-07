@@ -1,0 +1,14 @@
+<html>
+<body>
+Radio button:<input type="radio" id="radiogomb" >
+<p>Be van-e kapcsolva a radio gomb?</p>
+<button onclick="myFunction()">Teszt</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.getElementById("radiogomb").checked;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+</body>
+</html>

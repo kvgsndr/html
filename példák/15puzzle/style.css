@@ -1,0 +1,14 @@
+table{
+    background-color: darkgray;
+
+}
+
+td{
+    background-color: darkred;
+    border-radius: 3px;
+    text-align: center;
+    color: blanchedalmond;
+    width: 25px;
+    height: 25px;
+
+}

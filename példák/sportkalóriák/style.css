@@ -1,0 +1,12 @@
+
+
+table{
+
+    border: 1px solid rgb(13, 1, 78);
+    border-radius: 5px;
+}
+
+td {
+    background-color: rgb(127, 168, 255);
+    border-radius: 5px;
+}

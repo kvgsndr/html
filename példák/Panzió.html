@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panzió</title>
+</head>
+
+<body>
+  <form name ='teszt'></form>
+    <!DOCTYPE html>
+<table id="mytable" border="1"  bgcolor="lightgray"> 
+    <caption>Panzió</caption>
+      <tr>
+        <td>Érkezés dátuma:</td>
+        <td><input type="date"></td>
+      </tr>
+      <tr>
+        <td>Távozás dátuma:</td>
+        <td><input type="date"></td>
+      </tr>
+       <tr>
+        <td>Szoba Típusa</td>
+        <td id="szobatipusa"><p class='valaszok'>
+          
+          <input type="radio" name="Szoba" value="9000"  >Egyágyas - 9000 Ft/éj <br>
+          <input type="radio" name="Szoba" value="15000" >Kétágyas - 15000 Ft/éj <br>
+          <input type="radio" name="Szoba" value="18000" >Kétágyas 1 pótággyal - 18000 Ft/éj <br>
+          <input type="radio" name="Szoba" value="21000" >Kétágyas 2 pótággyal - 21000 Ft/éj <br>
+        </p></td>
+      
+      </tr>
+      <tr>
+        <td><p>Vendégek száma<br>Vendégek életkora</p></td>
+        <td><p>
+          <input id="vendeg" type="number" min="1" max="4"> Fő <br>
+          <input type="text" size="5"> év <input type="text"size="5"> év <input type="text" size="5"> év <input type="text" size="5"> év
+        </p></td>
+
+      </tr>
+      <tr>
+        <td>Ellátás</td>
+        <td><p>
+          <input type="radio" name="Ellatas" value="900">Reggeli - 900  Ft/nap/fő <br>
+          <input type="radio" name="Ellatas" value="2900">Félpanzió - 2900 Ft/nap/fő <br>
+          <input type="radio" name="Ellatas" value="4900">Teljes panzió - 4900 Ft/nap/fő <br>
+        </p></td>
+      </tr>
+      <tr>
+        <td>Fürdő szolgáltatások</td>
+        <td><p>
+          <input type="checkbox" name="Furdo" value="800"> Beltéri medencék - 800 Ft/nap/fő <br>
+          <input type="checkbox" name="Furdo" value="800"> Kültéri medencék - 800 Ft/nap/fő <br>
+          <input type="checkbox" name="Furdo" value="800"> Szauna belépő - 800 Ft/nap/fő <br>
+          <input type="checkbox" name="Furdo" value="2000"> Teljes belépő - 2000 Ft/nap/fő <br>
+        </p></td>
+      </tr>
+      <tr>
+        <td>Egyéb kérdés, kívánság:</td>
+        <td><input type="text" id="egyeb"></td>
+      </tr>
+    </table>
+    <p align='center'>
+    <button id="gomb" onclick="rendel();" >gomb</button>
+    </p>
+</form>
+</body>
+<script>
+function rendel()
+{
+  ár=0;
+  vendeg=document.getElementById("vendeg").value;
+  var szoba=document.getElementsByName("Szoba");
+  for (let index = 0; index < szoba.length; index++)
+  {
+    if(szoba[index].checked == true )
+      ár+= parseInt( szoba[index].value);
+  }
+  
+  var ellatas=document.getElementsByName("Ellatas");
+  for (let index = 0; index < ellatas.length; index++)
+  {
+    if(ellatas[index].checked == true )
+      ár+= parseInt( ellatas[index].value)*vendeg;
+  }
+  
+  var furdo= document.getElementsByName("Furdo");
+  for (let index = 0; index < furdo.length; index++)
+  {
+    if(furdo[index].checked == true )
+      ár+= parseInt( furdo[index].value)*vendeg;
+  }
+  
+  alert(ár);
+}
+
+
+
+</script>
+</html>

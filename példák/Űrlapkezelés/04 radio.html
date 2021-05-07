@@ -1,0 +1,32 @@
+<html>
+<body>
+<p>Hogyan szeretné a kávéját?</p>
+<form >
+  <input type="radio" name="coffee" value="cukorral">Csak cukorral<br>
+  <input type="radio" name="coffee" value="feketén">Feketén<br>
+  <input type="radio" name="coffee" value="cukorral és tejszínnel">Cukorral és tejszínhabbal<br>
+  <br>
+  <input type="button" onclick="myFunction()" value="Send order">
+  <br><br>
+  <input type="text" id="order" size="50">
+  
+</form>
+<script>
+  
+function myFunction() {
+  //var coffee=document.forms[0];
+  var coffee = document.getElementsByName("coffee");
+  console.log(coffee);
+  var txt = "";
+  var i;
+  for (i = 0; i < coffee.length; i++) {
+    if (coffee[i].checked) {
+      console.log(coffee[i])
+      txt = txt + coffee[i].value + " ";
+    }
+  }
+  document.getElementById("order").value = "Kávé: " + txt;
+}
+</script>
+</body>
+</html>

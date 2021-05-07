@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+<body>
+<form>
+  Teszt: <input type="text" size="30" id="szoveg" value="Kisbetűs vagy nagybetűs">
+  Legyen nagybetűs
+  <input type="radio" id="radio1" onclick="if(this.checked){myFunction()}">
+  Legyen kisbetűs
+  <input type="radio" id="radio2" onclick="if(this.checked){myFunction2()}">
+</form>
+ 
+<script>
+function myFunction() {
+  document.getElementById("szoveg").value=document.getElementById("szoveg").value.toUpperCase();
+  document.getElementById("radio2").checked = false;
+}
+function myFunction2() {
+document.getElementById("szoveg").value=document.getElementById("szoveg").value.toLowerCase();
+  document.getElementById("radio1").checked = false;
+}
+</script>
+</body>
+</html>

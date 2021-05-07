@@ -1,0 +1,46 @@
+<HTML>
+    <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+    
+    
+    function uresCheck(mezo){
+      if (mezo.value != "") return true;
+      else{
+        alert("Üres mező!");
+        return false;
+      }
+    }
+    
+    function teszt(adat,minta){
+      for (var i=0; i<adat.length; i++)
+        if (minta.indexOf(adat.charAt(i)) == -1)
+          return false;
+    
+      return true;
+    }
+    
+    function numerikusCheck(mezo){
+      if (!uresCheck(mezo)) return false;
+      if (!teszt(mezo.value,"1234567890")){
+        alert("Ez nem numerikus érték!");
+        return false;
+      }
+      else{
+        alert("Ez helyes érték!");
+        return true;
+      }
+    }
+    
+   
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    <P>
+    <FORM NAME="form_numerikus">
+     <INPUT TYPE="text" NAME="numerikus" SIZE="20">
+     <INPUT TYPE="button" VALUE="Ellenőrizd" onClick="numerikusCheck(form_numerikus.numerikus)">
+    </FORM>
+    
+    </BODY>
+    </HTML>

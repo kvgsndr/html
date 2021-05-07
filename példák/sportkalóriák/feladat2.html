@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Feladat 2</title>
+    <script>
+        
+        function szam() {
+            var kalora=document.getElementsByClassName("kalora");
+            var kal = document.getElementsByClassName("kal");
+            var perc=document.getElementsByClassName("perc");
+            
+            for(let i =0; i< kalora.length;i++)
+            {  
+                if(perc[i].value != "")
+                {   k=parseInt( kalora[i].innerHTML );
+                    p=parseInt( perc[i].value);
+                    kk= k / 60 * p
+                    kal[i].value=kk ;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Sport, mozgás</td>
+            <td> kcal/óra </td>
+            <td> <centre>perc</centre> </td>
+            <td> kcal </td>
+        </tr>
+        <tr>
+            <td>Futás</td>
+            <td class="kalora">680</td>
+            <td><input type="number" class ="perc" onkeyup="szam()" onchange="szam()"></td>
+            <td><input type="text" class ="kal" disabled=true ></td>
+        </tr>
+        <tr>
+            <td>Focizás</td>
+            <td class="kalora">550</td>
+            <td><input type="number" class ="perc" onkeyup="szam()" onchange="szam()"></td>
+            <td><input type="text" class ="kal" disabled=true></td>
+        </tr>
+        <tr>
+            <td>Bringázás</td>
+            <td class="kalora">480</td>
+            <td><input type="number" class ="perc" onkeyup="szam()" onchange="szam()"></td>
+            <td><input type="text" class ="kal" disabled=true ></td>
+        </tr>
+        <tr>
+            <td>Hegymászás</td>
+            <td class="kalora">420</td>
+            <td><input type="number" class ="perc" onkeyup="szam()" onchange="szam()"></td>
+            <td><input type="text" class ="kal" disabled=true  ></td>
+        </tr>
+        
+    </table>
+</body>
+    
+</body>
+</html>

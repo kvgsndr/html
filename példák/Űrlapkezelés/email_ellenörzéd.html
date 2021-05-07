@@ -1,0 +1,30 @@
+<HTML>
+    <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+    
+    
+    function emailCheck(mezo){
+      szoveg = mezo.value;
+      if (!(szoveg.indexOf('@')>0 && szoveg.indexOf('@')<szoveg.length-1)){
+        alert("Rossz e-mail cím!");
+        return false;
+      }
+      else{
+        alert("Formailag helyes e-mail cím!");
+        return true;
+      }
+    }
+    
+   
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    <P>
+    <FORM NAME="form_email">
+     <INPUT TYPE="text" NAME="email" SIZE="20">
+     <INPUT TYPE="button" VALUE="Ellenőrizd" onClick="emailCheck(form_email.email)">
+    </FORM>
+    
+    </BODY>
+    </HTML>

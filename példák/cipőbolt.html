@@ -117,7 +117,7 @@ for(let i=0; i<N.length;i++)
    if(N[i]>40) plusz40++;
 
 var szazalek= (plusz40/N.length)*100;
-document.writeln("A női cipők ", szazalek.toPrecision(3),"% 40-es méret feletti");
+document.writeln("<br>A női cipők ", szazalek.toPrecision(3),"% 40-es méret feletti");
 
 
 
@@ -128,12 +128,14 @@ document.writeln("A női cipők ", szazalek.toPrecision(3),"% 40-es méret felet
   for(let i=0; i< N.length;i++)
        cipomeret[ N[i]-35 ]++;  
 
-       var leg=0;
+  var leg=0;
   for(let i=0; i< cipomeret.length;i++) 
      if(cipomeret[leg]< cipomeret[i]) leg=i;
 
  document.writeln("<br>Legtöbb méret ", leg+35);
    
+
+ //3.
  var idők=[];
   idő=0;  // 24*60=1440
   while(idő<1440)
@@ -151,14 +153,14 @@ document.writeln("A női cipők ", szazalek.toPrecision(3),"% 40-es méret felet
     }
 
   }
-  document.write("Idők:<br>");
+  document.write("<br>Idők:<br>");
    kiir(idők);
 //Hányszor vásároltak dél és este 8 között?
  déltőlnyolcig=0;
  for( let i=0; i< idők.length;i++)
  {
     o=  parseInt( idők[i].substr(0,2));
-     if( o>=12 && o<20) déltőlnyolcig++
+     if( o>=12 && o<20) déltőlnyolcig++;
  }
  document.writeln("<br>Déltől nyolcig " + déltőlnyolcig + " vásároltak<br>")
    
@@ -167,13 +169,27 @@ rendelés=false;
 for(let i =0; i< idők.length;i++)
 {
     o=  parseInt( idők[i].substr(0,2));
-    if( o==3) rendelés=true;
+    if( o==3) 
+    {rendelés=true;break;}
 }
-rendelés? document.writeln("Volt rendelés 3 és 4 között"):document.writeln("NEM volt rendelés 3 és 4 között");
+rendelés ? document.writeln("Volt rendelés 3 és 4 között"):document.writeln("NEM volt rendelés 3 és 4 között");
    
 //Mikor volt az első délutáni vásárlás?
+for(let i=0; i< idők.length;i++)
+{   o=  parseInt( idők[i].substr(0,2));
+    p= parseInt( idők[i].substr(3,2));
+    percek=o*60+p;
+    if(percek> 12*60)
+    {
+        document.writeln(idők[i]);
+        break;
+    }  
+}
 
 //Átlagosan hány percenként érkezett rendelés?
+
+
+
 
     </script>
     

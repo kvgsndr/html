@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzéria</title>
+    <style>
+        td{
+            vertical-align: top;
+        }
+        table{
+            border: 1px solid black;
+        }
+        
+        
+    </style>
+    
+</head>
+<body>
+    <table>
+        <tr><td><fieldset  >
+            <legend>Feltétek</legend>
+            <label for="termékneve">Név:</label><input name="termékneve" id="termékneve" type="text"> <br>
+            <label for="Ár">Ár:</label> <input type="text" name="Ár" id="Ár"> <br>
+            <label for="tipus">Típus:</label> 
+            <select name="tipus" id="tipus">
+                <option value="Üditő">Üdítő</option>
+                <option value="Feltét">Feltét</option>
+            </select><br>
+            <button>Felvesz</button><br>
+            <select name="tipus_lista" id="tipus_lista" size=10>
+                <option value="1">aaaaaaaaaaa</option>
+                <option value="2">bbbbbbbbbbbbbbb</option>
+                <option value="3">ccccccccccccccc</option>
+                <option value="4">dddddddd</option>
+                <option value="5">eeeeeee</option>
+                <option value="6">fffffff</option>
+            </select><br>
+        </fieldset>
+        <td>
+        <td>
+            <fieldset style="border: 0px;">
+            <label for="keret">Keretösszeg</label><br>
+            <input type="text" size =5> <br>
+
+            <button onclick="jobbra();"> > </button><br>
+            <button> < </button><br>
+            <button> >> </button><br>
+            <button> << </button><br><br>
+            <button> Árazás </button> <br>
+        </fieldset>
+        </td>
+        <td>
+            <fieldset >
+            <legend>Pizza</legend>
+
+            <input type="radio" name="" id=""> Csak pizza <br>
+            <input type="radio" name="" id=""> Menü (pizza és üdítő) <br>
+            <select name="pizza_lista" id="pizza_lista" size=10>
+
+            </select><br>
+        </fieldset>
+        <fieldset disabled="disabled" style="border: 0px;">
+            <label for="Számla">Számla</label><br>
+            <textarea name="message" rows="10" cols="30">
+                The cat was playing in the garden.
+                </textarea>
+              
+
+            </select> 
+        </fieldset>
+        </td>
+    </tr>
+    </table>
+    
+        
+        
+        
+        
+    <script>
+        function jobbra()
+        {
+            var newItem = document.createElement("option");
+            var szöveg=document.getElementById("tipus_lista").children[document.getElementById("tipus_lista").selectedIndex].innerHTML;
+            var érték=document.getElementById("tipus_lista").children[document.getElementById("tipus_lista").selectedIndex].value;
+            newItem.value=érték;
+            var textnode = document.createTextNode(szöveg);  // Create a text node
+            newItem.appendChild(textnode);  
+            
+
+            var list = document.getElementById("pizza_lista");
+            list.insertBefore(newItem, list.childNodes[list.childNodes.length-1]);
+        }
+         </script>
+    
+</body>
+</html>

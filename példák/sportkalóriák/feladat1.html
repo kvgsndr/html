@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Feladat 1</title>
+    <script>
+        function szam() 
+        {   p=   document.getElementById("perc").value;
+            kaloria= parseInt(document.getElementById("kaloria").innerHTML) ;
+            kal= kaloria/60*p;
+            document.getElementById("caloria").value=kal;
+        }
+    </script>
+</head>
+<body>
+   <table >
+    <tr id="cimsor">
+        <td>Sport, mozgás</td>
+        <td> kcal/óra </td>
+        <td> <centre>perc</centre> </td>
+        <td> kcal </td>
+    </tr>
+    <tr>
+        <td>Futás</td>
+        <td id="kaloria">680</td>
+        <td><input type="number" class ="perc" id="perc" onkeyup="szam()" onchange="szam()"></td>
+        <td><input type="text" class ="kal" id="caloria"  ></td>
+    </tr>
+
+
+   </table>
+   
+    
+</body>
+</html>

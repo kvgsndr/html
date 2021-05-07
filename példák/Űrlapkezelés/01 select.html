@@ -1,0 +1,31 @@
+<html>
+<body>
+<label for="extrak">Választható feltétek:</label><br><br>
+<select id="extrak" multiple="multiple">
+  <option value="bacon">bacon</option>
+  <option value="sajt">sajt</option>
+  <option value="kolbász">kolbász</option>
+  <option value="gomba">gomba</option>
+</select> 
+<button id="submit" onclick="feltetek()">Ok</button>
+<script>
+//document.getElementById('submit').onclick = function() {
+function feltetek(){
+  var tomb = [];
+   
+  for (var valasztott of document.getElementById('extrak').options) {
+    if (valasztott.selected) {
+      tomb.push(valasztott.value);
+    }
+  }
+  db=tomb.length;
+     
+  document.getElementsByTagName('div')[0].innerHTML="Választott: " +tomb;
+  document.getElementById('feltetar').innerHTML="Feltétek ára: " +db*50;
+}
+</script>
+<br>
+<div id="eredmeny"> </div>
+<p id="feltetar"> </p>
+</body>
+</html>

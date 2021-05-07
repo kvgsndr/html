@@ -1,0 +1,67 @@
+
+<form name="urlap" > <!-- * Űrlap megnyitása, neve és submit esetén az adattovábbítás helye --> <br>
+    <input name="adat" size="15">* Beviteli mező, neve és mérete <br>
+    <textarea name="szoveg" rows="4" cols="10"></textarea>* Többsoros szövegdoboz, neve, magassága és szélessége karakterben <br>
+    <input type="radio" name="valasztas" value="igen"> IGEN<br>* Rádió gomb, neve, értéke. Azonos nevű rádiógombok közül egyet választani lehet. <br>
+    <input type="checkbox" name="valasztas" value="férfi"> Férfi<br>* Választó gomb, neve, értéke. Ki és bekapcsolni lehet. <br>
+    <input type="button" value="KATT" onClick="utasitas()">* Nyomógomb, felirata és a kattintáshoz rendelt javascript utasítás <br>
+    <input type="submit" value="MEHET">* Az űrlap adatait továbbító gomb és felirata <br>
+
+    
+    <select name="valaszto" size="1">* Legördülő lista választó. A size érték megadja, hogy gördítés nélkül hány elem látható. <br>
+        <option value="elso">ELSŐ</option> * Az első választás
+        <option selected value="masodik">MÁSODIK</option>* A második választás, előre kijelölve
+        <option  value="harmadik">HARMADIK</option>
+    </select>	 * Legördülő lista zárás <br>
+
+    <select name="valaszto" size="5">* Lista választó. A size érték megadja, hogy gördítés nélkül hány elem látható. <br>
+        <option value="elso">ELSŐ</option> * Az első választás
+        <option selected value="masodik">MÁSODIK</option>* A második választás, előre kijelölve
+        <option value="harmadik">HARMADIK</option>* A harmadik választás
+    </select>	 * Legördülő lista zárás  <br>
+    <button onclick="document.urlap.reset();">Töröl</button>
+
+</form>
+
+
+
+<hr>
+
+<form name="x">
+    <input name="y">
+    <input type="button" value="próba" onClick="alert('beírás: ' + document.x.y.value)">
+</form>
+<hr>
+<form name="a">
+    <input type="checkbox" name="b">
+    <input type="button" value="próba" onClick="
+    if(document.a.b.checked) 
+        alert('kiválasztva!'); 
+    else 
+        alert('nincs kiválasztva!')">
+</form>
+<hr>  
+<script>
+    function valasztas(){
+    alert(document.c.d.options[document.c.d.selectedIndex].text)
+    }
+</script>
+    
+<form name="c">
+    <select name="d" onChange="valasztas()">
+        <option>Első választás</option>
+        <option>Második választás</option>
+        <option>Harmadik választás</option>
+        <option>Negyedik választás</option>
+    </select>
+</form>
+<hr>  
+    
+    
+    
+    
+    
+    
+   
+    
+   

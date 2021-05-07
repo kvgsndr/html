@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipő 2</title>
+    <script>
+      var  F=[];
+      var  N=[];
+      for(let i=0; i<12;i++)
+      {    // 38-46 
+          F[i]=  38+ Math.floor( Math.random()*(46-38+1));
+          //35-42 
+          N[i]=35+ Math.floor( Math.random()*(42-35+1));
+      }
+      document.writeln("Férfi:<br>");
+      tomb_kiir(F);
+      document.writeln("Női:<br>")
+      tomb_kiir(N);
+      var nnagy=legnagyobb(N);
+      document.writeln("A legnagyobb megrendelt női  cipőméret =" + nnagy +"<br>");
+      document.writeln("A férfi és a női cipők méretének átlagának különbsége= ", (átlag(F)-átlag(N)), "<br>");
+
+
+      function negyven_felett(tomb)
+      {
+          var db=0;
+          for(let i=0; i< tomb.length; i++)
+             if(tomb[i]>40) db++;
+          return db/tomb.length;
+      }
+
+
+      function átlag(tomb)
+      {
+          var osszeg=0;
+          for(let i=0; i< tomb.length; i++)
+            osszeg+=tomb[i];
+          return osszeg/tomb.length;
+      }
+
+     function legnagyobb(tomb)
+     {
+        var lnagy=tomb[0];
+        for(let i=0; i< tomb.length; i++)
+            if(lnagy < tomb[i]) lnagy=tomb[i];
+        return lnagy;
+
+     }
+
+
+      function tomb_kiir(tomb)
+      { 
+          for( const iter of tomb)
+            document.writeln("<span> " + iter +" </span>");
+          document.writeln("<br>");
+      }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

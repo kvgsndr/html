@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      function osszead()
+      {
+        osszeg=0;
+        arguments.forEach(element => {
+          osszeg+=element;
+        });
+        return osszeg;
+        
+        
+      }
+     
+
+      function függvény_név(hőmérséklet, nap)
+      {
+        document.write(nap , hőmérséklet, "fok");
+      }
+
+      var kivon= function (a,b)
+      {   c=a-b;
+          return c;
+      }
+      
+      var szoroz = (első, második) =>{
+          document.write("<br>", első, "*", második);
+          document.write("=", első*második);
+      } 
+    </script>
+</head>
+<body>
+   Ez itt a body!
+
+
+    <script>
+     s= osszead(1,"abc",3);
+     document.write(s)   ;
+    </script>
+
+    
+</body>
+</html>

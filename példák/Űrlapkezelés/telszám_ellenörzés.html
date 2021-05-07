@@ -1,0 +1,58 @@
+<HTML>
+    <!-- 
+    123 456
+    123-456
+    (1)123-456
+    (1)123-456 /123 -->
+    <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+   
+    
+    function uresCheck(mezo){
+      if (mezo.value != "") return true;
+      else{
+        alert("Üres mező!");
+        return false;
+      }
+    }
+    
+    function teszt(adat,minta){
+      for (var i=0; i<adat.length; i++)
+        if (minta.indexOf(adat.charAt(i)) == -1)
+          return false;
+    
+      return true;
+    }
+    
+    function tartalmaz(adat,minta){
+      for (var i=0; i<adat.length; i++)
+        if (minta.indexOf(adat.charAt(i)) != -1)
+          return true;
+      return false;
+    }
+    
+    function telefonCheck(mezo){
+      if (!uresCheck(mezo)) return false;
+      if (!teszt(mezo.value,"1234567890()/- ") || !tartalmaz(mezo.value,"1234567890")){
+        alert("Ez nem jó telefonszám!");
+        return false;
+      }
+      else{
+        alert("Ez helyes telefonszámnak tűnik!");
+        return true;
+      }
+    }
+    
+   
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    <P>
+    <FORM NAME="form_telefon">
+     <INPUT TYPE="text" NAME="telefon" SIZE="20">
+     <INPUT TYPE="button" VALUE="Ellenőrizd" onClick="telefonCheck(form_telefon.telefon)">
+    </FORM>
+    
+    </BODY>
+    </HTML>
