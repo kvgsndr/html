@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game!</title>
+    <meta charset="utf-8">
+    <style>
+        #canvas {
+                display: block;
+                border: solid 1px;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width= "500" height= "500";></canvas>
+    <table  align="center">
+        <tr><td><form action="javascript:move()">
+            <input type="submit" value="Start!" Onclick="">
+        </form></td>
+        <td><form>
+        <input type="submit" value="Restart!" onClick="href='labda.html'">
+        </form></td></tr>
+        <tr><td colspan="2">
+        <form>
+        <select id="Level">
+            <option value="Beginner" >Kezdő</option>
+            <option value="Medium" > Közepes</option>
+            <option value="Impossible" >Legyőzhetetlen</option>
+            <option value="Multi" >2 játékos</option>
+        </select>
+        </form></td></tr>
+    </table>
+    <script for=document event="onkeydown()" language="JScript">
+        if (window.event) KeyDown(window.event.keyCode);
+    </script>
+    <script language="JavaScript1.2">
+    if (navigator.appName != "Microsoft Internet Explorer")
+        document.captureEvents(Event.KEYDOWN)
+        document.onkeydown = NetscapeKeyDown;
+    function NetscapeKeyDown(key){
+         KeyDown(key.which);
+    }
+    </script>
+    <script>
+        function KeyDown(whichkey){
+            if (line.x<=0 && whichkey == 37){line.x=line.x;}
+            else{
+                if (line.x>=W-l && whichkey == 39){line.x=line.x;}
+                else{
+                    if (whichkey == 37) {line.x-=linemove;}//Bal nyíl lenyomása esetén...
+                    if (whichkey == 39) {line.x+=linemove;}//Jobb nyíl lenyomása esetén...
+                    if (whichkey == 52) {line.x-=linemove;}//Bal nyíl a NumPad-on...
+                    if (whichkey == 54) {line.x+=linemove;}//Jobb nyíl a NumPad-on...
+                }
+            }
+            if (lv=="Multi"){
+                if (enemy.x<=0 && whichkey == 65)
+                {enemy.x=enemy.x;}
+                else{
+                    if (enemy.x>=W-l && whichkey == 68){enemy.x=enemy.x;}
+                    else{
+                    if (lv=="Multi")
+                    {
+                        if(whichkey == 65){enemy.x-=linemove;}
+                        if(whichkey == 68){enemy.x+=linemove;}
+                                            }
+                    }
+                }
+            }
+        }
+        var c=document.getElementById("canvas");
+        var beginner=0;
+        var medium=0;
+        var impossible=0;
+        var pm=1;
+        var ctx=c.getContext("2d");
+        var x=250, y= 250;
+        var frame = 1000/60;
+        var H=500, W=500;
+        var l=100;
+        var score=0;
+        var escore=0;
+        var linemove= l/5;
+        var enemy = {}
+        enemy = {
+            x : W/2-l/2,
+            y : 10,
+            vonal: function(){
+                ctx.beginPath();
+                ctx.moveTo(this.x,this.y);
+                if (lv=="Beginner"){ctx.lineTo(this.x+l,this.y);}
+                if (lv=="Medium"){ctx.lineTo(this.x+l,this.y);}
+                if (lv=="Impossible"){ctx.lineTo(this.x+l/2,this.y);}
+                if (lv=="Multi"){ctx.lineTo(this.x+l,this.y);}
+                ctx.stroke();
+            }
+        }
+        var ball = {}
+        ball = {
+            x : W/2,//labda indulási x koordinátája
+            y : H-15,//labda indulási y koordinátája
+            r : 4,//labda sugara
+            vx: 4.10,//labda vízsintes mozgásának összetevője
+            vy: 2.2,//labda függőleges mozgásának összetevője
+            ax: 0.000,//labda vízszintes gyorsulása
+            ay: 0.000,// labda függőleges gyorsulása
+            rajz: function(){//Ez a függvény rajzolja le a labdát.
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+                ctx.stroke();
+            }
+        }
+        var line = {}//Ez az alsó vonal
+        line = {
+            x : W/2-l/2,
+            y : H-10,
+            vonal: function(){
+                ctx.beginPath();
+                ctx.moveTo(this.x,this.y);
+                ctx.lineTo(this.x+l,this.y);
+                ctx.stroke();
+            }
+        }
+        var anim;
+        var lv;
+        function move (){
+            lv=document.getElementById("Level").value;//lekérdezzük a szintet induláskor.
+            anim = setInterval(update,frame)
+        }
+
+        function update (){
+            ctx.clearRect(0,0,W,H);
+            ctx.font = "bold 20px Arial";
+            ctx.fillText(escore,5,200);
+            ctx.fillText(":",5,250);
+            ctx.fillText(score,5,300);
+            ball.rajz();
+            line.vonal();
+            enemy.vonal();
+            if (lv=="Beginner")
+            {if(pm==2){enemy.x=(ball.x+beginner/2-l/2);}
+            else{enemy.x=(ball.x-beginner/2-l/2);}}
+            if (lv=="Medium")
+            {if(pm==2){enemy.x=(ball.x+medium/2-l/2);}
+            else{enemy.x=(ball.x-medium/2-l/2);}}
+            if (lv=="Impossible")
+            {if(pm==2){enemy.x=(ball.x+impossible/2-l/4);}
+            else{enemy.x=(ball.x-impossible/2-l/4);}}
+            ball.x+=ball.vx;
+            ball.y+=ball.vy;
+            ball.vx +=ball.ax;
+            ball.vy +=ball.ay;
+            
+            if (lv=="Beginner"){if (ball.y <=ball.r+enemy.y && ball.x>enemy.x && ball.x<enemy.x+l) {
+                    ball.y=ball.r+enemy.y;
+                    ball.vy=-ball.vy;
+                }
+            }//labda visszapattan
+            if (lv=="Medium"){if (ball.y <=ball.r+enemy.y && ball.x>enemy.x && ball.x<enemy.x+l) {
+                    ball.y=ball.r+enemy.y;
+                    ball.vy=-ball.vy;
+                }
+            }//labda visszapattan
+            if (lv=="Impossible")
+            {if (ball.y <=ball.r+enemy.y && ball.x>enemy.x && ball.x<enemy.x+l/2) {
+                    ball.y=ball.r+enemy.y;
+                    ball.vy=-ball.vy;
+                }
+            }//labda visszapattan
+            if (lv=="Multi"){if (ball.y <=ball.r+enemy.y && ball.x>enemy.x && ball.x<enemy.x+l) {
+                ball.y=ball.r+enemy.y;
+                ball.vy=-ball.vy;
+                }
+            }//labda visszapattan
+            if(ball.y <enemy.y){score+=1;ball.vy=-ball.vy;
+                if (score-escore==10){//10 pontkülönbségnél vége van!
+                    ctx.fillText("Nyertel: "+score+" "+escore+"-re!", 195, 235);
+                    ctx.fillText("Gratulalunk!", 210, 265);
+                    clearInterval(anim);//megáll az animáció
+                }
+            }
+            if (ball.y >= -ball.r+line.y && ball.x>line.x && ball.x<line.x+l) {
+                ball.y=-ball.r+line.y;
+                ball.vy=-ball.vy;
+                pm=Math.floor(Math.random()*2)+1;
+                if(lv=="Beginner"){beginner=Math.floor(Math.random()*(l+l/3))+1;}
+                if(lv=="Medium"){medium=Math.floor(Math.random()*(l+l/5))+1;}
+                if(lv=="Impossible"){impossible=Math.floor(Math.random()*(l/4-1))+1;}
+            }
+            if (ball.y >line.y){
+                escore+=1;
+                pm=Math.floor(Math.random()*2)+1;
+                if(lv=="Beginner"){beginner=Math.floor(Math.random()*(l+l/3))+1;}
+                if(lv=="Medium"){medium=Math.floor(Math.random()*(l+l/5))+1;}
+                if(lv=="Impossible"){impossible=Math.floor(Math.random()*(l/4-1))+1;}
+                ball.vy=-ball.vy;
+                if (escore-score==10){//10 pontkülönbségnél vége van!
+                    ctx.fillText("Vesztettel: "+score+" "+escore+"-re :S", 165, 235);
+                    ctx.fillText("Probald ujra!", 205, 265);
+                    clearInterval(anim);//megáll az animáció
+                }
+            }
+            if (ball.x <= ball.r) {// az oldalsó falról való visszapattanás.
+                ball.x=ball.r;
+                ball.vx=-ball.vx;
+            }
+            if (ball.x >= W-ball.r) {// az oldalsó falról való visszapattanás.
+                ball.x=W-ball.r;
+                ball.vx=-ball.vx;
+            }
+        }
+    </script>
+</body>
+</html>

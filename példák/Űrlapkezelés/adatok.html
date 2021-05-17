@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adatok</title>
+</head>
+<body>
+    <form name="f1" action="">
+        Név: <input type="text" name="nev" id=""> <br>
+        e-mail: <input type="email" name="email" id=""> <br>
+        cím: <input type="text" name="cim" id=""> <br>
+        születési dátum: <input type="date" name="datum" id=""> <br>
+        <input type="button" value="Ok" onclick="ellenoroz()">
+        
+    </form>
+
+    <script>
+            function ellenoroz()
+            {
+                nevCheck(document.f1.nev);
+                if(!emailCheck(document.f1.email)) alert("Rossz e-mail cím!");
+                datumCheck(document.f1.datum);
+            }
+
+            function nevCheck(elem)
+            {
+                var nevek=elem.value.split(" ");
+                for(let i=0; i<nevek.length;i++)
+                {   var a =nevek[i][0].toUpperCase();
+                    nevek[i]=a + nevek[i].substr(1);
+                }
+                document.f1.nev.value= nevek.join(" ");
+            }
+
+            function emailCheck(mezo)
+            {
+                szoveg = mezo.value;
+                if (!(szoveg.indexOf('@')>0 && szoveg.indexOf('@')<szoveg.length-1)){
+                    
+                    return false;
+                }
+                else{
+                    
+                    return true;
+                }
+            }
+            function datumCheck(elem)
+            {
+                var mai= new Date();
+
+            }
+            
+
+        </script>
+
+ 
+    
+
+</body>
+</html>

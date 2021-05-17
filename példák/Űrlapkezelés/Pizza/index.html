@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/stilus.css">
+    <script src="js/pizza.js"></script>
+    
+    <title>Pizzéria</title>
+    
+    
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>Feltétek</legend>
+                    <label for="termékneve">Név:</label><input name="termékneve" id="termékneve" type="text"> <br>
+                    <label for="Ár">Ár:</label> <input type="text" name="Ár" id="Ár"> <br>
+                    <label for="tipus">Típus:</label> 
+                    <select name="tipus" id="tipus">
+                        <option selected value="0">Üdítő</option>
+                        <option value="1">Feltét</option>
+                    </select><br>
+                    <button onclick="felvesz()">Felvesz</button><br>
+                    <select name="tipus_lista" id="tipus_lista" size=10 style="width: 200;">
+                        <optgroup label="Üdítők" id="udito">
+                            <option value="500">Coca Cola - 500 ft</option>
+                            <option value="500">Fanta - 500 ft</option>
+                            <option value="450">Sprite - 450 ft</option>
+                        </optgroup>
+                        <optgroup label="Feltétek">
+                            <option value="100">Sajt - 100 ft</option>
+                            <option value="150">Gomba - 150 ft</option>
+                        </optgroup>
+                        
+                    </select><br> 
+                </fieldset>
+            </td>
+            <td>
+                <fieldset style="border: 0px;">
+                    <label for="keret">Keretösszeg</label><br>
+                    <input type="text" name="keretösszeg" id="keretösszeg" size =5 onkeyup="ellenorzes()"> <br>
+
+                    <button onclick="jobbra();"> > </button><br>
+                    <button onclick="levesz()"> < </button><br>
+                    <button onclick=" jobbraMind()"> >> </button><br>
+                    <button onclick="töröl()"> << </button><br><br>
+                    <button onclick="számla()"> Árazás </button> <br>
+                </fieldset>
+            </td>
+            <td>
+                <fieldset >
+                <legend>Pizza</legend>
+
+                <input type="radio" name="csak" id=""> Csak pizza <br>
+                <input checked type="radio" name="csak" id="menu" > Menü (pizza és üdítő) <br>
+                <select name="pizza_lista" id="pizza_lista" size=10>
+
+                </select><br>
+            </fieldset>
+            <fieldset disabled="disabled" style="border: 0px;">
+                <label for="Számla">Számla</label><br>
+                <textarea name="message" rows="10" cols="30">Ide kerül majd a számla!
+                </textarea>
+            </fieldset>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

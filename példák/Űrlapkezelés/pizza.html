@@ -12,6 +12,9 @@
         table{
             border: 1px solid black;
         }
+        select{
+            width: 100%;
+        }
         
         
     </style>
@@ -19,59 +22,61 @@
 </head>
 <body>
     <table>
-        <tr><td><fieldset  >
-            <legend>Feltétek</legend>
-            <label for="termékneve">Név:</label><input name="termékneve" id="termékneve" type="text"> <br>
-            <label for="Ár">Ár:</label> <input type="text" name="Ár" id="Ár"> <br>
-            <label for="tipus">Típus:</label> 
-            <select name="tipus" id="tipus">
-                <option value="Üditő">Üdítő</option>
-                <option value="Feltét">Feltét</option>
-            </select><br>
-            <button>Felvesz</button><br>
-            <select name="tipus_lista" id="tipus_lista" size=10>
-                <option value="1">aaaaaaaaaaa</option>
-                <option value="2">bbbbbbbbbbbbbbb</option>
-                <option value="3">ccccccccccccccc</option>
-                <option value="4">dddddddd</option>
-                <option value="5">eeeeeee</option>
-                <option value="6">fffffff</option>
-            </select><br>
-        </fieldset>
-        <td>
-        <td>
-            <fieldset style="border: 0px;">
-            <label for="keret">Keretösszeg</label><br>
-            <input type="text" size =5> <br>
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>Feltétek</legend>
+                    <label for="termékneve">Név:</label><input name="termékneve" id="termékneve" type="text"> <br>
+                    <label for="Ár">Ár:</label> <input type="text" name="Ár" id="Ár"> <br>
+                    <label for="tipus">Típus:</label> 
+                    <select name="tipus" id="tipus">
+                        <option selected value="0">Üdítő</option>
+                        <option value="1">Feltét</option>
+                    </select><br>
+                    <button onclick="felvesz()">Felvesz</button><br>
+                    <select name="tipus_lista" id="tipus_lista" size=10 style="width: 200;">
+                        <optgroup label="Üdítők" id="udito">
+                            <option value="500">Coca Cola - 500 ft</option>
+                            <option value="500">Fanta - 500 ft</option>
+                            <option value="450">Sprite - 450 ft</option>
+                        </optgroup>
+                        <optgroup label="Feltétek">
+                            <option value="100">Sajt - 100 ft</option>
+                            <option value="150">Gomba - 150 ft</option>
+                        </optgroup>
+                        
+                    </select><br> 
+                </fieldset>
+            </td>
+            <td>
+                <fieldset style="border: 0px;">
+                    <label for="keret">Keretösszeg</label><br>
+                    <input type="text" name="keretösszeg" id="keretösszeg" size =5 onkeyup="ellenorzes()"> <br>
 
-            <button onclick="jobbra();"> > </button><br>
-            <button> < </button><br>
-            <button> >> </button><br>
-            <button> << </button><br><br>
-            <button> Árazás </button> <br>
-        </fieldset>
-        </td>
-        <td>
-            <fieldset >
-            <legend>Pizza</legend>
+                    <button onclick="jobbra();"> > </button><br>
+                    <button onclick="levesz()"> < </button><br>
+                    <button onclick=" jobbraMind()"> >> </button><br>
+                    <button onclick="töröl()"> << </button><br><br>
+                    <button onclick="számla()"> Árazás </button> <br>
+                </fieldset>
+            </td>
+            <td>
+                <fieldset >
+                <legend>Pizza</legend>
 
-            <input type="radio" name="" id=""> Csak pizza <br>
-            <input type="radio" name="" id=""> Menü (pizza és üdítő) <br>
-            <select name="pizza_lista" id="pizza_lista" size=10>
+                <input type="radio" name="csak" id=""> Csak pizza <br>
+                <input checked type="radio" name="csak" id="menu" > Menü (pizza és üdítő) <br>
+                <select name="pizza_lista" id="pizza_lista" size=10>
 
-            </select><br>
-        </fieldset>
-        <fieldset disabled="disabled" style="border: 0px;">
-            <label for="Számla">Számla</label><br>
-            <textarea name="message" rows="10" cols="30">
-                The cat was playing in the garden.
+                </select><br>
+            </fieldset>
+            <fieldset disabled="disabled" style="border: 0px;">
+                <label for="Számla">Számla</label><br>
+                <textarea name="message" rows="10" cols="30">Ide kerül majd a számla!
                 </textarea>
-              
-
-            </select> 
-        </fieldset>
-        </td>
-    </tr>
+            </fieldset>
+            </td>
+        </tr>
     </table>
     
         
@@ -79,18 +84,97 @@
         
         
     <script>
+       
+        function felvesz()
+        {
+            var tipus= document.getElementById("tipus");
+            nev= document.getElementById("termékneve");
+            ar= document.getElementById("Ár");
+            
+            var uj=document.createElement("option");
+            uj.setAttribute("value", ar.value);
+            uj.innerHTML=nev.value+' - ' + ar.value + ' Ft';
+            
+            document.getElementById("tipus_lista").children[tipus.value].appendChild(uj);
+                      
+        }
+
         function jobbra()
         {
-            var newItem = document.createElement("option");
-            var szöveg=document.getElementById("tipus_lista").children[document.getElementById("tipus_lista").selectedIndex].innerHTML;
-            var érték=document.getElementById("tipus_lista").children[document.getElementById("tipus_lista").selectedIndex].value;
-            newItem.value=érték;
-            var textnode = document.createTextNode(szöveg);  // Create a text node
-            newItem.appendChild(textnode);  
-            
+            var uj = document.createElement("option");
+            blista=document.getElementById("tipus_lista");
+            uj.innerHTML=blista[blista.selectedIndex].innerHTML;
+            uj.value=blista[blista.selectedIndex].value;
+ 
+            var jlist = document.getElementById("pizza_lista");
+            jlist.appendChild(uj);
+            ellenorzes()
+        }
+        function levesz()
+        {
+            lista=document.getElementById("pizza_lista")
+            lista.children[lista.selectedIndex].remove();
+            ellenorzes()
+        }
 
-            var list = document.getElementById("pizza_lista");
-            list.insertBefore(newItem, list.childNodes[list.childNodes.length-1]);
+        function jobbraMind()
+        {    blista=document.getElementById("tipus_lista");
+             jlist = document.getElementById("pizza_lista");
+            for(let i=0; i< blista.children[1].children.length ;i++)
+            {
+                var uj = document.createElement("option");
+                uj.innerHTML=blista.children[1].children[i].innerHTML;
+                uj.value=blista.children[1].children[i].value;
+                jlist.appendChild(uj);
+            }
+            if( document.getElementById("menu").checked)
+            {
+                udito=document.getElementById("udito");
+                veletlen= Math.floor( Math.random()* udito.children.length);
+                var uj = document.createElement("option");
+                uj.innerHTML=udito.children[veletlen].innerHTML;
+                uj.value=udito.children[veletlen].value;
+                jlist.appendChild(uj);
+            }
+            ellenorzes()
+        }
+
+        function osszegzes()
+        {
+            jlist = document.getElementById("pizza_lista");
+            osszeg=1000;
+            for(let i=0; i< jlist.children.length; i++)
+                osszeg+=parseInt( jlist.children[i].value);
+            return osszeg;
+        }
+
+        function ellenorzes()
+        {
+            keret=document.getElementById("keretösszeg");
+            if( parseInt( keret.value ) < osszegzes() )
+            {
+                keret.style.background="red";
+            }
+            else
+            {
+                 keret.style.background="white";
+            }
+        }
+
+        function számla()
+        {   var s="Pizza 1000 ft\n";
+            jlista=document.getElementById("pizza_lista");
+            for(let i = 0; i< jlista.length; i++ )
+               s+=jlista[i].innerHTML+"\n";
+            s+="\nÖsszeg: " + osszegzes() + " Ft\n";
+            document.getElementsByName("message")[0].innerHTML=s;
+        }
+
+        function töröl()
+        {
+            jlista=document.getElementById("pizza_lista");
+            for(let i=jlista.length-1; i>=0; i--)
+                jlista[i].remove();
         }
          </script>
     
