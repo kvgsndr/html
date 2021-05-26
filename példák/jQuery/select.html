@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+ 
+ 
+</head>
+<body>
+ 
+<form>
+<fieldset>
+<legend>Válasszon járművet</legend>
+ 
+<select name="jarmu" id="jarmu">
+    <option value="opel">Opel</option>
+    <option value="bmw">BMW</option>
+    <option value="ford">Ford</option>
+    <option value="citroen">Citroen</option>
+</select>
+ 
+<input type="button" id="mehet" value="Mehet"><br>
+<input type="text" name="eredmeny">
+</fieldset>
+</form>
+ 
+ 
+<script>
+$(document).ready(function () {
+	$("input[name=eredmeny]").hide();	
+})
+ 
+$("#mehet").click(function () {
+	var valasztott = $("select#jarmu option:selected").val();
+	$("input[name=eredmeny]").show();
+	$("input[name=eredmeny]").val("A választott: " + valasztott);
+})
+</script>
+ 
+ 
+</body>
+</html>

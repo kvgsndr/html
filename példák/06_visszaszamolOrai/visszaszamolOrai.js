@@ -3,7 +3,7 @@ var vakacio;
 
 function init()
 {
-	vakacio = new Date("June 15, 2017 14:15:20");
+	vakacio = new Date("may 25, 2021 14:03:10");
 	setInterval(checkTime, 1000);
 }
 
@@ -13,7 +13,7 @@ function checkTime()
 	
 	var hatravan, nap, ora, perc, mperc;
 	
-	hatravan=vakacio.getTime()-ma.getTime();
+	hatravan=vakacio.getTime()-ma.getTime();   // ms ezredmásodperc
 	
 	if(hatravan>0)
 	{
@@ -28,8 +28,11 @@ function checkTime()
 		document.getElementById('ora').innerHTML=nap+" nap "+ora+" ora "+perc+" perc "+ mperc+" másodperc";		
 	}
 	else
-	{
+	{  // animáció készítése
+
 		document.getElementById('ora').innerHTML="VAKÁCIÓ!!!";
+		
+		setInterval(valtoztat, 1000)
 	}
 		
 	
@@ -45,4 +48,14 @@ function kiegeszit(szam)
 	
 	return szam;
 }
+var meret=10;
+ function valtoztat()
+ {
+	var ora= document.getElementById('ora');
+	 ora.style.fontSize= meret+'px';
+	 meret+=5;
+	 if(meret>100) meret=10;
+    
+
+ }
 	

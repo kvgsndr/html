@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szelvény</title>
+
+    <style>
+        table {
+           border: 1px solid red;
+        }
+        td {
+            font-family: sans-serif;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            font-size: 20px;
+        }
+        table, td {
+            border: 1px solid red;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="letrehozas()">Hozzáad</button>
+
+    <script>
+
+        var tablak = 0;
+        var selected = {};
+
+        function letrehozas() 
+        {
+            var tb = document.getElementsByTagName("tbody")[0];
+
+            
+            var str = "<table id='szelveny"+ tablak +"'><tbody>";
+            for (let i = 1; i <= 90; i++) {
+                if (i%10==1) {
+                    str+="<tr>";
+                }
+                str+="<td onmouseover='sel(this, \""+ tablak +"\")' onmouseout='rem(this, \""+ tablak +"\")' onclick='tdclick(this, \""+ tablak +"\")'>" + i + "</td>";
+                if (i%10==0) {
+                    str+="</tr>";
+                }
+            }
+            document.body.innerHTML += str;
+
+            selected["szelveny" + tablak] = {
+                szamok: []
+            }
+            tablak++;
+        }
+
+        function sel(item, szam) {
+            if (!selected["szelveny" + szam].szamok.includes(item.innerText)) {
+                item.style.background = "red";
+            }
+        }
+
+        function rem(item, szam) {
+            if (!selected["szelveny" + szam].szamok.includes(item.innerText)) {
+                item.style.background = "white";
+            }
+        }
+
+        function tdclick(item, szam) {
+            if (!selected["szelveny" + szam].szamok.includes(item.innerText) && selected["szelveny" + szam].szamok.length == 5) {
+                alert("Nem tudsz többet jelölni!");
+                return false;
+            }
+            if (!selected["szelveny" + szam].szamok.includes(item.innerText)) {
+                selected["szelveny" + szam].szamok.push(item.innerText);
+                item.style.background = "blue";
+                item.style.color = "white";
+            } else {
+                selected["szelveny" + szam].szamok.splice(selected["szelveny" + szam].szamok.indexOf(item.innerText), 1);
+                item.style.background = "white";
+                item.style.color = "black";
+            }
+        }
+    </script>
+</body>
+</html>

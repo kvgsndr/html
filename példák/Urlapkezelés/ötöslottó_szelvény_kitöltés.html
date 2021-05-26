@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border:  solid 2px red;
+            margin: 20px;
+        }
+        table tr td{ 
+            border: solid 1px red;
+            width:  15px;
+            height: 15px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+</style>
+    <script>
+       tablazatok_szama=0;
+       jelolt_szamok =0;
+       
+       function addTable(elem)
+       {    str="<table><tbody>"
+            for(let i=1; i<=90; i++)
+            {  if(i%10==1)
+                    str+="<tr>";
+                str+="<td onmousedown=cclick(this) onmouseout=mouseout(this) onmouseover=mouseover(this)>" + i + "</td>";
+                if(i%10 ==0 )
+                    str+="</tr>";
+        }
+        str+="</table></tbody>";
+        elem.parentElement.innerHTML+=str;
+        tablazatok_szama+=1;
+       }
+
+       function mouseover(elem)
+       {    if( elem.style.backgroundColor !="blue" )
+                elem.style.backgroundColor="red";
+       }
+       function mouseout(elem)
+       {     if( elem.style.backgroundColor !="blue" )
+                elem.style.backgroundColor="white";
+       }
+
+       function cclick(elem)
+       {  if(jelolt_szamok<5)
+             if(elem.style.backgroundColor=="red")
+             {
+                  elem.style.backgroundColor="blue";
+                  jelolt_szamok++;
+             }
+             else
+             {
+                 elem.style.backgroundColor="white";
+                 jelolt_szamok--;
+             }
+       }
+       
+    </script>
+
+</head>
+<body >
+    <div>
+        <input type="button" name="gomb" value="Hozzáad"  onclick="addTable(this)">
+        
+    </div>
+    
+</body>
+</html>

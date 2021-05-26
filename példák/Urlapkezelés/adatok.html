@@ -5,23 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adatok</title>
+    <style>
+        td :nth-col  {
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <form name="f1" action="">
-        Név: <input type="text" name="nev" id=""> <br>
-        e-mail: <input type="email" name="email" id=""> <br>
-        cím: <input type="text" name="cim" id=""> <br>
-        születési dátum: <input type="date" name="datum" id=""> <br>
-        <input type="button" value="Ok" onclick="ellenoroz()">
+    <form name="f1" action="kod()">
+        <table>
+            <tr>  <td>Név: </td> <td><input type="text" name="nev" id="nev"></td></tr>  
+            <tr> <td> e-mail:</td> <td><input type="email" name="email" id="email"></td> </tr>  
+            <tr> <td>cím:</td><td><input type="text" name="cim" id=""></td></tr>
+            <tr> <td>születési dátum:</td> <td><input type="date" name="datum" id="datum"></td></tr>
+        </table>
+        <input type="submit" value="submit"> 
+        <input type="button" value="Ok" onclick="ellenoroz()"></table>
+        <button type="submit">OkS</button>
+       
         
     </form>
 
     <script>
             function ellenoroz()
             {
-                nevCheck(document.f1.nev);
-                if(!emailCheck(document.f1.email)) alert("Rossz e-mail cím!");
-                datumCheck(document.f1.datum);
+                nevCheck(document.getElementById( "nev"));
+                if(!emailCheck(document.getElementById( "email"))) alert("Rossz e-mail cím!");
+                datumCheck(document.getElementById( "datum"));
             }
 
             function nevCheck(elem)
@@ -37,7 +47,8 @@
             function emailCheck(mezo)
             {
                 szoveg = mezo.value;
-                if (!(szoveg.indexOf('@')>0 && szoveg.indexOf('@')<szoveg.length-1)){
+                if (!(szoveg.indexOf('@')>0 && szoveg.indexOf('@')<szoveg.length-1 && szoveg.indexOf('@')< szoveg.indexOf('.')))
+                {
                     
                     return false;
                 }
@@ -49,6 +60,18 @@
             function datumCheck(elem)
             {
                 var mai= new Date();
+                var dat = new Date(elem.value);
+                k=(mai-dat)/(1000*60*60 *24*30*12)
+                if(k<0 || k>120)
+                    return false; 
+
+
+                    
+
+            }
+            function utcaCheck(elem)
+            {
+
 
             }
             

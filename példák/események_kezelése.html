@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Események</title>
+    <script>
+        function kimenet(str)
+        {
+            document.getElementById('kimenet').innerHTML+=str+' ';
+        }
+       
+    </script>
+</head>
+<body onload="alert('body load')"  >
+    <form onsubmit="alert('elküldve')" >
+
+        <input onblur="kimenet('blur1')" onfocus="kimenet('focus1')" type="text" name="txt1" id="id1">
+        <input onblur="kimenet('blur2')" onfocus="kimenet('focus2')" type="text" name="txt2" id="id2">
+        <button onmousedown="alert('clikk')"> GOMB</button> <br>
+        <input type="submit" value="submit"  >
+    </form>
+    
+    <p id="kimenet"> </p>
+    
+</body>
+</html>
