@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="hu" >
+<head>
+    <meta charset="utf-8" />
+    <title>Motorfogyasztás</title>
+    <link rel="icon"  href="../favicon-32x32.png">
+    <script>
+        function koszontes() {
+            var nev = document.u19.n100.value;
+            alert("Helló "+nev);
+        }
+        function fogyasztas(){
+            var km = document.motor.km.value;
+            var liter = document.motor.liter.value;
+            var mf = liter / km * 100;
+            document.motor.fogy.value = mf;
+            document.getElementById("rejtett").style = "visibility:visible";
+          //  alert("Fogyasztás: " + mf + " liter/100 km");
+        }
+        function torol() {
+            document.motor.km.value = "";
+            document.motor.liter.value = "";
+            document.motor.fogy.value = "";
+            document.getElementById("rejtett").style = "visibility:hidden";
+
+        }
+    </script>
+
+    <style>
+        body{font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
+        h1 {color:red; }
+        form {line-height:180%;      }
+        form#m25{background-image:url("../moci.jpg"); background-size:150px; background-repeat:no-repeat; background-position:top right;}
+        div{visibility:hidden;}
+    </style>
+</head>
+<body>
+    <h1>Személyes adatok</h1>
+    <p>Kérlek töltsd ki az alábbi űrlapot!</p>
+    <form name="u19">
+        <fieldset>
+            <legend>Köszöntés</legend>
+            <label>Vezetéknév: </label>
+            <input type="text" /><br />
+            <label>Keresztnév: </label>
+            <input type="text" name="n100"/><br />
+            <input type="button" value="Köszöntő" onclick="koszontes()"/>
+        </fieldset>
+
+    </form>
+    <h1>Motorozás</h1>
+    <form name="motor" id="m25">
+        <fieldset>
+            <legend>Motorfogyasztás</legend>
+            <label>Megtett út (km): </label>
+            <input type="text" name="km" /><br />
+            <label>Üzemanyag (l): </label>
+            <input type="text" name="liter" /><br />
+            <input type="button" value="Számol" onclick="fogyasztas()" />
+            <input type="button" value="Töröl" onclick="torol()"/>
+            <div id="rejtett">
+                <br />
+                <label>Fogyasztás (liter/100 km): </label>
+                <input type="text" name="fogy" /><br />
+            </div>
+        </fieldset>
+
+    </form>
+</body>
+</html>

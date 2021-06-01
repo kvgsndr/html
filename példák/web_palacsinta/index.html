@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+    <title>Palacsinkák</title>
+    <style>
+        h1{
+            text-align:center;
+        }
+        body {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            line-height: 150%;
+            background-color:aliceblue;
+        }
+        section {
+            border: 1px dotted gray;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 100px;
+            padding: 10px;
+        }
+        #lista{
+            background-image: url("palacsinta.jpg");
+            background-position: right;
+            background-repeat:no-repeat;
+            background-size:150px;
+            height: 180px;
+   
+            
+        }
+    </style>
+    <script>
+        function osszegzes() {
+            var szamla = document.getElementById("db").value * 200;
+            var fajta = document.getElementById("palacsinta").value;
+            var db = document.getElementById("db").value;
+            document.getElementById("cimke").innerHTML = db +" db " +fajta+ " palacsinta " + szamla + " Ft.";
+
+        }
+        function szinez() {
+            document.getElementById("lista").style.backgroundColor = "#CCC";
+        }
+        function feher() {
+            document.getElementById("lista").style.backgroundColor = "#fff";
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Palacsinta-bár
+    </h1>
+    <section id="lista" onMouseOver="szinez()" onMouseOut="feher()">
+        <p>Palacsinta rendelés:</p>
+        <select id="palacsinta" size=1>
+            <option value="diós" > Diós </option>
+            <option value="ízes"> Ízes</option>
+            <option value="túrós"> Túrós</option>
+            <option value="mákos"> Mákos</option>
+            <option value="kakaós"> Kakaós</option>
+            <option value="húsos"> Húsos</option>
+            <option value="hortobágyi"> Hortobágyi</option>
+        </select>
+        <input type="text" id="db" size="6"> db
+        <input id="gomb" type="button" value="Kiválasztva"  onclick="osszegzes()" />
+        <span> (200 Ft/db)</span>
+        <br />
+        <p id="cimke"></p>
+    </section>
+</body>
+</html>

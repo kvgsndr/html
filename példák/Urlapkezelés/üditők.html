@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üdítők</title>
+    <script>
+        uditok=["Coca Cola", "Fanta", "Icetea", "Sprite"];
+        arak=[500, 450, 400, 200, 350 ];
+        function init()
+        {   for(let i = 0; i< uditok.length; i++)
+            {
+                var elem= document.createElement("option");
+                elem.setAttribute("value", arak[i] );
+                elem.innerHTML=uditok[i]+" - "+ arak[i]+ " Ft";
+                document.getElementById("lista").appendChild(elem);
+            }
+            for(let i=1; i<=20; i++)
+            {   var elem= document.createElement("option");
+                elem.setAttribute("value", i );
+                elem.innerHTML=i
+                document.getElementById("db").appendChild(elem);   
+            }
+        }
+        function szamol()
+        {   N=document.getElementById( "lista").children.length;
+            for(let i=0; i<N; i++)
+            {   elem=document.getElementById( "lista").children[i]
+                if( elem.selected==true)
+                    document.getElementsByTagName("p")[0].innerHTML+= elem.value; 
+            }
+            
+            
+
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <form action="" name="f1">
+
+        <label for="lista">Üdítők:</label> <br>
+    <select name="lista" id="lista" size= "10">
+
+    </select>
+    <label for="db">Darab:</label> <br>
+    <select name="db" id="db" size="1">
+
+    </select>
+    <p>Összeg:</p>
+    <input type="button" value="Ok" onclick="szamol()">
+    </form>
+
+
+</body>
+</html>

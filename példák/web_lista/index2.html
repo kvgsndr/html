@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+    <title>Lista</title>
+    <style>
+        select {
+            width: 150px;
+            margin: 20px;
+        }
+        section {
+            border: 1px solid gray;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            width: 800px;
+        }
+        #gy {
+            background-image: url("gyumolcs.jpg");
+            background-size: 150px;
+            background-repeat: no-repeat;
+            background-position:center right;
+        }
+        #auto {
+            background-image: url("ford.jpg");
+            background-size: 150px;
+            background-repeat: no-repeat;
+            background-position: center right;
+        }
+    </style>
+    
+    <script>
+        function felvesz(){
+				var ujadat = prompt("Új listaelem: ", "");
+				if (ujadat){
+					var eddig = document.getElementById('lista').innerHTML;
+					document.getElementById('lista').innerHTML = eddig +"<li>"+ujadat+"</li>";
+				}
+        }
+        function legordulobe() {
+            var ujadat = prompt("Új listaelem: ", "");
+            if (ujadat) {
+                var eddig = document.getElementById('legordulo').innerHTML;
+                document.getElementById('legordulo').innerHTML = eddig + "<option>" + ujadat + "</option>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista bővítése Javascripttel</h1>
+          <section id="gy">
+            <h2>Adatfelvétel a felhasználótól listába</h2>
+            <form>
+                <input type="button" value="Bővítés" onclick="felvesz()" />
+
+                <ul id="lista">
+                    <li>alma</li>
+                </ul>
+            </form>
+
+            
+        </section>
+    
+    <section id="auto">
+        <h2>Adatfelvétel a felhasználótól legördülő listába</h2>
+        <form>
+            <input type="button" value="Bővítés" onclick="legordulobe()" />
+            <br />
+            <select id="legordulo">
+                <option>Opel</option>
+            </select>
+        </form>
+    </section>
+
+</body>
+</html>

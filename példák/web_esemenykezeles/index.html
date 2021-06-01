@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<title>Eseménykezelés</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="favicon.ico">
+		<style>
+			body{background-color: black;}
+			div{width:800px;background-color: #ee6; color:#420; font-family: Consolas; font-size: 1.2em;margin: auto; padding: 20px;}
+		</style>
+		<script>
+			function betolto(){alert("Kezdődik...");}
+			function billentyu() {
+			    alert("Ne nyomkodd a billentyűzetet!!! Megmondtam...");
+			    document.getElementById("bill").style.color = "red";
+			}
+		
+			function ra(id) {
+			    document.getElementById(id).style.border = "solid orange 5px";
+			    document.getElementById(id).style.width = "500px";
+			}
+			function rol(id) {
+			    document.getElementById(id).style.border = "solid green 5px";
+			    document.getElementById(id).style.width = "200px";
+			}
+
+		</script>
+	</head>
+	<body onLoad="betolto()" onKeyPress="billentyu()">
+		<div>
+			<h1>HTML, CSS, Javascript: <br/>eseménykezelés a weboldalakon</h1>
+			<p id="bill">Az oldalon a billentyűzethasználat letiltott. <br/>Figyeld meg mi történik, ha mégis leütsz egy billentyűt!</p>
+			
+			<img id="szeged" src="dom.jpg" width="200" onMouseOver="ra('szeged')" onMouseOut="rol('szeged')" />
+			<img id="milano" src="milanoi_dom.jpg" width="200" onMouseOver="ra('milano')" onMouseOut="rol('milano')" />
+		</div>
+	</body>
+</html>

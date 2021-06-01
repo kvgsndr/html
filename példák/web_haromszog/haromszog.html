@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+	div#egesz{width: 800px; background-color: #ccc; margin: auto; padding: 20px;}
+	fieldset{height: 300px; line-height:2.5em;}
+	div#szerk {display: none;}
+	div#nem {display: none;}
+	input{text-align: right; width: 50px;}
+	input#gomb{text-align: center; width: 100px;}
+	label{width: 150px; display: inline-block;}
+</style>
+<script>
+	function szamol(){
+		if(document.getElementById('gomb').value == 'Számol'){
+			document.getElementById('gomb').value = "Alaphelyzet";
+			var a = parseFloat(document.lap.a.value);
+			var b = parseFloat(document.lap.b.value);
+			var c = parseFloat(document.lap.c.value);
+			if(a>0 && b>0 && c>0 && a+b>c && a+c>b && b+c>a){
+				var K = a+b+c;
+				document.lap.K.value = K;
+				var s = K/2;
+				var T = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+				document.lap.T.value = T;
+				document.getElementById("szerk").style.display = "block";
+				document.getElementById("lap").style.background = "url('haromszog.jpg') no-repeat center right";
+			}else{
+				document.getElementById("nem").style.display = "block";
+				document.getElementById("lap").style.background = "url('felkialtojel.jpg') no-repeat center right";
+			}
+		}else{
+			document.getElementById('gomb').value = "Számol";
+			document.lap.a.value = "";
+			document.lap.b.value = "";
+			document.lap.c.value = "";
+			document.getElementById("szerk").style.display = "none";
+			document.getElementById("nem").style.display = "none";
+			document.getElementById("lap").style.background = "";
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="egesz">
+		<h1>Háromszög kerülete, területe</h1>
+		<form name="lap" id="lap">
+			<fieldset>
+				<legend>Adatok</legend>
+				<label for="a">a oldal (cm): </label>
+				<input type="text" id="a" name="a"/> <br/>
+				
+				<label for="b">b oldal (cm): </label>
+				<input type="text" id="b" name="b"/> <br/>
+				
+				<label for="c">c oldal (cm): </label>
+				<input type="text" id="c" name="c"/> <br/>
+				
+				<input type="button" value="Számol" onClick="szamol()" id="gomb"/><br/>
+			
+				<div id="szerk">
+					<label for="K">Kerület (cm): </label>
+					<input type="text" id="K" name="K" readonly /> <br/>
+			
+					<label for="T">Terület (cm<sup>2</sup>): </label>
+					<input type="text" id="T" name="T" readonly /> <br/>
+				</div>
+				
+				<div id="nem">
+					<p>A fenti adatokkal nem szerkeszthető háromszög.</p>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+</html>

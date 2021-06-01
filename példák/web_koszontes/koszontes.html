@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="hu" >
+<head>
+    <meta charset="utf-8" />
+    <title>Köszöntő</title>
+    <style>
+        h1 {color:red; text-align:center}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            background-color: #99CCBB;
+        }
+    </style>
+
+    <script> 
+        function koszon()
+        {
+            var kep = "integet.jpg";
+            var nev = prompt("Hogy hívnak?");
+            if (nev != null) {
+                document.getElementById("demo").innerHTML = "Szia " + nev + "! Hogy vagy?";
+                document.getElementById("foto").src = kep;
+            }
+        } 
+    </script>
+</head>
+<body>
+    <h1>Köszöntelek!</h1>
+    <input type="button" value="Szia!" onclick="koszon()" />
+    <p id="demo"> </p>
+    <br/>
+    <img src="" id="foto" width="300" />
+   
+</body>
+</html>

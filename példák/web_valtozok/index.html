@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript változók</title>
+	<style>
+		div{border: 1px solid gray;
+			border-radius: 10px;
+			margin: 20px;
+			padding: 20px;
+			width: 800px;}
+		h3{color: blue;
+		margin-top: 0px;}
+		span{font-size: 1.8em;
+			font-weight: bold;}
+	</style>
+    
+</head>
+<body>
+        <h1>Változók, műveletek, automatikus típuskonverzió</h1>
+		<script>
+			//számokkal végzett művelet
+			document.write("<div>");
+			document.write("<h3>Szám típusú változókkal végzett (összeadás) művelet</h3>");
+			var a=2;
+			var b=3;
+			var c=a+b;	
+			document.write('<span>2+3 = '+c+'</span> <--- számok összeadása <br/>');
+			document.write("Eredmény típusa: "+typeof(c)+"<br/>");
+			document.write("Eredmény szám (vagy számmá alakítható): ");
+			if(isFinite(c)){document.write("igen");}else{document.write("nem");}
+			document.write("</div>");
+			
+			//szövegek összefűzése
+			document.write("<div>");
+			document.write("<h3>Szövegek összefűzése</h3>");
+			a = '2 alma';
+			b = '3 körte';
+			c = a+' és '+b;
+			document.write('Gyümölcskosár: '+c+'</span> <--- szövegek összefűzése) <br/>');
+			document.write("Eredmény típusa: "+typeof(c)+"<br/>");
+			document.write("Eredmény szám (vagy számmá alakítható): ");
+			if(isFinite(c)){document.write("igen");}else{document.write("nem");}
+			document.write("</div>");
+			
+			
+			// szövegekkel végzett művelet
+			document.write("<div>");
+			document.write("<h3>Szöveg típusú változókkal  + művelet (összeadás? vagy összefűzés?)</h3>");
+			a="2";
+			b="3";
+			c = a+b;
+			document.write('<span>"2"+"3" = "'+c+'"</span><--- szövegek összeadása (mivel a + operátor szövegre az összefűzés) <br/>');
+			document.write("Eredmény típusa: "+typeof(c)+"<br/>");
+			document.write("Eredmény szám (vagy számmá alakítható): ");
+			if(isFinite(c)){document.write("igen");}else{document.write("nem");}
+			document.write("</div>");
+			
+			//szöveggel és számmal végzett matematikai művelet
+			document.write("<div>");
+			document.write("<h3>Szöveg és szám típusú változókkal végzett matematikai művelet</h3>");
+			var d= c * 2; 
+			document.write('<span>"23"*2 = '+d+'</span> <--- szöveg szorzása számmal (a szövegből automatikusan számot csinál, hogy tudjon szorozni) <br/>');
+			document.write("Eredmény típusa: "+typeof(d)+"<br/>");
+			document.write("Eredmény szám (vagy számmá alakítható): ");
+			if(isFinite(d)){document.write("igen");}else{document.write("nem");}
+			document.write("</div>");
+			
+			//szöveggel végzett matematikai művelet
+			document.write("<div>");
+			document.write("<h3>Szövegekkel végzett (végezhető?) matematikai művelet</h3>");
+			a="2 alma";
+			b="3 körte";
+			var e= a * b; 
+			document.write('"2 alma"*"3 körte" = '+e+'');
+			document.write("Eredmény típusa: "+typeof(e)+"<br/>");
+			document.write("Eredmény szám (vagy számmá alakítható): ");
+			if(isFinite(e)){document.write("igen");}else{document.write("nem");}
+			document.write("</div>");
+
+		</script>
+
+</body>
+</html>
