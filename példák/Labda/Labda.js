@@ -17,15 +17,15 @@ var ball=document.getElementById("ball");
     uto.style.top= (window.innerHeight-30)+"px";
 
 startBtn.addEventListener("click",()=>{
-    start()
+    start();
 });
 
 function start()
 {
     controlPanel.style.zIndex=-100
     containerPanel.style.zIndex=-10
-    speed=30
-    direction=0
+    speed=30 ;
+   
     game=setInterval(() => {
         pattogas()
     }, speed);
@@ -40,14 +40,14 @@ function pattogas()
     if(gyorsulas==500 && dy<10)
     {
         dy>0?dy+=1: dy-=1;
-        gyorsulas=0;
+        //gyorsulas=0;
         
     } 
     
-    //ball.style.left=x+"px";
-    //ball.style.top=y+"px";
-    ball.style.marginLeft=x+"px";
-    ball.style.marginTop=y+"px";
+    ball.style.left=x+"px";
+    ball.style.top=y+"px";
+    //ball.style.marginLeft=x+"px";
+    //ball.style.marginTop=y+"px";
     if(x>= window.innerWidth-50-5 || x<=0) dx=-dx;
     if(y<=0 || y>=window.innerHeight-50-5) dy=-dy;
     
@@ -75,12 +75,5 @@ function move(e)
         ux-=10;
        if(ux<0) ux=0;
     }
-       
-    
     uto.style.left=ux+"px"  ;
-    
 }
-
-/* (a)=>{}
-
-function(a){} */

@@ -1,0 +1,23 @@
+#fej{
+    position: absolute;
+    background-color: darkgreen;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 50% 50% 0;
+}
+#panel{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: darkkhaki;
+}
+#x{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: brown;
+
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery bemutató</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <p>Első bekezdés</p>
+    <p>Második bekezdés!</p>
+    <div id="elso_div" class="divek">Első div</div>
+    <div class="divek">Második div</div>
+
+    <table>
+        <tbody>
+            <tr>
+                <td>Sor 1</td>
+            </tr>
+            <tr>
+                <td>Sor 2</td>
+            </tr>
+            <tr>
+                <td>Sor 3</td>
+            </tr>
+            <tr>
+                <td>Sor 4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <p>Bekezdés 1</p>
+        <p class="text">Bekezdés 2<strong>Leszármazott </strong></p>
+        <p>Bekezdés 3</p>
+        <p>Bekezdés 4</p>
+    </div>
+
+
+
+
+    <script>
+        $(function() {
+            var second = $("p").eq(1).text();
+            alert(second);
+        });
+        $( document ).ready(function() {
+            console.log( "ready!" );
+        });
+
+        $(function() {
+            $("div").click(function() {
+                $("body").css("background", "#ccc");
+            });
+        });
+
+        //$("p").html("Proba");
+        $(".divek").html("Ezek a divek");
+        $("body").css("background", "#cac");
+        $("table tr:even").css("background", "#444");
+        $("table tr:odd").css("background", "#aaa");
+
+        $(function() {
+            var p = $("div").children();
+            console.log(p);
+        });
+        $(function() {
+            var p = $("div").find("strong");
+            console.log(p);
+        });
+        $(function() {
+            var p = $("p").siblings();
+            console.log(p);
+        });
+
+        $("p").on("click", function () {
+           $(this).hide();
+        });
+    </script>
+</body>
+</html>
